@@ -1,2 +1,4 @@
 <h1>Hello!</h1>
-    <p><%= u[0].id %></p>
+    <% u.forEach(function(user){ %>
+    <p><%= user.username %></p>
+    <%});%>
