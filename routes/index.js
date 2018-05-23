@@ -4,14 +4,10 @@ var passport = require("passport");
 var db = require("../db.js");
 var bcrypt = require('bcrypt');
 var saltRounds = 10;
-
-router.use(function(req,res,next){
-    res.locals.isAuthenticated = req.isAuthenticated();
-    next();
-});
+var middleware = require("../middleware");
 
 // Welcome Remaining : Student , Teacher , TA
-router.get("/",authenMiddleware(),function(req,res){
+router.get("/",middleware.isLoggedIn,function(req,res){
     console.log(req.user);
     console.log(req.isAuthenticated());
     var users = [];
@@ -29,7 +25,7 @@ router.get("/",authenMiddleware(),function(req,res){
 });
 
 // Info Remaining : Student(GET,POST) , Teacher , TA
-router.get("/info",authenMiddleware(),function(req,res){
+router.get("/info",middleware.isLoggedIn,function(req,res){
     if(req.user.role == "student"){
         res.redirect("/"); //edit here
     }
@@ -44,7 +40,7 @@ router.get("/info",authenMiddleware(),function(req,res){
         res.redirect("/");
     }
 });
-router.post("/info",authenMiddleware(),function(req,res){
+router.post("/info",middleware.isLoggedIn,function(req,res){
     if(req.user.role == "student"){
         res.redirect("/"); //edit here
     }
@@ -55,7 +51,7 @@ router.post("/info",authenMiddleware(),function(req,res){
 });
 
 // teachTable Remaining : Teacher , TA
-router.get("/teachTable",authenMiddleware(),function(req,res){
+router.get("/teachTable",middleware.isLoggedIn,function(req,res){
     if(req.user.role == "teacher"){
         res.redirect("/"); //edit here
     }
@@ -69,7 +65,7 @@ router.get("/teachTable",authenMiddleware(),function(req,res){
 });
 
 // stdList Remaining : Teacher , TA
-router.get("/stdList",authenMiddleware(),function(req,res){
+router.get("/stdList",middleware.isLoggedIn,function(req,res){
     if(req.user.role == "teacher"){
         res.redirect("/"); //edit here
     }
@@ -83,7 +79,7 @@ router.get("/stdList",authenMiddleware(),function(req,res){
 });
 
 // stdRecord Remaing : Teacher 
-router.get("/stdRecord",authenMiddleware(),function(req,res){
+router.get("/stdRecord",middleware.isLoggedIn,function(req,res){
     if(req.user.role != "teacher"){
         console.log("Error userrole in stdRecord ");
         res.redirect("/"); //edit here
@@ -93,7 +89,7 @@ router.get("/stdRecord",authenMiddleware(),function(req,res){
 //Login & Logout
 router.get("/login",function(req,res){
     if(req.isAuthenticated())
-        res.redirect('/');
+        res.redirect('back');
     else
         res.render("login");
 });
@@ -107,14 +103,5 @@ router.get('/logout',function(req,res){
     req.session.destroy();
     res.redirect('/');
 });
-
-function authenMiddleware () {  
-	return (req, res, next) => {
-		console.log(`req.session.passport.user: ${JSON.stringify(req.session.passport)}`);
-
-	    if (req.isAuthenticated()) return next();
-	    res.redirect('/login')
-	}
-}
 
 module.exports = router;

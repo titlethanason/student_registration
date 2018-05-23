@@ -72,6 +72,10 @@ passport.deserializeUser(function(username, done) {
         done(null, user);
     })
   });
+app.use(function(req,res,next){
+    res.locals.isAuthenticated = req.isAuthenticated();
+    next();
+});
 
 
 //Routes

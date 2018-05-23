@@ -4,11 +4,7 @@ var passport = require("passport");
 var db = require("../db.js");
 var bcrypt = require('bcrypt');
 var saltRounds = 10;
-
-router.use(function(req,res,next){
-    res.locals.isAuthenticated = req.isAuthenticated();
-    next();
-});
+var middleware = require("../middleware");
 
 //Temporary register Remaining : GET , POST
 router.get("/regis",function(req,res){
@@ -33,49 +29,37 @@ router.post("/regis",function(req,res){
 });
 
 // addSubject Remaining : GET , POST
-router.get("/addSubject",authenMiddlewareStd(),function(req,res){
+router.get("/addSubject",middleware.isLoggedInStudent,function(req,res){
         res.redirect("/");// edit here
 });
-router.post("/addSubject",authenMiddlewareStd(),function(req,res){
+router.post("/addSubject",middleware.isLoggedInStudent,function(req,res){
         res.redirect("/");// edit here
 });
 
 // changeSubject Remaining : GET , POST
-router.get("/changeSubject",authenMiddlewareStd(),function(req,res){
+router.get("/changeSubject",middleware.isLoggedInStudent,function(req,res){
         res.redirect("/");// edit here
 });
-router.post("/changeSubject",authenMiddlewareStd(),function(req,res){
+router.post("/changeSubject",middleware.isLoggedInStudent,function(req,res){
         res.redirect("/");// edit here
 });
 
 // dropSubject Remaining : GET , POST
-router.get("/dropSubject",authenMiddlewareStd(),function(req,res){
+router.get("/dropSubject",middleware.isLoggedInStudent,function(req,res){
         res.redirect("/");// edit here
 });
-router.post("/dropSubject",authenMiddlewareStd(),function(req,res){
+router.post("/dropSubject",middleware.isLoggedInStudent,function(req,res){
         res.redirect("/");// edit here
 });
 
 // studyTable Remaining : GET 
-router.get("/studyTable",authenMiddlewareStd(),function(req,res){
+router.get("/studyTable",middleware.isLoggedInStudent,function(req,res){
         res.redirect("/");// edit here
 });
 
 // examTable Remaining : GET 
-router.get("/examTable",authenMiddlewareStd(),function(req,res){
+router.get("/examTable",middleware.isLoggedInStudent,function(req,res){
         res.redirect("/");// edit here
 });
-
-function authenMiddlewareStd () {  
-	return (req, res, next) => {
-		console.log(`req.session.passport.user: ${JSON.stringify(req.session.passport)}`);
-
-	    if (req.isAuthenticated() && req.user.role == "student"){
-            return next();
-        } 
-        console.log("Error userrole, try to request student path");
-	    res.redirect('/login')
-	}
-}
 
 module.exports = router;
