@@ -26,11 +26,11 @@ router.post("/editTA",authenMiddlewareAdmin(),function(req,res){
         res.redirect("/");// edit here
 });
 
-// editSubject Remaining : GET , POST
-router.get("/editSubject",authenMiddlewareAdmin(),function(req,res){
+// editSubjectAdmin Remaining : GET , POST
+router.get("/editSubjectAdmin",authenMiddlewareAdmin(),function(req,res){
         res.redirect("/");// edit here
 });
-router.post("/editSubject",authenMiddlewareAdmin(),function(req,res){
+router.post("/editSubjectAdmin",authenMiddlewareAdmin(),function(req,res){
         res.redirect("/");// edit here
 });
 
@@ -50,11 +50,11 @@ router.post("/addTA",authenMiddlewareAdmin(),function(req,res){
     res.redirect("/");// edit here
 });
 
-// addSubject Remaining : GET , POST
-router.get("/addSubject",authenMiddlewareAdmin(),function(req,res){
+// addSubjectAdmin Remaining : GET , POST
+router.get("/addSubjectAdmin",authenMiddlewareAdmin(),function(req,res){
     res.redirect("/");// edit here
 });
-router.post("/addSubject",authenMiddlewareAdmin(),function(req,res){
+router.post("/addSubjectAdmin",authenMiddlewareAdmin(),function(req,res){
     res.redirect("/");// edit here
 });
 
@@ -75,10 +75,10 @@ router.post("/dropTA",authenMiddlewareAdmin(),function(req,res){
 });
 
 // dropSubject Remaining : GET , POST
-router.get("/dropSubject",authenMiddlewareAdmin(),function(req,res){
+router.get("/dropSubjectAdmin",authenMiddlewareAdmin(),function(req,res){
     res.redirect("/");// edit here
 });
-router.post("/dropSubject",authenMiddlewareAdmin(),function(req,res){
+router.post("/dropSubjectAdmin",authenMiddlewareAdmin(),function(req,res){
     res.redirect("/");// edit here
 });
 
