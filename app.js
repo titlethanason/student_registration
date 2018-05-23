@@ -8,6 +8,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.set("view engine", "ejs");
 var indexRoutes = require("./routes/index");
 var studentRoutes = require("./routes/student");
+var adminRoutes = require("./routes/admin");
 
 //Authentication
 var session = require('express-session');
@@ -76,6 +77,7 @@ passport.deserializeUser(function(username, done) {
 //Routes
 app.use(indexRoutes);
 app.use(studentRoutes);
+app.use(adminRoutes);
 
 app.listen(80, "127.0.0.1", function(){
     console.log("Server has started!");

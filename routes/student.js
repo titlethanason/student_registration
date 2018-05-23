@@ -10,7 +10,7 @@ router.use(function(req,res,next){
     next();
 });
 
-//Temporary register Remaining : 1
+//Temporary register Remaining : GET , POST
 router.get("/regis",function(req,res){
     if(req.isAuthenticated())
         res.redirect('/');
@@ -22,7 +22,6 @@ router.post("/regis",function(req,res){
     var password = req.body.password;
     var role = req.body.role;
     bcrypt.hash(password, saltRounds, function(err, hash) {
-        // Store hash in your password DB.
         db.query("INSERT INTO users VALUES(?,?,?)",[username,hash,role],function(err,results){
             if(err) throw err;
             req.login(username,function(err){
@@ -33,13 +32,48 @@ router.post("/regis",function(req,res){
     })
 });
 
+// addSubject Remaining : GET , POST
+router.get("/addSubject",authenMiddlewareStd(),function(req,res){
+        res.redirect("/");// edit here
+});
+router.post("/addSubject",authenMiddlewareStd(),function(req,res){
+        res.redirect("/");// edit here
+});
 
+// changeSubject Remaining : GET , POST
+router.get("/changeSubject",authenMiddlewareStd(),function(req,res){
+        res.redirect("/");// edit here
+});
+router.post("/changeSubject",authenMiddlewareStd(),function(req,res){
+        res.redirect("/");// edit here
+});
 
-function authenMiddleware () {  
+// dropSubject Remaining : GET , POST
+router.get("/dropSubject",authenMiddlewareStd(),function(req,res){
+        res.redirect("/");// edit here
+});
+router.post("/dropSubject",authenMiddlewareStd(),function(req,res){
+        res.redirect("/");// edit here
+});
+
+// studyTable Remaining : GET 
+router.get("/studyTable",authenMiddlewareStd(),function(req,res){
+        res.redirect("/");// edit here
+});
+
+// examTable Remaining : GET 
+router.get("/examTable",authenMiddlewareStd(),function(req,res){
+        res.redirect("/");// edit here
+});
+
+function authenMiddlewareStd () {  
 	return (req, res, next) => {
 		console.log(`req.session.passport.user: ${JSON.stringify(req.session.passport)}`);
 
-	    if (req.isAuthenticated()) return next();
+	    if (req.isAuthenticated() && req.user.role == "student"){
+            return next();
+        } 
+        console.log("Error userrole, try to request student path");
 	    res.redirect('/login')
 	}
 }

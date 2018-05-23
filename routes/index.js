@@ -66,7 +66,7 @@ router.get("/teachTable",authenMiddleware(),function(req,res){
         console.log("Error userrole in teachTable ");
         res.redirect("/");
     }
-})
+});
 
 // stdList Remaining : Teacher , TA
 router.get("/stdList",authenMiddleware(),function(req,res){
@@ -80,18 +80,15 @@ router.get("/stdList",authenMiddleware(),function(req,res){
         console.log("Error userrole in stdList ");
         res.redirect("/");
     }
-})
+});
 
 // stdRecord Remaing : Teacher 
 router.get("/stdRecord",authenMiddleware(),function(req,res){
-    if(req.user.role == "teacher"){
+    if(req.user.role != "teacher"){
+        console.log("Error userrole in stdRecord ");
         res.redirect("/"); //edit here
     }
-    else{
-        console.log("Error userrole in stdRecord ");
-        res.redirect("/");
-    }
-})
+});
     
 //Login & Logout
 router.get("/login",function(req,res){
