@@ -1,0 +1,9 @@
+<% if(currentUser.role == "student"){ %>
+    <% include ./headerStudent %>
+<% }else if(currentUser.role == "teacher"){ %>
+    <% include ./headerTeacher %>
+<% }else if(currentUser.role == "ta"){ %>
+    <% include ./headerTA %>
+<% }else if(currentUser.role == "admin"){ %>
+    <% include ./headerAdmin %>    
+<% } %>
