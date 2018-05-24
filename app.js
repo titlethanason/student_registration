@@ -9,6 +9,7 @@ app.set("view engine", "ejs");
 var indexRoutes = require("./routes/index");
 var studentRoutes = require("./routes/student");
 var adminRoutes = require("./routes/admin");
+app.use(express.static(__dirname + "/public"));
 
 //Authentication
 var session = require('express-session');
@@ -76,6 +77,10 @@ app.use(function(req,res,next){
     res.locals.isAuthenticated = req.isAuthenticated();
     next();
 });
+app.use(function(req, res, next){
+    res.locals.currentUser = req.user;
+    next();
+ });
 
 
 //Routes
