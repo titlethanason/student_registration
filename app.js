@@ -78,6 +78,8 @@ app.use(function(req,res,next){
     next();
 });
 app.use(function(req, res, next){
+    var p = req.path.slice(1);
+    res.locals.currentPath = {path : p};
     res.locals.currentUser = req.user;
     next();
  });
