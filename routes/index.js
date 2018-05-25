@@ -7,7 +7,7 @@ var saltRounds = 10;
 var middleware = require("../middleware");
 
 // Welcome Remaining : Student , Teacher , TA
-router.get("/",middleware.isLoggedIn,function(req,res){
+router.get("/",middleware.isLoggedInWelcome,function(req,res){
     console.log(req.user);
     console.log(req.isAuthenticated());
     var users = [];
@@ -33,6 +33,7 @@ router.get("/teachTable",middleware.isLoggedIn,function(req,res){
         res.redirect("/"); //edit here
     }
     else{
+        req.flash("error","You don't have permission to access");
         console.log("Error userrole in teachTable ");
         res.redirect("/");
     }
@@ -47,6 +48,7 @@ router.get("/stdList",middleware.isLoggedIn,function(req,res){
         res.redirect("/"); //edit here
     }
     else{
+        req.flash("error","You don't have permission to access");
         console.log("Error userrole in stdList ");
         res.redirect("/");
     }
@@ -55,7 +57,11 @@ router.get("/stdList",middleware.isLoggedIn,function(req,res){
 // stdRecord Remaing : Teacher 
 router.get("/stdRecord",middleware.isLoggedIn,function(req,res){
     if(req.user.role != "teacher"){
+        req.flash("error","You don't have permission to access");
         console.log("Error userrole in stdRecord ");
+        res.redirect("/"); //edit here
+    }
+    else{
         res.redirect("/"); //edit here
     }
 });
