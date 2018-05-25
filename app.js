@@ -10,6 +10,8 @@ app.set("view engine", "ejs");
 var indexRoutes = require("./routes/index");
 var studentRoutes = require("./routes/student");
 var adminRoutes = require("./routes/admin");
+var infoRoutes = require("./routes/info");
+var registerRoutes = require("./routes/register");
 app.use(express.static(__dirname + "/public"));
 app.use(flash());
 
@@ -90,6 +92,8 @@ app.use(function(req, res, next){
 
 //Routes
 app.use(indexRoutes);
+app.use(registerRoutes);
+app.use(infoRoutes);
 app.use(studentRoutes);
 app.use(adminRoutes);
 
