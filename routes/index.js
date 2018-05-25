@@ -24,32 +24,6 @@ router.get("/",middleware.isLoggedIn,function(req,res){
         });
 });
 
-// Info Remaining : Student(GET,POST) , Teacher , TA
-router.get("/info",middleware.isLoggedIn,function(req,res){
-    if(req.user.role == "student"){
-        res.redirect("/"); //edit here
-    }
-    else if(req.user.role == "teacher"){
-        res.redirect("/"); //edit here
-    }
-    else if(req.user.role == "ta"){
-        res.redirect("/"); //edit here
-    }
-    else{
-        console.log("Error userrole in info");
-        res.redirect("/");
-    }
-});
-router.post("/info",middleware.isLoggedIn,function(req,res){
-    if(req.user.role == "student"){
-        res.redirect("/"); //edit here
-    }
-    else{
-        console.log("Error POST request in info not student");
-        res.redirect("/");
-    }
-});
-
 // teachTable Remaining : Teacher , TA
 router.get("/teachTable",middleware.isLoggedIn,function(req,res){
     if(req.user.role == "teacher"){
@@ -101,7 +75,7 @@ router.post('/login',
 router.get('/logout',function(req,res){
     req.logout();
     req.session.destroy();
-    res.redirect('/');
+    res.redirect('/login');
 });
 
 module.exports = router;

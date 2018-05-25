@@ -5,6 +5,7 @@ var middlewareObj = {};
 middlewareObj.isLoggedIn = function(req,res,next){
     console.log(`req.session.passport.user: ${JSON.stringify(req.session.passport)}`);
     if (req.isAuthenticated()) return next();
+    req.flash("error","Please Login First");
     res.redirect('/login')
 }
 
@@ -14,6 +15,7 @@ middlewareObj.isLoggedInStudent = function(req,res,next){
         if(req.user.role == "student") return next();
         else{
             console.log("Error userrole, try to request student path");
+            req.flash("error","You don't have permission to access");
             res.redirect('back')
         }
     }
@@ -29,6 +31,7 @@ middlewareObj.isLoggedInAdmin = function(req,res,next){
         if(req.user.role == "admin") return next();
         else{
             console.log("Error userrole, try to request admin path");
+            req.flash("error","You don't have permission to access");
             res.redirect('back')
         }
     }
