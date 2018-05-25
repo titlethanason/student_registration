@@ -8,12 +8,14 @@
     <button id="atten">SSSS</button>
 
 <script>
-    var aa = "";
+    var aa = [{name : "aa"},{name : "bb"},{name : "cc"}];
+    
     $(function() {
     $("#atten").on("click", function () {
         console.log("gg");
     $.ajax({
       type: 'GET',
+      data : {ajaxData : aa},
       url: '/orders',
       success: function(result) {
         console.log(result);
