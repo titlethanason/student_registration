@@ -2,10 +2,17 @@
 
 var middlewareObj = {};
 
+
 middlewareObj.isLoggedIn = function(req,res,next){
     console.log(`req.session.passport.user: ${JSON.stringify(req.session.passport)}`);
     if (req.isAuthenticated()) return next();
     req.flash("error","Please Login First");
+    res.redirect('/login')
+}
+
+middlewareObj.isLoggedInWelcome = function(req,res,next){
+    console.log(`req.session.passport.user: ${JSON.stringify(req.session.passport)}`);
+    if (req.isAuthenticated()) return next();
     res.redirect('/login')
 }
 
