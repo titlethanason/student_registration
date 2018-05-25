@@ -78,4 +78,12 @@ router.post("/dropSubjectAdmin",middleware.isLoggedInAdmin,function(req,res){
     res.redirect("/");// edit here
 });
 
+// checkPay Remaining : GET , POST
+router.get("/checkPay",middleware.isLoggedInAdmin,function(req,res){
+    res.redirect("/");// edit here
+});
+router.post("/checkPay",middleware.isLoggedInAdmin,function(req,res){
+    res.redirect("/");// edit here
+});
+
 module.exports = router;
