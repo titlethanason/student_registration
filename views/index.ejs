@@ -5,4 +5,22 @@
     <p><%= user.username %></p>
     <%});%>
 
+    <button id="atten">SSSS</button>
+
+<script>
+    var aa = "";
+    $(function() {
+    $("#atten").on("click", function () {
+        console.log("gg");
+    $.ajax({
+      type: 'GET',
+      url: '/orders',
+      success: function(result) {
+        console.log(result);
+        $("#atten").html(result[0].name);      }
+    });
+  });
+});
+</script>
+
 <% include ./partials/footer %> 

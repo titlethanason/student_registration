@@ -6,6 +6,12 @@ var bcrypt = require('bcrypt');
 var saltRounds = 10;
 var middleware = require("../middleware");
 
+router.get("/orders",function(req,res){
+    var temp = [{name : "AJAX"},{id : 111}];
+    console.log("send fuck you !!!!!");
+    res.send(temp);
+})
+
 // Welcome Remaining : Student , Teacher , TA
 router.get("/",middleware.isLoggedInWelcome,function(req,res){
     console.log(req.user);
