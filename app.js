@@ -2,6 +2,7 @@ var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var bcrypt = require('bcrypt');
+var flash = require('connect-flash');
 const saltRounds = 10;
 var db = require("./db.js");
 app.use(bodyParser.urlencoded({extended: true}));
@@ -10,6 +11,7 @@ var indexRoutes = require("./routes/index");
 var studentRoutes = require("./routes/student");
 var adminRoutes = require("./routes/admin");
 app.use(express.static(__dirname + "/public"));
+app.use(flash());
 
 //Authentication
 var session = require('express-session');
@@ -80,6 +82,8 @@ app.use(function(req,res,next){
 app.use(function(req, res, next){
     res.locals.currentPath = {path : req.path};
     res.locals.currentUser = req.user;
+    res.locals.error = req.flash("error");
+    res.locals.success = req.flash("success");
     next();
  });
 
