@@ -9,7 +9,7 @@ var middleware = require("../middleware");
 
 //Temporary register Remaining : GET , POST
 router.get("/register",function(req,res){
-    res.redirect("/");// edit here
+    res.render("register");
 });
 router.post("/register",function(req,res){
     res.redirect("/");// edit here
