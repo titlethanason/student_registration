@@ -275,33 +275,28 @@ router.post("/register",function(req,res){
             else{
                 console.log(results);
                 console.log("Student is added");
+                    //disablity,disease,allergy
+                    var disability = reqBody.disability;
+                    var disease = reqBody.disease;
+                    var allergy = reqBody.allergy;
+
+                    //disablity,disease,allergy must have data in student first
+                    db.query("INSERT INTO disability VALUES(?,?)",[stdID,disability], function (err, results, fields) {
+                        if (err) throw err;
+                        else console.log("add "+disability+" to disability");    
+                    });
+                    db.query("INSERT INTO congenitaldisease VALUES(?,?)",[stdID,disease], function (err, results, fields) {
+                        if (err) throw err;
+                        else console.log("add "+disease+" to disease");    
+                    });
+                    db.query("INSERT INTO allergy VALUES(?,?)",[stdID,allergy], function (err, results, fields) {
+                        if (err) throw err;
+                        else console.log("add "+allergy+" to allergy");    
+                    });
             }
         });
     })
 
-
-    
-    
-    
-
-    //disablity,disease,allergy
-    var disability = reqBody.disability ;
-    var disease = reqBody.disease;
-    var allergy = reqBody.allergy;
-
-    //disablity,disease,allergy must have data in student first
-    db.query("INSERT INTO disability VALUES(?,?)",[stdID,disability], function (err, results, fields) {
-        if (err) throw err;
-        else console.log("add "+disability+" to disability");    
-    });
-    db.query("INSERT INTO disease VALUES(?,?)",[stdID,disease], function (err, results, fields) {
-        if (err) throw err;
-        else console.log("add "+disease+" to disease");    
-    });
-    db.query("INSERT INTO allergy VALUES(?,?)",[stdID,allergy], function (err, results, fields) {
-        if (err) throw err;
-        else console.log("add "+allergy+" to allergy");    
-    });
 }
 });
 
