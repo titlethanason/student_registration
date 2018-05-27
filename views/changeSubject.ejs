@@ -1,7 +1,7 @@
 <% include ./partials/header %>
 <br><br>
-<link rel="stylesheet" href="/stylesheet/addSubject.css">
-<script src="/javascript/addSubject.js"></script>
+<link rel="stylesheet" href="/stylesheet/changeSubject.css">
+<script src="/javascript/changeSubject.js"></script>
 <!-- ตั้งค่าขนาดหน้าต่างที่บรรทัดด้านล่างนี้ครับ
       โดย left คือ ตำแหน่งจากด้านซ้าย (ยิ่งมากยิ่งซ้าย) ส่วนตำแหน่งจากด้านบนแก้ที่ด้านบนของ Code นี้
       -->
@@ -10,15 +10,17 @@
           <table border="0" cellspacing="0" cellpadding="3"width="100%" >
             <tr>
               <td class="top">
-                <a href="javascript:hideIt()"><img src="https://i.imgur.com/leub6gV.png" style="width:32px;height:32px" alt="exit"></a>
+                <a href="javascript:hideIt()" style="text-decoration: none"><font face="MS Sans Serif" size="2" color="red"><b>X</b></font></a>
               </td>
             </tr>
               <tr>
                 <td class="bottom">
                 <!-- เริ่มต้นใส่ Code ข้อความในกล่องที่นี่ -->
-                    ต้องการเพิ่มวิชาเรียนใช่หรือไม่<br><br>
+                  <font face="MS Sans Serif" size="3" color="black">
+                    ต้องการแก้ไขกลุ่มเรียนใช่หรือไม่<br><br>
+                  </font>
                 <!-- สิ้นสุดการใส่ Code ข้อความในกล่องที่นี่ -->
-                    <form id="realform" action="/addSubject" method="POST"></form>
+                    <form id="realform" action="/changeSubject" method="POST"></form>
                         <input form = "realform" type="submit" class="btn btn-success" value="ตกลง">
                 </td>
               </tr>
@@ -26,7 +28,7 @@
           </div>
         </font>
       </div>
-
+    
     <div class="container">
       <section>
         <article>
@@ -43,14 +45,14 @@
                 </tr>
             <% }); %>
            </table>
-
+            
               <div id="boxx" style="text-align: center">
                 <p color="#eb8c4a">รหัสวิชาเรียน:  <input form ="realform" type="text" id="myText" name="subject"></p>
                 <p color="#green">กลุ่มเรียน:  <input form ="realform" type="text" id="textt" name="section"></p>
               </div>
-
+            
                 <form><br>
-                  <a href="#" class="button" onClick="showIt()">เพิ่มวิชาเรียน</a>
+                  <a href="#" class="button" onClick="showIt()">แก้ไขกลุ่มเรียน</a>
                 </form>
               </div>
             </article>

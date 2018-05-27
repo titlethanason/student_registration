@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
   </head>
   <body>
-    <div class="container text-align-center" style="margin-top:5%">
+    <div class="container text-align-center">
       <div class="row align-center ">
         <div class="col-1"></div>
         <div class="col-10">
@@ -118,7 +118,7 @@
                 <div class="form-group row">
                   <label class="col-form-label text-nowrap col-sm-2" for="date" >วัน/เดือน/ปี เกิด:</label>
                   <div class="col-sm-2">
-                      <input id="datetest" form ="realform" class="form-control" name="date" placeholder="31/12/1997" type="text">
+                      <input id="datetest"form ="realform" class="form-control" name="date" placeholder="31/12/1997" type="text">
                   </div>
                   <label class="col-form-label text-nowrap col-sm-2" >สถานภาพการสมรส:</label>
                   <div class="col-sm-2">
@@ -792,7 +792,7 @@
       var date_input=$('input[name="date"]'); //our date input has the name "date"
       var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
       date_input.datepicker({
-        format: 'yyyy-mm-dd',
+        format: 'mm/dd/yyyy',
         container: container,
         todayHighlight: true,
         autoclose: true,

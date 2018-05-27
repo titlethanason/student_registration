@@ -35,7 +35,7 @@ router.post("/addSubject",middleware.isLoggedInStudent,function(req,res){
         db.query("SELECT * FROM section WHERE section = ? AND subject = ?",[subjectSec,subjectID],function(err,results,fields){
                 console.log(results);
                 if(results[0] == undefined){
-                        req.flash("error","Subject and Section not related");
+                        req.flash("error","Subject and Section not related to database");
                         res.redirect("/addSubject");
                 }
                 else{
@@ -71,10 +71,52 @@ router.post("/addSubject",middleware.isLoggedInStudent,function(req,res){
 
 // changeSubject Remaining : GET , POST
 router.get("/changeSubject",middleware.isLoggedInStudent,function(req,res){
-        res.redirect("/");// edit here
+        db.query("SELECT subjectID,subjectSec FROM enrollment WHERE stdID = ? and dropStatus = 0",[req.user.username],function(err,results,fields){
+                if(err) throw err;
+                else{
+                        //console.log(results);
+                        var subject = [];
+                        for(var i =0 ; i < results.length ; i++){
+                                const temp = {
+                                        subjectID : results[i].subjectID,
+                                        subjectSec : results[i].subjectSec
+                                }
+                                subject.push(temp)
+                        }
+                        res.render("changeSubject",{subject:subject});
+                }
+        });
 });
 router.post("/changeSubject",middleware.isLoggedInStudent,function(req,res){
-        res.redirect("/");// edit here
+        var subjectID = req.body.subject;
+        var subjectSec = req.body.section;
+        db.query("SELECT * FROM enrollment WHERE stdID = ? AND subjectID = ?",[req.user.username,subjectID],function(err,results,fields){
+                if(err) throw err;
+                else{
+                        if(results[0] == undefined){
+                                req.flash("error","Subject not found");
+                                res.redirect("/changeSubject");
+                        }
+                        else{
+                                db.query("SELECT * FROM section WHERE section = ? AND subject = ?",[subjectSec,subjectID],function(err,results,fields){
+                                        console.log(results);
+                                        if(results[0] == undefined){
+                                                req.flash("error","Subject and Section not related to database");
+                                                res.redirect("/changeSubject");
+                                        }
+                                        else{
+                                                db.query("UPDATE enrollment SET subjectSec = ? WHERE stdID = ? AND subjectID = ?",[subjectSec,req.user.username,subjectID],function(err,results,fields){
+                                                        if(err) throw err;
+                                                        else{
+                                                                req.flash("success","Section has been changed");
+                                                                res.redirect("/changeSubject");
+                                                        }
+                                                });
+                                        }
+                                });
+                        }
+                }
+        });
 });
 
 // dropSubject Remaining : GET , POST
@@ -93,7 +135,7 @@ router.get("/dropSubject",middleware.isLoggedInStudent,function(req,res){
                         }
                         res.render("dropSubject",{subject:subject});
                 }
-        })
+        });
 });
 router.post("/dropSubject",middleware.isLoggedInStudent,function(req,res){
         var subjectID = req.body.subject;
@@ -114,8 +156,7 @@ router.post("/dropSubject",middleware.isLoggedInStudent,function(req,res){
                                 });
                         }
                 }
-        });
-        
+        });  
 });
 
 // studyTable Remaining : GET 

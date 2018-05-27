@@ -145,7 +145,8 @@ router.get("/teachTable",middleware.isLoggedIn,function(req,res){
 // stdList Remaining : Teacher , TA
 router.get("/stdList",middleware.isLoggedIn,function(req,res){
     if(req.user.role == "teacher"){
-        res.redirect("/"); //edit here
+        var qstdList = "SELECT sc.subject,sj.subjectCode,t.titlename,t.firstname,t.lastname,e.stdID,sd.firstnameTH,sd.lastnameTH FROM schedule sc,section s,subject sj,teacherteach tt,teacher t,enrollment e,student sd WHERE sd.stdID = e.stdID AND e.subjectID = s.subject AND e.subjectSec = s.section AND sc.section = s.section AND sc.subject = s.subject AND s.subject = sj.subjectCode AND sc.ID = tt.scheduleID AND tt.teacherID = t.teacherID AND tt.teacherID = ? ORDER BY e.stdID";
+
     }
     else if(req.user.role == "ta"){
         res.redirect("/"); //edit here
