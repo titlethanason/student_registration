@@ -10,10 +10,63 @@ var middleware = require("../middleware");
 
 // addSubject Remaining : GET , POST
 router.get("/addSubject",middleware.isLoggedInStudent,function(req,res){
-        res.redirect("/");// edit here
+        //console.log("NOOB!!");
+        db.query("SELECT subjectID,subjectSec FROM enrollment WHERE stdID = ? AND dropStatus = 0",[req.user.username],function(err,results,fields){
+                if(err) throw err;
+                else{
+                        //console.log(results);
+                        var subject = [];
+                        for(var i =0 ; i < results.length ; i++){
+                                const temp = {
+                                        subjectID : results[i].subjectID,
+                                        subjectSec : results[i].subjectSec
+                                }
+                                subject.push(temp)
+                        }
+                        res.render("addSubject",{subject:subject});
+                }
+        })
 });
 router.post("/addSubject",middleware.isLoggedInStudent,function(req,res){
-        res.redirect("/");// edit here
+        var reqBody = req.body;
+        var subjectSec = reqBody.section;
+        var subjectID = reqBody.subject;
+        console.log(reqBody)
+        db.query("SELECT * FROM section WHERE section = ? AND subject = ?",[subjectSec,subjectID],function(err,results,fields){
+                console.log(results);
+                if(results[0] == undefined){
+                        req.flash("error","Subject and Section not related");
+                        res.redirect("/addSubject");
+                }
+                else{
+                        db.query("SELECT * FROM enrollment WHERE stdID = ? AND subjectID = ?",[req.user.username,subjectID],function(err,results,fields){
+                                if(err) throw err;
+                                else{
+                                        if(results[0] != undefined){
+                                                req.flash("error","You can not add this subject");
+                                                res.redirect("/addSubject");
+                                        }
+                                        else{
+                                                console.log("success!!!!");
+                                                var datetime = new Date().toISOString().slice(0, 19).replace('T', ' ');
+                                                //var paymentDate = "NULL";
+                                                var dropStatus = 0;
+                                                //var grade = "NULL";
+                                                var seatExamMid = Math.floor(Math.random() *100);
+                                                var seatExamFinal = Math.floor(Math.random() *100);
+                                                db.query("INSERT INTO enrollment VALUES(?,?,?,?,NULL,?,NULL,?,?)",[req.user.username,subjectID,datetime,subjectSec,dropStatus,seatExamMid,seatExamFinal],function(err,result,fields){
+                                                        if(err) throw err;
+                                                        else{
+                                                                req.flash("success","Subject and Section have been added");
+                                                                res.redirect("/addSubject");
+                                                        }
+                                                 });
+                                        }
+                                }
+                        });
+                                
+                }
+        });
 });
 
 // changeSubject Remaining : GET , POST
@@ -26,10 +79,43 @@ router.post("/changeSubject",middleware.isLoggedInStudent,function(req,res){
 
 // dropSubject Remaining : GET , POST
 router.get("/dropSubject",middleware.isLoggedInStudent,function(req,res){
-        res.redirect("/");// edit here
+        db.query("SELECT subjectID,subjectSec FROM enrollment WHERE stdID = ? and dropStatus = 0",[req.user.username],function(err,results,fields){
+                if(err) throw err;
+                else{
+                        //console.log(results);
+                        var subject = [];
+                        for(var i =0 ; i < results.length ; i++){
+                                const temp = {
+                                        subjectID : results[i].subjectID,
+                                        subjectSec : results[i].subjectSec
+                                }
+                                subject.push(temp)
+                        }
+                        res.render("dropSubject",{subject:subject});
+                }
+        })
 });
 router.post("/dropSubject",middleware.isLoggedInStudent,function(req,res){
-        res.redirect("/");// edit here
+        var subjectID = req.body.subject;
+        db.query("SELECT * FROM enrollment WHERE stdID = ? AND subjectID = ?",[req.user.username,subjectID],function(err,results,fields){
+                if(err) throw err;
+                else{
+                        if(results[0] == undefined){
+                                req.flash("error","Subject not found");
+                                res.redirect("/dropSubject");
+                        }
+                        else{
+                                db.query("UPDATE enrollment SET dropStatus = 1 WHERE stdID = ? AND subjectID = ?",[req.user.username,subjectID],function(err,results,fields){
+                                        if(err) throw err;
+                                        else{
+                                                req.flash("success","Subject has been dropped");
+                                                res.redirect("/dropSubject");
+                                        }
+                                });
+                        }
+                }
+        });
+        
 });
 
 // studyTable Remaining : GET 

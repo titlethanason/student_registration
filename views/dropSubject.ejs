@@ -1,0 +1,61 @@
+<% include ./partials/header %>
+<br><br>
+<link rel="stylesheet" href="/stylesheet/dropSubject.css">
+<script src="/javascript/dropSubject.js"></script>
+<!-- ตั้งค่าขนาดหน้าต่างที่บรรทัดด้านล่างนี้ครับ
+      โดย left คือ ตำแหน่งจากด้านซ้าย (ยิ่งมากยิ่งซ้าย) ส่วนตำแหน่งจากด้านบนแก้ที่ด้านบนของ Code นี้
+      -->
+      <div id="layer1" style="position:absolute; left:550px; width:410px; height:10px; visibility:hidden;"><br><br><br><br>
+        <div class="table-respondsive">
+          <table border="0" cellspacing="0" cellpadding="3"width="100%" >
+            <tr>
+              <td class="top">
+                <a href="javascript:hideIt()" style="text-decoration: none"><font face="MS Sans Serif" size="2" color="red"><b>X</b></font></a>
+              </td>
+            </tr>
+              <tr>
+                <td class="bottom">
+                <!-- เริ่มต้นใส่ Code ข้อความในกล่องที่นี่ -->
+                  <font face="MS Sans Serif" size="3" color="black">
+                    ต้องการถอนวิชาเรียนใช่หรือไม่<br><br>
+                  </font>
+                <!-- สิ้นสุดการใส่ Code ข้อความในกล่องที่นี่ -->
+                    <form id="realform" action="/dropSubject" method="POST"></form>
+                        <input form = "realform" type="submit" class="btn btn-success" value="ตกลง">
+                </td>
+              </tr>
+            </table>
+          </div>
+        </font>
+      </div>
+    
+    <div class="container">
+      <section>
+        <article>
+        <div class="table-respondsive"><br>
+          <table class = "table" style="width : 40% " align= "center" >
+            <tr>
+              <td bgcolor="#FFFFFF" align="center">รหัสวิชา</td>
+              <td bgcolor="#FFFFFF" align="center">กลุ่มเรียน</td>
+            </tr>
+            <% subject.forEach(function(s){ %>
+                <tr>
+                  <td bgcolor="#FFFFFF"><%= s.subjectID %></td>
+                  <td bgcolor="#FFFFFF"><%= s.subjectSec %></td>
+                </tr>
+            <% }); %>
+           </table>
+            
+              <div id="boxx" style="text-align: center">
+                <p color="#eb8c4a">รหัสวิชาเรียน:  <input form ="realform" type="text" id="myText" name="subject"></p>
+                <!-- <p color="#green">กลุ่มเรียน:  <input form ="realform" type="text" id="textt" name="section"></p> -->
+              </div>
+                <form><br>
+                  <a href="#" class="button" onClick="showIt()">ถอนวิชาเรียน</a>
+                </form>
+              </div>
+            </article>
+          </section>
+        </div>
+
+<% include ./partials/footer %>
