@@ -3,6 +3,7 @@ var app = express();
 var bodyParser = require('body-parser');
 var bcrypt = require('bcrypt');
 var flash = require('connect-flash');
+var $ = require('jquery');
 const saltRounds = 10;
 var db = require("./db.js");
 app.use(bodyParser.urlencoded({extended: true}));
@@ -14,6 +15,7 @@ var infoRoutes = require("./routes/info");
 var registerRoutes = require("./routes/register");
 app.use(express.static(__dirname + "/public"));
 app.use(flash());
+app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
 
 //Authentication
 var session = require('express-session');

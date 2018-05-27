@@ -1,0 +1,62 @@
+<% include ./partials/header %>
+<h1>ตารางสอบ</h1>
+<h2>กลางภาค</h2>
+<div class="container body-center">
+    <div class="row align-center">
+      <div class="col-sm">
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr >
+              <th scope="col">วันที่</th>
+              <th scope="col">เวลา</th>
+              <th scope="col">รายวิชา</th>
+              <th scope="col">ห้องสอบ</th>
+              <th scope="col">เลขที่นั่งสอบ</th>
+            </tr>
+          </thead>
+          <tbody>
+              <% exmid.forEach(function(user) { %>
+            <tr class="table-light">
+              <td><%= user.dateMid.toDateString() %></td>
+              <td><%= user.starttimeMid +' - '+ user.endtimeMid %></td>
+              <td><%= user.subjectCode + '  '+ user.subjectName %></td>
+              <td><%= user.roomMid %></td>
+              <td><%= user.seatexamMid %></td>
+            </tr>
+            <% }); %>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+้้<h2>ปลายภาค</h2>
+  <div class="container body-center">
+        <div class="row align-center">
+          <div class="col-sm">
+            <table class="table table-bordered">
+              <thead class="thead-light">
+                <tr >
+                  <th scope="col">วันที่</th>
+                  <th scope="col">เวลา</th>
+                  <th scope="col">รายวิชา</th>
+                  <th scope="col">ห้องสอบ</th>
+                  <th scope="col">เลขที่นั่งสอบ</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <% exfinal.forEach(function(user) { %>
+                <tr class="table-light">
+                  <td><%= user.dateFinal.toDateString() %></td>
+                  <td><%= user.starttimeFinal +' - '+ user.endtimeFinal %></td>
+                  <td><%= user.subjectCode + '  '+ user.subjectName %></td>
+                  <td><%= user.roomFinal %></td>
+                  <td><%= user.seatexamFinal %></td>
+                </tr>
+                <% }); %>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+  <% include ./partials/footer %>
