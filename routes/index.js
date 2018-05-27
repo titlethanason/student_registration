@@ -5,6 +5,7 @@ var db = require("../db.js");
 var bcrypt = require('bcrypt');
 var saltRounds = 10;
 var middleware = require("../middleware");
+var crypto = require("crypto")
 
 //try ajax
 router.get("/orders",function(req,res){
@@ -19,6 +20,8 @@ router.get("/",middleware.isLoggedInWelcome,function(req,res){
     console.log(req.user);
     console.log(req.isAuthenticated());
     var users = [];
+    var rand = crypto.randomBytes(20).toString('hex');
+    console.log(rand);
     db.query("SELECT * FROM users WHERE role = ? ",[req.user.role], function (err, results, fields) {
         if (err) throw err;
         for(var i = 0 ;i < results.length;i++){

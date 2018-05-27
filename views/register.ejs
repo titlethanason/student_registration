@@ -9,7 +9,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     <link href="/stylesheet/Fefe.css" rel="stylesheet">
-    <link href="/javascript/register.js" rel="stylesheet">
+    <script src="/javascript/register.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
   </head>
   <body>
@@ -17,6 +17,7 @@
       <div class="row align-center ">
         <div class="col-1"></div>
         <div class="col-10">
+        <form  id="realform"action="/register" method="POST"></form>
           <button class="btn btn-secondary" style="width:auto;margin-bottom:1px" type ="button" data-toggle="collapse" data-target="#regisStd">
             <label>ข้อมูลส่วนตัวของนักศึกษา</label>
           </button>
@@ -27,17 +28,17 @@
                 <div class="form-group row">
                   <label class="col-sm-1 col-form-label text-nowrap" style="margin-right:30px">รหัสนักศึกษา:</label>
                   <div class="col-sm-4">
-                    <input type="text" class="form-control" placeholder="1007051037"required>
+                    <input form ="realform" type="text" class="form-control" placeholder="1007051037"required name='stdID'>
                   </div>
                   <label class="col-sm-1 col-form-label text-nowrap">รหัสผ่าน:</label>
                   <div class="col-sm-4">
-                    <input type="password" class="form-control" placeholder="*******"required>
+                    <input form ="realform" type="password" class="form-control" placeholder="*******"required name='password'>
                   </div>
                 </div>
                 <div class="form-group row">
                   <label class="col-sm-1 col-form-label text-nowrap" style="margin-right:30px" >คำนำหน้าชื่อ:</label>
                   <div class="col-sm-2">
-                    <select class="form-control">
+                    <select form="realform"  class="form-control" name='titlenameTH'>
                       <option>นาย</option>
                       <option>นาง</option>
                       <option>นางสาว</option>
@@ -45,7 +46,7 @@
                   </div>
                   <label class="col-sm-1 col-form-label text-nowrap" >Title:</label>
                   <div class="col-sm-2">
-                    <select class="form-control">
+                    <select form="realform"  class="form-control" name='titlenameEN'>
                       <option>Mr.</option>
                       <option>Mrs.</option>
                       <option>Ms.</option>
@@ -53,7 +54,7 @@
                   </div>
                   <label class="col-sm-1 col-form-label text-nowrap">เพศ:</label>
                   <div class="col-sm-2">
-                    <select class="form-control">
+                    <select form="realform"  class="form-control" name='gender'>
                       <option>ชาย</option><option>หญิง</option>
                     </select>
                   </div>
@@ -61,41 +62,41 @@
                 <div class="form-group row">
                   <label class="col-sm-1 col-form-label text-nowrap" >ชื่อ:</label>
                   <div class="col-sm-4">
-                    <input type="text" class="form-control" placeholder="ธนสนธิ์"required>
+                    <input form ="realform" type="text" class="form-control" placeholder="ธนสนธิ์"required name="firstnameTH">
                   </div>
                   <label class="col-sm-1 col-form-label text-nowrap" >นามสกุล:</label>
                   <div class="col-sm-5">
-                    <input type="text" class="form-control" placeholder="เอี่ยมยิ่งสกุล" required>
+                    <input form ="realform" type="text" class="form-control" placeholder="เอี่ยมยิ่งสกุล" required name="lastnameTH">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label class="col-sm-1 col-form-label text-nowrap" >Name:</label>
                   <div class="col-sm-4">
-                    <input type="text" class="form-control" placeholder="Thanason" required>
+                    <input form ="realform" type="text" class="form-control" placeholder="Thanason" required name="firstnameEN">
                   </div>
                   <label class="col-sm-1 col-form-label text-nowrap" >Surname:</label>
                   <div class="col-sm-5">
-                    <input type="text" class="form-control" placeholder="Eiamyingsakul" required>
+                    <input form ="realform" type="text" class="form-control" placeholder="Eiamyingsakul" required name="lastnameEN">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label class="col-sm-2 col-form-label text-nowrap" >รหัสบัตรประชาชน:</label>
                   <div class="col-sm-3">
-                    <input type="text" class="form-control" placeholder="xxxxxxxxxxxxx" required>
+                    <input form ="realform" type="text" class="form-control" placeholder="xxxxxxxxxxxxx" required name="citizenID">
                   </div>
                   <label class="col-sm-1 col-form-label text-nowrap" >อีเมลล์:</label>
                   <div class="col-sm-5">
-                    <input type="email" class="form-control" placeholder="TitleInwza007@Tiger.ttt" required>
+                    <input form ="realform" type="email" class="form-control" placeholder="TitleInwza007@Tiger.ttt" required name="email">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label class="col-sm-2 col-form-label text-nowrap" >เบอร์โทรศัพท์มือถือ:</label>
                   <div class="col-sm-2">
-                    <input type="tel" class="form-control" placeholder="0876819990" required>
+                    <input form ="realform" type="tel" class="form-control" placeholder="0876819990" required name="tel">
                   </div>
                   <label class="col-sm-1 col-form-label text-nowrap" >หมู่เลือด:</label>
                   <div class="col-sm-2">
-                    <select class="form-control" required>
+                    <select form="realform"  class="form-control" required name="bloodtype">
                       <option>A</option>
                       <option>B</option>
                       <option>O</option>
@@ -106,11 +107,11 @@
                 <div class="form-group row">
                   <label class="col-form-label text-nowrap col-sm-2" for="date" >วัน/เดือน/ปี เกิด:</label>
                   <div class="col-sm-2">
-                      <input class="form-control" name="date" placeholder="31/12/1997" type="text">
+                      <input form ="realform" class="form-control" name="date" placeholder="31/12/1997" type="text">
                   </div>
                   <label class="col-form-label text-nowrap col-sm-2" >สถานภาพการสมรส:</label>
                   <div class="col-sm-2">
-                      <select type="text" class="form-control">
+                      <select form="realform"  type="text" class="form-control" name="marital"> 
                         <option>โสด</option><option>แต่งงาน</option>
                       </select>
                   </div>
@@ -118,48 +119,48 @@
                 <div class="form-group row">
                   <label class="col-form-label text-nowrap col-sm-1">สัญชาติ:</label>
                   <div class="col-sm-2">
-                      <input class="form-control" placeholder="ไทย" required>
+                      <input form ="realform" class="form-control" placeholder="ไทย" required name="nationality">
                   </div>
                   <label class="col-form-label text-nowrap col-sm-1" style="padding-right:1px">เชื้อชาติ:</label>
                   <div class="col-sm-2">
-                      <input class="form-control" placeholder="ไทย" required>
+                      <input form ="realform" class="form-control" placeholder="ไทย" required name="race">
                   </div>
                   <label class="col-form-label text-nowrap col-sm-1"  >ศาสนา:</label>
                   <div class="col-sm-2">
-                      <input class="form-control" placeholder="พุทธ" required>
+                      <input form ="realform" class="form-control" placeholder="พุทธ" required name="religion">
                   </div>
                 </div>
                 <div class="row form-group">
                   <label class="col-form-label text-nowrap col-sm-1" style="margin-right:19px">จำนวนพี่น้อง:</label>
                   <div class="col-sm-1">
-                    <input class="form-control" placeholder="1" required>
+                    <input form ="realform" class="form-control" placeholder="1" required name="NoSiblings">
                   </div>
                   <label class="col-form-label text-nowrap col-sm-1" style="margin-right:19px">เป็นบุตรคนที่:</label>
                   <div class="col-sm-1">
-                    <input class="form-control" placeholder="1" required>
+                    <input form ="realform" class="form-control" placeholder="1" required name="sonNo">
                   </div>
                   <label class="col-form-label text-nowrap col-sm-2" style="margin-right:22px">ความสัมพันธ์ของพ่อแม่:</label>
                   <div class="col-sm-2">
-                    <input class="form-control" placeholder="อยู่ร่วมกัน" required>
+                    <input form ="realform" class="form-control" placeholder="อยู่ร่วมกัน" required name="maritalStatofMD"> 
                   </div>
                 </div>
                 <div class="row form-group">
                   <label class="col-form-label text-nowrap col-sm-4" style="margin-right:16px">เคยผ่านกระบวนการคัดเลือกเป็นทหารเป็นหรือไม่:</label>
                   <div class="col-sm-5 align-self-center">
-                    <input type="radio" name="Soldier" style="margin-right:6px">เคย
-                    <input type="radio" name="Soldier" style="margin-right:6px;margin-left:6px" checked>ใม่เคย
+                    <input form ="realform" type="radio" name="soldier" style="margin-right:6px" value="เคย">เคย
+                    <input form ="realform" type="radio" name="soldier" style="margin-right:6px;margin-left:6px" checked value="ไม่เคย">ใม่เคย
                   </div>
                 </div>
                 <div class="row form-group">
                   <label class="col-form-label text-nowrap col-sm-1" >Program:</label>
                   <div class="col-sm-3">
-                      <select type="text" class="form-control">
+                      <select form="realform"  type="text" class="form-control" name="program">
                         <option>เรียนดี</option><option>AR</option><option>Admission</option>
                       </select>
                   </div>
                   <label class="col-form-label text-nowrap col-sm-2" >จบการศึกษาระดับ:</label>
                   <div class="col-sm-3">
-                      <select type="text" class="form-control">
+                      <select form="realform"  type="text" class="form-control" name="recentGraduate">
                         <option>มัธยมปลาย</option><option>ปวช.</option><option>ปวส.</option><option>ปริญญาตรี</option><option>ปริญญาโท</option>
                       </select>
                   </div>
@@ -167,36 +168,41 @@
                 <div class="row form-group">
                   <label class="col-form-label text-nowrap col-sm-2" style="margin-right:6px">สถาบันการศึกษาล่าสุด:</label>
                   <div class="col-sm-4">
-                    <input class="form-control" placeholder="โรงเรียนไก่น้อย" required>
+                    <input form ="realform" class="form-control" placeholder="โรงเรียนไก่น้อย" required name="recentAcademy">
                   </div>
                   <label class="col-form-label text-nowrap col-sm-1" style="margin-right:6px">เกรดเฉลี่ย:</label>
                   <div class="col-sm-2">
-                    <input class="form-control" placeholder="4.00" required>
+                    <input form ="realform" class="form-control" placeholder="4.00" required name="recentGPAX">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label class="col-form-label text-nowrap col-sm-1" style="margin-right:16px">ประเภทที่พัก:</label>
                   <div class="col-sm-4">
-                    <input class="form-control" placeholder="คอนโดมิเนียม" required>
+                    <input form ="realform" class="form-control" placeholder="คอนโดมิเนียม" required name="habitat">
                   </div>
                 </div>
                 <div class="form-group row">
                   <label class="col-form-label text-nowrap col-sm-1" style="margin-right:5px">ความพิการ:</label>
-                  <div class="col-sm-3">
-                    <input class="form-control" placeholder="สายตา" required>
+                  <div class="col-sm-3" id="divDisability">
+                    <input form ="realform" class="form-control" placeholder="สายตา" required name="disability">
                   </div>
+                  <a class="btn btn-success" onclick="addFunctionDisability()" style="color : white">add</a>
+                </div>
+                <div class="form-group row">
                   <label class="col-form-label text-nowrap col-sm-1" style="margin-right:20px">โรคประจำตัว:</label>
-                  <div class="col-sm-3">
-                    <input class="form-control" placeholder="หอบหืด" required>
+                  <div class="col-sm-3" id="divDisease">
+                    <input form ="realform" class="form-control" placeholder="หอบหืด" required name="disease">
                   </div>
+                  <a class="btn btn-success" onclick="addFunctionDisease()" style="color : white">add</a>
                 </div>
                 <div class="form-group row">
                     <label class="col-form-label text-nowrap col-sm-1" style="margin-right:38px">ประวัติการแพ้ยา:</label>
-                    <div class="col-sm-2" id="medi">
-                        <input class="form-control" placeholder="พารา" required name="allergy">
+                    <div class="col-sm-2" id="divAllergy">
+                        <input form ="realform" class="form-control" placeholder="พารา" required name="allergy">
                     </div>
-                    <a class="btn btn-success" id="badd" onclick="addFunction()" style="color : white">add</a>
+                    <a class="btn btn-success" onclick="addFunctionAllergy()" style="color : white">add</a>
                 </div>
+                
                 </form>
                 <button class="btn" style="width:auto;margin-top:5px;margin-bottom:5px" type ="button" data-toggle="collapse" data-target="#addressRegis">
                   <label>ที่อยู่ตามทะเบียน</label>
@@ -208,31 +214,31 @@
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label text-nowrap" >บ้านเลขที่:</label>
                         <div class="col-sm-2">
-                          <input type="text" class="form-control" placeholder="11/12"required>
+                          <input form ="realform" type="text" class="form-control" placeholder="11/12"required name="homeNORegis">
                         </div>
                         <label class="col-sm-1 col-form-label text-nowrap" >ซอย:</label>
                         <div class="col-sm-3">
-                          <input type="text" class="form-control" placeholder="ประชาอุทิศ 45">
+                          <input form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ 45" name="alleyRegis">
                         </div>
                         <label class="col-sm-1 col-form-label text-nowrap" >ถนน:</label>
                         <div class="col-sm-3">
-                          <input type="text" class="form-control" placeholder="ประชาอุทิศ"required>
+                          <input form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ"required name="streetRegis">
                         </div>
                         <label class="col-sm-2 col-form-label text-nowrap" >แขวง/ตำบล:</label>
                         <div class="col-sm-2">
-                          <input type="text" class="form-control" placeholder="บางมด"required>
+                          <input form ="realform" type="text" class="form-control" placeholder="บางมด"required name="subdistrictRegis">
                         </div>
                         <label class="col-sm-2 col-form-label text-nowrap" >เขต/อำเภอ:</label>
                         <div class="col-sm-2">
-                          <input type="text" class="form-control" placeholder="ทุ่งครุ"required>
+                          <input form ="realform" type="text" class="form-control" placeholder="ทุ่งครุ"required name="districtRegis">
                         </div>
                         <label class="col-sm-1 col-form-label text-nowrap" >จังหวัด:</label>
                         <div class="col-sm-3">
-                          <input type="text" class="form-control" placeholder="กรุงเทพมหานคร"required>
+                          <input form ="realform" type="text" class="form-control" placeholder="กรุงเทพมหานคร"required name="provienceRegis">
                         </div>
                         <label class="col-sm-2 col-form-label text-nowrap" >รหัสไปรษณีย์:</label>
                         <div class="col-sm-2">
-                          <input type="text" class="form-control" placeholder="10140"required>
+                          <input form ="realform" type="text" class="form-control" placeholder="10140" required name="postcodeRegis">
                         </div>
                       </div>
                     </form>
@@ -248,51 +254,50 @@
                       <form class="form-in " style="background-color:#F7F7F7">
                         <div class="form-group row" style="margin-left:auto">
                           <div class="col-1-sm col-form-label text-nowrap">
-                            <input type="checkbox">
+                            <input form ="realform" type="checkbox">
                           </div>
                           <div class="col-5-sm" style="padding-left:10px;padding-right:10px;padding-top:5px">ใช้ที่อยู่ตามทะเบียน</div>
                         </div>
                         <div class="form-group row">
-                        <label class="col-sm-2 col-form-label text-nowrap" >บ้านเลขที่:</label>
-                        <div class="col-sm-2">
-                          <input type="text" class="form-control" placeholder="11/12"required>
-                        </div>
-                        <label class="col-sm-1 col-form-label text-nowrap" >ซอย:</label>
-                        <div class="col-sm-3">
-                          <input type="text" class="form-control" placeholder="ประชาอุทิศ 45">
-                        </div>
-                        <label class="col-sm-1 col-form-label text-nowrap" >ถนน:</label>
-                        <div class="col-sm-3">
-                          <input type="text" class="form-control" placeholder="ประชาอุทิศ"required>
-                        </div>
-                        <label class="col-sm-2 col-form-label text-nowrap" >แขวง/ตำบล:</label>
-                        <div class="col-sm-2">
-                          <input type="text" class="form-control" placeholder="บางมด"required>
-                        </div>
-                        <label class="col-sm-2 col-form-label text-nowrap" >เขต/อำเภอ:</label>
-                        <div class="col-sm-2">
-                          <input type="text" class="form-control" placeholder="ทุ่งครุ"required>
-                        </div>
-                        <label class="col-sm-1 col-form-label text-nowrap" >จังหวัด:</label>
-                        <div class="col-sm-3">
-                          <input type="text" class="form-control" placeholder="กรุงเทพมหานคร"required>
-                        </div>
-                        <label class="col-sm-2 col-form-label text-nowrap" >รหัสไปรษณีย์:</label>
-                        <div class="col-sm-2">
-                          <input type="text" class="form-control" placeholder="10140"required>
-                        </div>
+                            <label class="col-sm-2 col-form-label text-nowrap" >บ้านเลขที่:</label>
+                            <div class="col-sm-2">
+                                <input form ="realform" type="text" class="form-control" placeholder="11/12"required name="homeNOCurrent">
+                            </div>
+                            <label class="col-sm-1 col-form-label text-nowrap" >ซอย:</label>
+                            <div class="col-sm-3">
+                                <input form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ 45" name="alleyCurrent">
+                            </div>
+                            <label class="col-sm-1 col-form-label text-nowrap" >ถนน:</label>
+                            <div class="col-sm-3">
+                                <input form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ"required name="streetCurrent">
+                            </div>
+                            <label class="col-sm-2 col-form-label text-nowrap" >แขวง/ตำบล:</label>
+                            <div class="col-sm-2">
+                                <input form ="realform" type="text" class="form-control" placeholder="บางมด"required name="subdistrictCurrent">
+                            </div>
+                            <label class="col-sm-2 col-form-label text-nowrap" >เขต/อำเภอ:</label>
+                            <div class="col-sm-2">
+                                <input form ="realform" type="text" class="form-control" placeholder="ทุ่งครุ"required name="districtCurrent">
+                            </div>
+                            <label class="col-sm-1 col-form-label text-nowrap" >จังหวัด:</label>
+                            <div class="col-sm-3">
+                                <input form ="realform" type="text" class="form-control" placeholder="กรุงเทพมหานคร"required name="provienceCurrent">
+                            </div>
+                            <label class="col-sm-2 col-form-label text-nowrap" >รหัสไปรษณีย์:</label>
+                            <div class="col-sm-2">
+                                <input form ="realform" type="text" class="form-control" placeholder="10140" required name="postcodeCurrent">
+                            </div>
                       </div>
                       </form>
                     </div>
                   </div>
                 </div>
-                <form>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">รูปถ่ายนักศึกษา</span>
                     </div>
                     <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="StdPhoto">
+                      <input form ="realform" type="file" class="custom-file-input" id="StdPhoto">
                       <label class="custom-file-label" for="StdPhoto">Choose file</label>
                     </div>
                   </div>
@@ -301,7 +306,7 @@
                       <span class="input-group-text">สำเนาบัตรประชาชน</span>
                     </div>
                     <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="IDcard">
+                      <input form ="realform" type="file" class="custom-file-input" id="IDcard">
                       <label class="custom-file-label" for="IDcard">Choose file</label>
                     </div>
                   </div>
@@ -310,7 +315,7 @@
                       <span class="input-group-text">สำเนาทะเบียนบ่าน</span>
                     </div>
                     <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="IDhome">
+                      <input form ="realform" type="file" class="custom-file-input" id="IDhome">
                       <label class="custom-file-label" for="IDhome">Choose file</label>
                     </div>
                   </div>
@@ -319,11 +324,11 @@
                       <span class="input-group-text">ผลการเรียน</span>
                     </div>
                     <div class="custom-file">
-                      <input type="file" class="custom-file-input" id="StdRecord">
+                      <input form ="realform" type="file" class="custom-file-input" id="StdRecord">
                       <label class="custom-file-label" for="StdRecord">Choose file</label>
                     </div>
                   </div>
-                </form>
+                
               </div>
             </div>
           </div>
@@ -337,7 +342,7 @@
                   <div class="form-group row">
                     <label class="col-sm-1 col-form-label text-nowrap" style="margin-right:30px" >คำนำหน้าชื่อ:</label>
                     <div class="col-sm-2">
-                      <select class="form-control">
+                      <select form="realform"  class="form-control" name="titlenameDad">
                         <option>นาย</option>
                         <option>นาง</option>
                         <option>นางสาว</option>
@@ -347,35 +352,35 @@
                   <div class="form-group row">
                     <label class="col-sm-1 col-form-label text-nowrap" >ชื่อ:</label>
                     <div class="col-sm-4">
-                      <input type="text" class="form-control" placeholder="ธนสนธิ์"required>
+                      <input form ="realform" type="text" class="form-control" placeholder="ธนสนธิ์"required name="firstnameDad">
                     </div>
                     <label class="col-sm-1 col-form-label text-nowrap" >นามสกุล:</label>
                     <div class="col-sm-5">
-                      <input type="text" class="form-control" placeholder="เอี่ยมยิ่งสกุล" required>
+                      <input form ="realform" type="text" class="form-control" placeholder="เอี่ยมยิ่งสกุล" required name="lastnameDad">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label text-nowrap" >รหัสบัตรประชาชน:</label>
                     <div class="col-sm-3">
-                      <input type="text" class="form-control" placeholder="xxxxxxxxxxxxx" required>
+                      <input form ="realform" type="text" class="form-control" placeholder="xxxxxxxxxxxxx" required name="citizenIDDad">
                     </div>
                     <label class="col-sm-1 col-form-label text-nowrap" >อีเมลล์:</label>
                     <div class="col-sm-5">
-                      <input type="email" class="form-control" placeholder="TitleInwza007@Tiger.ttt" required>
+                      <input form ="realform" type="email" class="form-control" placeholder="TitleInwza007@Tiger.ttt" required name="emailDad">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label text-nowrap" >เบอร์โทรศัพท์มือถือ:</label>
                     <div class="col-sm-2">
-                      <input type="tel" class="form-control" placeholder="0876819990" required>
+                      <input form ="realform" type="tel" class="form-control" placeholder="0876819990" required name="telDad">
                     </div>
                     <label class="col-form-label text-nowrap col-sm-2" for="date" >วัน/เดือน/ปี เกิด:</label>
                     <div class="col-sm-2">
-                        <input class="form-control" name="date" placeholder="31/12/1997" type="text">
+                        <input form ="realform" class="form-control" name="dateDad" placeholder="31/12/1997" type="text">
                     </div>
                     <label class="col-sm-1 col-form-label text-nowrap" style="margin-right:8px">สถาณภาพ:</label>
                     <div class="col-sm-2">
-                      <select class="form-control">
+                      <select form="realform"  class="form-control" name="statusDad">
                         <option>มีชีวิต</option><option>เสียชีวิต</option>
                       </select>
                     </div>
@@ -383,39 +388,39 @@
                   <div class="form-group row">
                     <label class="col-sm-1 col-form-label text-nowrap" >อาชีพ:</label>
                     <div class="col-sm-3">
-                      <input type="text" class="form-control" placeholder="นักธุรกิจ" required>
+                      <input form ="realform" type="text" class="form-control" placeholder="นักธุรกิจ" required name="careerDad">
                     </div>
                     <label class="col-sm-1 col-form-label text-nowrap" >ตำแหน่ง:</label>
                     <div class="col-sm-3">
-                      <input type="text" class="form-control" placeholder="ผู้จัดการ" required>
+                      <input form ="realform" type="text" class="form-control" placeholder="ผู้จัดการ" required name="careerPosDad">
                     </div>
                     <label class="col-sm-1 col-form-label text-nowrap" >เงินเดือน:</label>
                     <div class="col-sm-2">
-                      <input type="text" class="form-control" placeholder="300000" required>
+                      <input form ="realform" type="text" class="form-control" placeholder="300000" required name="salaryDad">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-sm-1 col-form-label text-nowrap" style="margin-right:25px" >สถานที่ทำงาน:</label>
                     <div class="col-sm-5">
-                      <input type="text" class="form-control" placeholder="บริษัท ไตเติ้ล จำกัดมหาชน" required>
+                      <input form ="realform" type="text" class="form-control" placeholder="บริษัท ไตเติ้ล จำกัดมหาชน" required name="workplaceNameDad">
                     </div>
                     <label class="col-sm-2 col-form-label text-nowrap" > เบอร์โทร ที่ทำงาน:</label>
                     <div class="col-sm-2">
-                      <input type="tel" class="form-control" placeholder="02222222-2" required>
+                      <input form ="realform" type="tel" class="form-control" placeholder="02222222-2" required name="workplaceTelDad">
                     </div>
                   </div>
                   <div class="form-group row">
                     <label class="col-form-label text-nowrap col-sm-1">สัญชาติ:</label>
                     <div class="col-sm-2">
-                        <input class="form-control" placeholder="ไทย" required>
+                        <input form ="realform" class="form-control" placeholder="ไทย" required name="nationalityDad">
                     </div>
                     <label class="col-form-label text-nowrap col-sm-1" style="padding-right:1px">เชื้อชาติ:</label>
                     <div class="col-sm-2">
-                        <input class="form-control" placeholder="ไทย" required>
+                        <input form ="realform" class="form-control" placeholder="ไทย" required name="raceDad">
                     </div>
                     <label class="col-form-label text-nowrap col-sm-1"  >ศาสนา:</label>
                     <div class="col-sm-2">
-                        <input class="form-control" placeholder="พุทธ" required>
+                        <input form ="realform" class="form-control" placeholder="พุทธ" required name="religionDad">
                     </div>
                   </div>
                 </form>
@@ -429,31 +434,31 @@
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label text-nowrap" >บ้านเลขที่:</label>
                         <div class="col-sm-2">
-                          <input type="text" class="form-control" placeholder="11/12"required>
+                            <input form ="realform" type="text" class="form-control" placeholder="11/12"required name="homeNODad">
                         </div>
                         <label class="col-sm-1 col-form-label text-nowrap" >ซอย:</label>
                         <div class="col-sm-3">
-                          <input type="text" class="form-control" placeholder="ประชาอุทิศ 45">
+                            <input form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ 45" name="alleyDad">
                         </div>
                         <label class="col-sm-1 col-form-label text-nowrap" >ถนน:</label>
                         <div class="col-sm-3">
-                          <input type="text" class="form-control" placeholder="ประชาอุทิศ"required>
+                            <input form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ"required name="streetDad">
                         </div>
                         <label class="col-sm-2 col-form-label text-nowrap" >แขวง/ตำบล:</label>
                         <div class="col-sm-2">
-                          <input type="text" class="form-control" placeholder="บางมด"required>
+                            <input form ="realform" type="text" class="form-control" placeholder="บางมด"required name="subdistrictDad">
                         </div>
                         <label class="col-sm-2 col-form-label text-nowrap" >เขต/อำเภอ:</label>
                         <div class="col-sm-2">
-                          <input type="text" class="form-control" placeholder="ทุ่งครุ"required>
+                            <input form ="realform" type="text" class="form-control" placeholder="ทุ่งครุ"required name="districtDad">
                         </div>
                         <label class="col-sm-1 col-form-label text-nowrap" >จังหวัด:</label>
                         <div class="col-sm-3">
-                          <input type="text" class="form-control" placeholder="กรุงเทพมหานคร"required>
+                            <input form ="realform" type="text" class="form-control" placeholder="กรุงเทพมหานคร"required name="provienceDad">
                         </div>
                         <label class="col-sm-2 col-form-label text-nowrap" >รหัสไปรษณีย์:</label>
                         <div class="col-sm-2">
-                          <input type="text" class="form-control" placeholder="10140"required>
+                            <input form ="realform" type="text" class="form-control" placeholder="10140" required name="postcodeDad">
                         </div>
                       </div>
                     </form>
@@ -474,7 +479,7 @@
                   <div class="form-group row">
                     <label class="col-sm-1 col-form-label text-nowrap" style="margin-right:30px" >คำนำหน้าชื่อ:</label>
                     <div class="col-sm-2">
-                      <select class="form-control">
+                      <select form="realform"  class="form-control" name="titlenameMom">
                         <option>นาย</option>
                         <option>นาง</option>
                         <option>นางสาว</option>
@@ -482,115 +487,116 @@
                     </div>
                   </div>
                   <div class="form-group row">
-                    <label class="col-sm-1 col-form-label text-nowrap" >ชื่อ:</label>
-                    <div class="col-sm-4">
-                      <input type="text" class="form-control" placeholder="ธนสนธิ์"required>
-                    </div>
-                    <label class="col-sm-1 col-form-label text-nowrap" >นามสกุล:</label>
-                    <div class="col-sm-5">
-                      <input type="text" class="form-control" placeholder="เอี่ยมยิ่งสกุล" required>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label text-nowrap" >รหัสบัตรประชาชน:</label>
-                    <div class="col-sm-3">
-                      <input type="text" class="form-control" placeholder="xxxxxxxxxxxxx" required>
-                    </div>
-                    <label class="col-sm-1 col-form-label text-nowrap" >อีเมลล์:</label>
-                    <div class="col-sm-5">
-                      <input type="email" class="form-control" placeholder="TitleInwza007@Tiger.ttt" required>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label text-nowrap" >เบอร์โทรศัพท์มือถือ:</label>
-                    <div class="col-sm-2">
-                      <input type="tel" class="form-control" placeholder="0876819990" required>
-                    </div>
-                    <label class="col-form-label text-nowrap col-sm-2" for="date" >วัน/เดือน/ปี เกิด:</label>
-                    <div class="col-sm-2">
-                        <input class="form-control" name="date" placeholder="31/12/1997" type="text">
-                    </div>
-                    <label class="col-sm-1 col-form-label text-nowrap" style="margin-right:8px">สถาณภาพ:</label>
-                    <div class="col-sm-2">
-                      <select class="form-control">
-                        <option>มีชีวิต</option><option>เสียชีวิต</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-sm-1 col-form-label text-nowrap" >อาชีพ:</label>
-                    <div class="col-sm-3">
-                      <input type="text" class="form-control" placeholder="นักธุรกิจ" required>
-                    </div>
-                    <label class="col-sm-1 col-form-label text-nowrap" >ตำแหน่ง:</label>
-                    <div class="col-sm-3">
-                      <input type="text" class="form-control" placeholder="ผู้จัดการ" required>
-                    </div>
-                    <label class="col-sm-1 col-form-label text-nowrap" >เงินเดือน:</label>
-                    <div class="col-sm-2">
-                      <input type="text" class="form-control" placeholder="300000" required>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-sm-1 col-form-label text-nowrap" style="margin-right:25px" >สถานที่ทำงาน:</label>
-                    <div class="col-sm-5">
-                      <input type="text" class="form-control" placeholder="บริษัท ไตเติ้ล จำกัดมหาชน" required>
-                    </div>
-                    <label class="col-sm-2 col-form-label text-nowrap" > เบอร์โทร ที่ทำงาน:</label>
-                    <div class="col-sm-2">
-                      <input type="tel" class="form-control" placeholder="02222222-2" required>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-form-label text-nowrap col-sm-1">สัญชาติ:</label>
-                    <div class="col-sm-2">
-                        <input class="form-control" placeholder="ไทย" required>
-                    </div>
-                    <label class="col-form-label text-nowrap col-sm-1" style="padding-right:1px">เชื้อชาติ:</label>
-                    <div class="col-sm-2">
-                        <input class="form-control" placeholder="ไทย" required>
-                    </div>
-                    <label class="col-form-label text-nowrap col-sm-1"  >ศาสนา:</label>
-                    <div class="col-sm-2">
-                        <input class="form-control" placeholder="พุทธ" required>
-                    </div>
-                  </div>
-                </form>
-                <button class="btn" style="width:auto;margin-top:5px;margin-bottom:5px" type ="button" data-toggle="collapse" data-target="#addressRegisMom">
-                  <label>ที่อยู่ตามทะเบียน</label>
-                </button>
-                <div class="card">
-                <div id="addressRegisMom" class="collapse show">
-                  <div class="card-body">
-                    <form class="form-in " style="background-color:#F7F7F7">
+                        <label class="col-sm-1 col-form-label text-nowrap" >ชื่อ:</label>
+                        <div class="col-sm-4">
+                          <input form ="realform" type="text" class="form-control" placeholder="ธนสนธิ์"required name="firstnameMom">
+                        </div>
+                        <label class="col-sm-1 col-form-label text-nowrap" >นามสกุล:</label>
+                        <div class="col-sm-5">
+                          <input form ="realform" type="text" class="form-control" placeholder="เอี่ยมยิ่งสกุล" required name="lastnameMom">
+                        </div>
+                      </div>
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label text-nowrap" >บ้านเลขที่:</label>
-                        <div class="col-sm-2">
-                          <input type="text" class="form-control" placeholder="11/12"required>
-                        </div>
-                        <label class="col-sm-1 col-form-label text-nowrap" >ซอย:</label>
+                        <label class="col-sm-2 col-form-label text-nowrap" >รหัสบัตรประชาชน:</label>
                         <div class="col-sm-3">
-                          <input type="text" class="form-control" placeholder="ประชาอุทิศ 45">
+                          <input form ="realform" type="text" class="form-control" placeholder="xxxxxxxxxxxxx" required name="citizenIDMom">
                         </div>
-                        <label class="col-sm-1 col-form-label text-nowrap" >ถนน:</label>
+                        <label class="col-sm-1 col-form-label text-nowrap" >อีเมลล์:</label>
+                        <div class="col-sm-5">
+                          <input form ="realform" type="email" class="form-control" placeholder="TitleInwza007@Tiger.ttt" required name="emailMom">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-2 col-form-label text-nowrap" >เบอร์โทรศัพท์มือถือ:</label>
+                        <div class="col-sm-2">
+                          <input form ="realform" type="tel" class="form-control" placeholder="0876819990" required name="telMom">
+                        </div>
+                        <label class="col-form-label text-nowrap col-sm-2" for="date" >วัน/เดือน/ปี เกิด:</label>
+                        <div class="col-sm-2">
+                            <input form ="realform" class="form-control" name="dateMom" placeholder="31/12/1997" type="text">
+                        </div>
+                        <label class="col-sm-1 col-form-label text-nowrap" style="margin-right:8px">สถาณภาพ:</label>
+                        <div class="col-sm-2">
+                          <select form="realform"  class="form-control" name="statusMom">
+                            <option>มีชีวิต</option><option>เสียชีวิต</option>
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-1 col-form-label text-nowrap" >อาชีพ:</label>
                         <div class="col-sm-3">
-                          <input type="text" class="form-control" placeholder="ประชาอุทิศ"required>
+                          <input form ="realform" type="text" class="form-control" placeholder="นักธุรกิจ" required name="careerMom">
                         </div>
-                        <label class="col-sm-2 col-form-label text-nowrap" >แขวง/ตำบล:</label>
-                        <div class="col-sm-2">
-                          <input type="text" class="form-control" placeholder="บางมด"required>
-                        </div>
-                        <label class="col-sm-2 col-form-label text-nowrap" >เขต/อำเภอ:</label>
-                        <div class="col-sm-2">
-                          <input type="text" class="form-control" placeholder="ทุ่งครุ"required>
-                        </div>
-                        <label class="col-sm-1 col-form-label text-nowrap" >จังหวัด:</label>
+                        <label class="col-sm-1 col-form-label text-nowrap" >ตำแหน่ง:</label>
                         <div class="col-sm-3">
-                          <input type="text" class="form-control" placeholder="กรุงเทพมหานคร"required>
+                          <input form ="realform" type="text" class="form-control" placeholder="ผู้จัดการ" required name="careerPosMom">
                         </div>
-                        <label class="col-sm-2 col-form-label text-nowrap" >รหัสไปรษณีย์:</label>
+                        <label class="col-sm-1 col-form-label text-nowrap" >เงินเดือน:</label>
                         <div class="col-sm-2">
-                          <input type="text" class="form-control" placeholder="10140"required>
+                          <input form ="realform" type="text" class="form-control" placeholder="300000" required name="salaryMom">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-sm-1 col-form-label text-nowrap" style="margin-right:25px" >สถานที่ทำงาน:</label>
+                        <div class="col-sm-5">
+                          <input form ="realform" type="text" class="form-control" placeholder="บริษัท ไตเติ้ล จำกัดมหาชน" required name="workplaceNameMom">
+                        </div>
+                        <label class="col-sm-2 col-form-label text-nowrap" > เบอร์โทร ที่ทำงาน:</label>
+                        <div class="col-sm-2">
+                          <input form ="realform" type="tel" class="form-control" placeholder="02222222-2" required name="workplaceTelMom">
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label class="col-form-label text-nowrap col-sm-1">สัญชาติ:</label>
+                        <div class="col-sm-2">
+                            <input form ="realform" class="form-control" placeholder="ไทย" required name="nationalityMom">
+                        </div>
+                        <label class="col-form-label text-nowrap col-sm-1" style="padding-right:1px">เชื้อชาติ:</label>
+                        <div class="col-sm-2">
+                            <input form ="realform" class="form-control" placeholder="ไทย" required name="raceMom">
+                        </div>
+                        <label class="col-form-label text-nowrap col-sm-1"  >ศาสนา:</label>
+                        <div class="col-sm-2">
+                            <input form ="realform" class="form-control" placeholder="พุทธ" required name="religionMom">
+                        </div>
+                      </div>
+                    </form>
+                    
+                    <button class="btn" style="width:auto;margin-top:5px;margin-bottom:5px" type ="button" data-toggle="collapse" data-target="#addressRegisMom">
+                      <label>ที่อยู่ตามทะเบียน</label>
+                    </button>
+                    <div class="card">
+                    <div id="addressRegisMom" class="collapse show">
+                      <div class="card-body">
+                        <form class="form-in " style="background-color:#F7F7F7">
+                          <div class="form-group row">
+                            <label class="col-sm-2 col-form-label text-nowrap" >บ้านเลขที่:</label>
+                            <div class="col-sm-2">
+                                <input form ="realform" type="text" class="form-control" placeholder="11/12"required name="homeNOMom">
+                            </div>
+                            <label class="col-sm-1 col-form-label text-nowrap" >ซอย:</label>
+                            <div class="col-sm-3">
+                                <input form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ 45" name="alleyMom">
+                            </div>
+                            <label class="col-sm-1 col-form-label text-nowrap" >ถนน:</label>
+                            <div class="col-sm-3">
+                                <input form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ"required name="streetMom">
+                            </div>
+                            <label class="col-sm-2 col-form-label text-nowrap" >แขวง/ตำบล:</label>
+                            <div class="col-sm-2">
+                                <input form ="realform" type="text" class="form-control" placeholder="บางมด"required name="subdistrictMom">
+                            </div>
+                            <label class="col-sm-2 col-form-label text-nowrap" >เขต/อำเภอ:</label>
+                            <div class="col-sm-2">
+                                <input form ="realform" type="text" class="form-control" placeholder="ทุ่งครุ"required name="districtMom">
+                            </div>
+                            <label class="col-sm-1 col-form-label text-nowrap" >จังหวัด:</label>
+                            <div class="col-sm-3">
+                                <input form ="realform" type="text" class="form-control" placeholder="กรุงเทพมหานคร"required name="provienceMom">
+                            </div>
+                            <label class="col-sm-2 col-form-label text-nowrap" >รหัสไปรษณีย์:</label>
+                            <div class="col-sm-2">
+                                <input form ="realform" type="text" class="form-control" placeholder="10140" required name="postcodeMom">
                         </div>
                       </div>
                     </form>
@@ -609,135 +615,125 @@
               <div class="card-body">
                 <form class="form-in" style="background-color:#F7F7F7">
                   <div class="form-group row">
-                    <label class="col-sm-1 col-form-label text-nowrap" style="margin-right:30px" >คำนำหน้าชื่อ:</label>
-                    <div class="col-sm-2">
-                      <select class="form-control">
-                        <option>นาย</option>
-                        <option>นาง</option>
-                        <option>นางสาว</option>
-                      </select>
-                    </div>
-                    <label class="col-sm-1 col-form-label text-nowrap">เพศ:</label>
-                    <div class="col-sm-2">
-                      <select class="form-control">
-                        <option>ชาย</option><option>หญิง</option>
-                      </select>
-                    </div>
-                    <label class="col-sm-2 col-form-label text-nowrap" >มีสถานภาพเป็น:</label>
-                    <div class="col-sm-2">
-                      <input type="text" class="form-control" placeholder="ลูกพี่ลูกน้อง"required>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-sm-1 col-form-label text-nowrap" >ชื่อ:</label>
-                    <div class="col-sm-4">
-                      <input type="text" class="form-control" placeholder="ธนสนธิ์"required>
-                    </div>
-                    <label class="col-sm-1 col-form-label text-nowrap" >นามสกุล:</label>
-                    <div class="col-sm-5">
-                      <input type="text" class="form-control" placeholder="เอี่ยมยิ่งสกุล" required>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label text-nowrap" >รหัสบัตรประชาชน:</label>
-                    <div class="col-sm-3">
-                      <input type="text" class="form-control" placeholder="xxxxxxxxxxxxx" required>
-                    </div>
-                    <label class="col-sm-1 col-form-label text-nowrap" >อีเมลล์:</label>
-                    <div class="col-sm-5">
-                      <input type="email" class="form-control" placeholder="TitleInwza007@Tiger.ttt" required>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-sm-2 col-form-label text-nowrap" >เบอร์โทรศัพท์มือถือ:</label>
-                    <div class="col-sm-2">
-                      <input type="tel" class="form-control" placeholder="0876819990" required>
-                    </div>
-                    <label class="col-form-label text-nowrap col-sm-2" for="date" >วัน/เดือน/ปี เกิด:</label>
-                    <div class="col-sm-2">
-                        <input class="form-control" name="date" placeholder="31/12/1997" type="text">
-                    </div>
-                    <label class="col-sm-1 col-form-label text-nowrap" style="margin-right:8px">สถาณภาพ:</label>
-                    <div class="col-sm-2">
-                      <select class="form-control">
-                        <option>มีชีวิต</option><option>เสียชีวิต</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-sm-1 col-form-label text-nowrap" >อาชีพ:</label>
-                    <div class="col-sm-3">
-                      <input type="text" class="form-control" placeholder="นักธุรกิจ" required>
-                    </div>
-                    <label class="col-sm-1 col-form-label text-nowrap" >ตำแหน่ง:</label>
-                    <div class="col-sm-3">
-                      <input type="text" class="form-control" placeholder="ผู้จัดการ" required>
-                    </div>
-                    <label class="col-sm-1 col-form-label text-nowrap" >เงินเดือน:</label>
-                    <div class="col-sm-2">
-                      <input type="text" class="form-control" placeholder="300000" required>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-sm-1 col-form-label text-nowrap" style="margin-right:25px" >สถานที่ทำงาน:</label>
-                    <div class="col-sm-5">
-                      <input type="text" class="form-control" placeholder="บริษัท ไตเติ้ล จำกัดมหาชน" required>
-                    </div>
-                    <label class="col-sm-2 col-form-label text-nowrap" > เบอร์โทร ที่ทำงาน:</label>
-                    <div class="col-sm-2">
-                      <input type="tel" class="form-control" placeholder="02222222-2" required>
-                    </div>
-                  </div>
-                  <div class="form-group row">
-                    <label class="col-form-label text-nowrap col-sm-1">สัญชาติ:</label>
-                    <div class="col-sm-2">
-                        <input class="form-control" placeholder="ไทย" required>
-                    </div>
-                    <label class="col-form-label text-nowrap col-sm-1" style="padding-right:1px">เชื้อชาติ:</label>
-                    <div class="col-sm-2">
-                        <input class="form-control" placeholder="ไทย" required>
-                    </div>
-                    <label class="col-form-label text-nowrap col-sm-1"  >ศาสนา:</label>
-                    <div class="col-sm-2">
-                        <input class="form-control" placeholder="พุทธ" required>
-                    </div>
-                  </div>
-                </form>
-                <button class="btn" style="width:auto;margin-top:5px;margin-bottom:5px" type ="button" data-toggle="collapse" data-target="#addressRegisPar">
-                  <label>ที่อยู่ตามทะเบียน</label>
-                </button>
-                <div class="card">
-                <div id="addressRegisPar" class="collapse show">
-                  <div class="card-body">
-                    <form class="form-in " style="background-color:#F7F7F7">
+                        <label class="col-sm-1 col-form-label text-nowrap" style="margin-right:30px" >คำนำหน้าชื่อ:</label>
+                        <div class="col-sm-2">
+                          <select form="realform"  class="form-control" name="titlenameParent">
+                            <option>นาย</option>
+                            <option>นาง</option>
+                            <option>นางสาว</option>
+                          </select>
+                        </div>
+                      </div>
                       <div class="form-group row">
-                        <label class="col-sm-2 col-form-label text-nowrap" >บ้านเลขที่:</label>
-                        <div class="col-sm-2">
-                          <input type="text" class="form-control" placeholder="11/12"required>
-                        </div>
-                        <label class="col-sm-1 col-form-label text-nowrap" >ซอย:</label>
-                        <div class="col-sm-3">
-                          <input type="text" class="form-control" placeholder="ประชาอุทิศ 45">
-                        </div>
-                        <label class="col-sm-1 col-form-label text-nowrap" >ถนน:</label>
-                        <div class="col-sm-3">
-                          <input type="text" class="form-control" placeholder="ประชาอุทิศ"required>
-                        </div>
-                        <label class="col-sm-2 col-form-label text-nowrap" >แขวง/ตำบล:</label>
-                        <div class="col-sm-2">
-                          <input type="text" class="form-control" placeholder="บางมด"required>
-                        </div>
-                        <label class="col-sm-2 col-form-label text-nowrap" >เขต/อำเภอ:</label>
-                        <div class="col-sm-2">
-                          <input type="text" class="form-control" placeholder="ทุ่งครุ"required>
-                        </div>
-                        <label class="col-sm-1 col-form-label text-nowrap" >จังหวัด:</label>
-                        <div class="col-sm-3">
-                          <input type="text" class="form-control" placeholder="กรุงเทพมหานคร"required>
-                        </div>
-                        <label class="col-sm-2 col-form-label text-nowrap" >รหัสไปรษณีย์:</label>
-                        <div class="col-sm-2">
-                          <input type="text" class="form-control" placeholder="10140"required>
+                            <label class="col-sm-1 col-form-label text-nowrap" >ชื่อ:</label>
+                            <div class="col-sm-4">
+                              <input form ="realform" type="text" class="form-control" placeholder="ธนสนธิ์"required name="firstnameParent">
+                            </div>
+                            <label class="col-sm-1 col-form-label text-nowrap" >นามสกุล:</label>
+                            <div class="col-sm-5">
+                              <input form ="realform" type="text" class="form-control" placeholder="เอี่ยมยิ่งสกุล" required name="lastnameParent">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label class="col-sm-2 col-form-label text-nowrap" >รหัสบัตรประชาชน:</label>
+                            <div class="col-sm-3">
+                              <input form ="realform" type="text" class="form-control" placeholder="xxxxxxxxxxxxx" required name="citizenIDParent">
+                            </div>
+                            <label class="col-sm-1 col-form-label text-nowrap" >อีเมลล์:</label>
+                            <div class="col-sm-5">
+                              <input form ="realform" type="email" class="form-control" placeholder="TitleInwza007@Tiger.ttt" required name="emailParent">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label class="col-sm-2 col-form-label text-nowrap" >เบอร์โทรศัพท์มือถือ:</label>
+                            <div class="col-sm-2">
+                              <input form ="realform" type="tel" class="form-control" placeholder="0876819990" required name="telParent">
+                            </div>
+                            <label class="col-form-label text-nowrap col-sm-2" for="date" >วัน/เดือน/ปี เกิด:</label>
+                            <div class="col-sm-2">
+                                <input form ="realform" class="form-control" name="dateParent" placeholder="31/12/1997" type="text">
+                            </div>
+                            <label class="col-sm-1 col-form-label text-nowrap" style="margin-right:8px">สถาณภาพ:</label>
+                            <div class="col-sm-2">
+                              <select form="realform"  class="form-control" name="statusParent">
+                                <option>มีชีวิต</option><option>เสียชีวิต</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label class="col-sm-1 col-form-label text-nowrap" >อาชีพ:</label>
+                            <div class="col-sm-3">
+                              <input form ="realform" type="text" class="form-control" placeholder="นักธุรกิจ" required name="careerParent">
+                            </div>
+                            <label class="col-sm-1 col-form-label text-nowrap" >ตำแหน่ง:</label>
+                            <div class="col-sm-3">
+                              <input form ="realform" type="text" class="form-control" placeholder="ผู้จัดการ" required name="careerPosParent">
+                            </div>
+                            <label class="col-sm-1 col-form-label text-nowrap" >เงินเดือน:</label>
+                            <div class="col-sm-2">
+                              <input form ="realform" type="text" class="form-control" placeholder="300000" required name="salaryParent">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label class="col-sm-1 col-form-label text-nowrap" style="margin-right:25px" >สถานที่ทำงาน:</label>
+                            <div class="col-sm-5">
+                              <input form ="realform" type="text" class="form-control" placeholder="บริษัท ไตเติ้ล จำกัดมหาชน" required name="workplaceNameParent">
+                            </div>
+                            <label class="col-sm-2 col-form-label text-nowrap" > เบอร์โทร ที่ทำงาน:</label>
+                            <div class="col-sm-2">
+                              <input form ="realform" type="tel" class="form-control" placeholder="02222222-2" required name="workplaceTelParent">
+                            </div>
+                          </div>
+                          <div class="form-group row">
+                            <label class="col-form-label text-nowrap col-sm-1">สัญชาติ:</label>
+                            <div class="col-sm-2">
+                                <input form ="realform" class="form-control" placeholder="ไทย" required name="nationalityParent">
+                            </div>
+                            <label class="col-form-label text-nowrap col-sm-1" style="padding-right:1px">เชื้อชาติ:</label>
+                            <div class="col-sm-2">
+                                <input form ="realform" class="form-control" placeholder="ไทย" required name="raceParent">
+                            </div>
+                            <label class="col-form-label text-nowrap col-sm-1"  >ศาสนา:</label>
+                            <div class="col-sm-2">
+                                <input form ="realform" class="form-control" placeholder="พุทธ" required name="religionParent">
+                            </div>
+                          </div>
+                        </form>
+                        <button class="btn" style="width:auto;margin-top:5px;margin-bottom:5px" type ="button" data-toggle="collapse" data-target="#addressRegisParent">
+                          <label>ที่อยู่ตามทะเบียน</label>
+                        </button>
+                        <div class="card">
+                        <div id="addressRegisParent" class="collapse show">
+                          <div class="card-body">
+                            <form class="form-in " style="background-color:#F7F7F7">
+                              <div class="form-group row">
+                                <label class="col-sm-2 col-form-label text-nowrap" >บ้านเลขที่:</label>
+                                <div class="col-sm-2">
+                                    <input form ="realform" type="text" class="form-control" placeholder="11/12"required name="homeNOParent">
+                                </div>
+                                <label class="col-sm-1 col-form-label text-nowrap" >ซอย:</label>
+                                <div class="col-sm-3">
+                                    <input form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ 45" name="alleyParent">
+                                </div>
+                                <label class="col-sm-1 col-form-label text-nowrap" >ถนน:</label>
+                                <div class="col-sm-3">
+                                    <input form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ"required name="streetParent">
+                                </div>
+                                <label class="col-sm-2 col-form-label text-nowrap" >แขวง/ตำบล:</label>
+                                <div class="col-sm-2">
+                                    <input form ="realform" type="text" class="form-control" placeholder="บางมด"required name="subdistrictParent">
+                                </div>
+                                <label class="col-sm-2 col-form-label text-nowrap" >เขต/อำเภอ:</label>
+                                <div class="col-sm-2">
+                                    <input form ="realform" type="text" class="form-control" placeholder="ทุ่งครุ"required name="districtParent">
+                                </div>
+                                <label class="col-sm-1 col-form-label text-nowrap" >จังหวัด:</label>
+                                <div class="col-sm-3">
+                                    <input form ="realform" type="text" class="form-control" placeholder="กรุงเทพมหานคร"required name="provienceParent">
+                                </div>
+                                <label class="col-sm-2 col-form-label text-nowrap" >รหัสไปรษณีย์:</label>
+                                <div class="col-sm-2">
+                                    <input form ="realform" type="text" class="form-control" placeholder="10140" required name="postcodeParent">
                         </div>
                       </div>
                     </form>
@@ -747,7 +743,9 @@
               </div>
             </div>
           </div>
-          <button type="button" class="btn btn-primary" style="margin-top:5px">Submit</button>
+          <input form ="realform" class="btn btn-primary" style="margin-top:5px" type="submit" value="submit" >
+
+          </form>
           </div>
         </div>
         <div class="col-1"></div>
