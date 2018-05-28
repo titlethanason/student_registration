@@ -13,6 +13,19 @@ var studentRoutes = require("./routes/student");
 var adminRoutes = require("./routes/admin");
 var infoRoutes = require("./routes/info");
 var registerRoutes = require("./routes/register");
+var analysis1 = require("./routes/analysis1");
+var analysis2 = require("./routes/analysis2");
+var analysis3 = require("./routes/analysis3");
+var analysis4 = require("./routes/analysis4");
+var analysis5 = require("./routes/analysis5");
+var analysis6 = require("./routes/analysis6");
+var analysis7 = require("./routes/analysis7");
+var analysis8 = require("./routes/analysis8");
+var analysis9 = require("./routes/analysis9");
+var analysis10 = require("./routes/analysis10");
+var analysis11 = require("./routes/analysis11");
+var analysis12 = require("./routes/analysis12");
+
 app.use(express.static(__dirname + "/public"));
 app.use(flash());
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
@@ -97,6 +110,18 @@ app.use(registerRoutes);
 app.use(infoRoutes);
 app.use(studentRoutes);
 app.use(adminRoutes);
+app.use(analysis1);
+app.use(analysis2);
+app.use(analysis3);
+app.use(analysis4);
+app.use(analysis5);
+app.use(analysis6);
+app.use(analysis7);
+app.use(analysis8);
+app.use(analysis9);
+app.use(analysis10);
+app.use(analysis11);
+app.use(analysis12);
 
 app.listen(80, "127.0.0.1", function(){
     console.log("Server has started!");
