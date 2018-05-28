@@ -43,6 +43,14 @@ router.post("/checkPay",middleware.isLoggedInAdmin,function(req,res){
     });
 });
 
+router.get("/analysis1",middleware.isLoggedInAdmin,function(req,res){
+    res.render("analysis1");
+});
 
+router.get("/mostDropSub",middleware.isLoggedInAdmin,function(req,res){
+    db.query("SELECT subjectID , count(*) as cnt FROM enrollment WHERE dropStatus = 1 GROUP BY subjectID",function(err,results){
+
+    });
+});
 
 module.exports = router;
