@@ -32,7 +32,7 @@ router.get("/",middleware.isLoggedInWelcome,function(req,res){
             users.push(temp)
         }
         res.render("index",{u:users});
-        });
+    });
 });
 
 // teachTable Remaining : Teacher , TA
@@ -142,14 +142,57 @@ router.get("/teachTable",middleware.isLoggedIn,function(req,res){
     }
 });
 
+
+// info : Teacher , TA
+router.get("/infoTeacher",middleware.isLoggedIn,function(req,res){
+    if(req.user.role == "teacher"){
+        var qinfo = "SELECT * FROM teacher WHERE teacherID = ? ";
+        db.query(qinfo,[req.user.username],function(err,result){
+            if(err) throw err;
+            var obj = {};
+            obj = {tinfo: result};
+            obj.tinfo = result;
+            res.render("infoTeacher",obj);
+        });
+    }
+    else if(req.user.role == "ta"){
+        var qinfo = "SELECT * FROM teacherassistant WHERE ID = ? ";
+        db.query(qinfo,[req.user.username],function(err,result){
+            if(err) throw err;
+            var obj = {};
+            obj = {tinfo: result};
+            obj.tinfo = result;
+            res.render("infoTeacher",obj);
+        });
+    }
+    else{
+        req.flash("error","You don't have permission to access");
+        console.log("Error userrole in infoTeacher ");
+        res.redirect("/");
+    }
+});
+
 // stdList Remaining : Teacher , TA
 router.get("/stdList",middleware.isLoggedIn,function(req,res){
     if(req.user.role == "teacher"){
-        var qstdList = "SELECT sc.subject,sj.subjectCode,t.titlename,t.firstname,t.lastname,e.stdID,sd.firstnameTH,sd.lastnameTH FROM schedule sc,section s,subject sj,teacherteach tt,teacher t,enrollment e,student sd WHERE sd.stdID = e.stdID AND e.subjectID = s.subject AND e.subjectSec = s.section AND sc.section = s.section AND sc.subject = s.subject AND s.subject = sj.subjectCode AND sc.ID = tt.scheduleID AND tt.teacherID = t.teacherID AND tt.teacherID = ? ORDER BY e.stdID";
-
+        var qstdList = "SELECT e.subjectSec,sc.subject,sj.subjectName,t.titlename,t.firstname,t.lastname,e.stdID,sd.firstnameTH,sd.lastnameTH FROM schedule sc,section s,subject sj,teacherteach tt,teacher t,enrollment e,student sd WHERE sd.stdID = e.stdID AND e.subjectID = s.subject AND e.subjectSec = s.section AND sc.section = s.section AND sc.subject = s.subject AND s.subject = sj.subjectCode AND sc.ID = tt.scheduleID AND tt.teacherID = t.teacherID AND e.subjectSec = sc.section AND tt.teacherID = ? ORDER BY sc.subject,e.stdID";
+        db.query(qstdList,[req.user.username],function(err,result){
+            if(err) throw err;
+            var obj = {};
+            obj = {stdList: result};
+            obj.stdList = result;
+            res.render("stdList",obj);
+        });
     }
     else if(req.user.role == "ta"){
-        res.redirect("/"); //edit here
+        var qstdList = "SELECT e.subjectSec,sc.subject,sj.subjectName,t.titlename,t.firstname,t.lastname,e.stdID,sd.firstnameTH,sd.lastnameTH FROM schedule sc,section s,subject sj,tateach tt,teacherassistant t,enrollment e,student sd WHERE sd.stdID = e.stdID AND e.subjectID = s.subject AND e.subjectSec = s.section AND sc.section = s.section AND sc.subject = s.subject AND s.subject = sj.subjectCode AND s.subject = tt.subject AND tt.section = s.section AND tt.ID = t.ID AND e.subjectSec = sc.section AND tt.ID = ? ORDER BY sc.subject,e.stdID";
+        db.query(qstdList,[req.user.username],function(err,result){
+            if(err) throw err;
+            var obj = {};
+            obj = {stdList: result};
+            obj.stdList = result;
+            res.render("stdList",obj);
+        });
     }
     else{
         req.flash("error","You don't have permission to access");
@@ -163,13 +206,22 @@ router.get("/stdRecord",middleware.isLoggedIn,function(req,res){
     if(req.user.role != "teacher"){
         req.flash("error","You don't have permission to access");
         console.log("Error userrole in stdRecord ");
-        res.redirect("/"); //edit here
+        res.redirect("/"); 
     }
     else{
-        res.redirect("/"); //edit here
+        var qstdRecord = "SELECT e.point,e.grade,e.subjectSec,sc.subject,sj.subjectName,e.stdID,sd.firstnameTH,sd.lastnameTH FROM schedule sc,section s,subject sj,teacherteach tt,teacher t,enrollment e,student sd WHERE sd.stdID = e.stdID AND e.subjectID = s.subject AND e.subjectSec = s.section AND sc.section = s.section AND sc.subject = s.subject AND s.subject = sj.subjectCode AND sc.ID = tt.scheduleID AND tt.teacherID = t.teacherID AND e.grade IS NOT NULL AND e.point IS NOT NULL AND tt.teacherID = ? ORDER BY e.stdID";
+        db.query(qstdRecord,[req.user.username],function(err,result){
+            if(err) throw err;
+            var obj = {};
+            obj = {stdRecord: result};
+            obj.stdRecord = result;
+            res.render("stdRecord",obj);
+        });
     }
 });
     
+
+
 //Login & Logout
 router.get("/login",function(req,res){
     if(req.isAuthenticated())

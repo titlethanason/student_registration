@@ -16,6 +16,9 @@ var registerRoutes = require("./routes/register");
 app.use(express.static(__dirname + "/public"));
 app.use(flash());
 app.use('/jquery', express.static(__dirname + '/node_modules/jquery/dist/'));
+var fileUpload = require('express-fileupload');
+app.use(fileUpload());
+
 
 //Authentication
 var session = require('express-session');

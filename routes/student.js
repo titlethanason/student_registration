@@ -7,7 +7,6 @@ var bcrypt = require('bcrypt');
 var saltRounds = 10;
 var middleware = require("../middleware");
 
-
 // addSubject Remaining : GET , POST
 router.get("/addSubject",middleware.isLoggedInStudent,function(req,res){
         //console.log("NOOB!!");

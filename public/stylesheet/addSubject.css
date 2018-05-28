@@ -1,13 +1,15 @@
 table, td, th {
-    border: 5px solid #bae2e6;
+    border: 2px solid;
     text-align: center;
+    border-color: #9E9E9E;
   }
 td.top {
-  background-color: #bdb4cd;
+  background-color: #9E9E9E;
   text-align: right;
+  display:
   }
 td.bottom {
-  background-color: #dcd3d8;
+  background-color: #E3E3E3;
   padding: 15px;
 }
 .box{
@@ -27,17 +29,15 @@ html, body {
 }
 
 .button:hover {
-  background: #fdc2cd;
-  color: #000;
-  text-decoration: none;
+  background: #fe8aa5;
+  color: white;
+  border-color: CCCCCC;
 }
 .container
 {
   width: 800px;
-  background-color: #bfebee;
 }
 section{
-  background-color: #f9f7d5;
   object-position: center;
 }
 form{

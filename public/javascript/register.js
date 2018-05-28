@@ -1,6 +1,106 @@
 var countAllergy = 0;
 var countDisease = 0;
 var countDisability = 0;
+
+$(document).ready(function (e) {
+  $('#uploadForm').on('submit',(function(e) {
+      e.preventDefault();
+      var formData = new FormData(this);
+
+      $.ajax({
+          type:'POST',
+          url: $(this).attr('action'),
+          data:formData,
+          cache:false,
+          contentType: false,
+          processData: false,
+          success:function(data){
+            console.log("picture path : "+data);
+              document.getElementById("picturePhotoPath").value = data;
+              document.getElementById("pictureChecked").style.display = "block";
+              document.getElementById("pictureLoad").disabled = true;
+          },
+          error: function(data){
+              console.log("error");
+              console.log(data);
+          }
+      });
+  }));
+
+  $('#uploadForm2').on('submit',(function(e) {
+    e.preventDefault();
+    var formData = new FormData(this);
+
+    $.ajax({
+        type:'POST',
+        url: $(this).attr('action'),
+        data:formData,
+        cache:false,
+        contentType: false,
+        processData: false,
+        success:function(data){
+            console.log("id card path : "+data);
+            document.getElementById("idCardPhotoPath").value = data;
+            document.getElementById("idCardChecked").style.display = "block";
+            document.getElementById("idCardLoad").disabled = true;
+        },
+        error: function(data){
+            console.log("error");
+            console.log(data);
+        }
+    });
+  }));
+  
+  $('#uploadForm3').on('submit',(function(e) {
+    e.preventDefault();
+    var formData = new FormData(this);
+
+    $.ajax({
+        type:'POST',
+        url: $(this).attr('action'),
+        data:formData,
+        cache:false,
+        contentType: false,
+        processData: false,
+        success:function(data){
+            console.log("Regis home path : "+data);
+            document.getElementById("RegisPhotoPath").value = data;
+            document.getElementById("RegisChecked").style.display = "block";
+            document.getElementById("RegisLoad").disabled = true;
+        },
+        error: function(data){
+            console.log("error");
+            console.log(data);
+        }
+    });
+  }));
+
+  $('#uploadForm4').on('submit',(function(e) {
+    e.preventDefault();
+    var formData = new FormData(this);
+
+    $.ajax({
+        type:'POST',
+        url: $(this).attr('action'),
+        data:formData,
+        cache:false,
+        contentType: false,
+        processData: false,
+        success:function(data){
+            console.log("stdRecord path : "+data);
+            document.getElementById("stdRecordPhotoPath").value = data;
+            document.getElementById("stdRecordChecked").style.display = "block";
+            document.getElementById("stdRecordLoad").disabled = true;
+        },
+        error: function(data){
+            console.log("error");
+            console.log(data);
+        }
+    });
+  }));
+});
+
+
 function addFunctionAllergy(){
     countAllergy = countAllergy+1;
     var temp = document.getElementById("divAllergy").innerHTML;
