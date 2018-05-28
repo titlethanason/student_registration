@@ -32,108 +32,16 @@ router.get("/",middleware.isLoggedInWelcome,function(req,res){
             users.push(temp)
         }
         res.render("index",{u:users});
-    });
+        });
 });
 
 // teachTable Remaining : Teacher , TA
 router.get("/teachTable",middleware.isLoggedIn,function(req,res){
     if(req.user.role == "teacher"){
-        var qttMon = "SELECT * FROM schedule sc,section s,subject sj,teacherteach tt,teacher t WHERE sc.section = s.section AND sc.subject = s.subject AND s.subject = sj.subjectCode AND sc.ID = tt.scheduleID AND tt.teacherID = t.teacherID AND sc.day = 'Monday' AND tt.teacherID = ? ORDER BY sc.timeStart,sc.section";
-        var qttTue = "SELECT * FROM schedule sc,section s,subject sj,teacherteach tt,teacher t WHERE sc.section = s.section AND sc.subject = s.subject AND s.subject = sj.subjectCode AND sc.ID = tt.scheduleID AND tt.teacherID = t.teacherID AND sc.day = 'Tuesday' AND tt.teacherID = ? ORDER BY sc.timeStart,sc.section";
-        var qttWed = "SELECT * FROM schedule sc,section s,subject sj,teacherteach tt,teacher t WHERE sc.section = s.section AND sc.subject = s.subject AND s.subject = sj.subjectCode AND sc.ID = tt.scheduleID AND tt.teacherID = t.teacherID AND sc.day = 'Wednesday' AND tt.teacherID = ? ORDER BY sc.timeStart,sc.section";
-        var qttThu = "SELECT * FROM schedule sc,section s,subject sj,teacherteach tt,teacher t WHERE sc.section = s.section AND sc.subject = s.subject AND s.subject = sj.subjectCode AND sc.ID = tt.scheduleID AND tt.teacherID = t.teacherID AND sc.day = 'Thursday' AND tt.teacherID = ? ORDER BY sc.timeStart,sc.section";
-        var qttFri = "SELECT * FROM schedule sc,section s,subject sj,teacherteach tt,teacher t WHERE sc.section = s.section AND sc.subject = s.subject AND s.subject = sj.subjectCode AND sc.ID = tt.scheduleID AND tt.teacherID = t.teacherID AND sc.day = 'Friday' AND tt.teacherID = ? ORDER BY sc.timeStart,sc.section";
-        var qttSat = "SELECT * FROM schedule sc,section s,subject sj,teacherteach tt,teacher t WHERE sc.section = s.section AND sc.subject = s.subject AND s.subject = sj.subjectCode AND sc.ID = tt.scheduleID AND tt.teacherID = t.teacherID AND sc.day = 'Saturday' AND tt.teacherID = ? ORDER BY sc.timeStart,sc.section";
-        var qttSun = "SELECT * FROM schedule sc,section s,subject sj,teacherteach tt,teacher t WHERE sc.section = s.section AND sc.subject = s.subject AND s.subject = sj.subjectCode AND sc.ID = tt.scheduleID AND tt.teacherID = t.teacherID AND sc.day = 'Sunday' AND tt.teacherID = ? ORDER BY sc.timeStart,sc.section";
-        db.query(qttMon,[req.user.username] ,function(err, result) {
-            if(err){
-                throw err;
-            } else {
-                    var obj = {};
-                    obj = {mon: result};
-                    db.query(qttTue,[req.user.username],function(err2,result2){
-                            if(err2) throw err2;
-                            obj = {tue: result2};
-                            db.query(qttWed,[req.user.username],function(err3,result3){
-                                    if(err3) throw err3;
-                                    obj = {wed: result3};
-                                    db.query(qttThu,[req.user.username],function(err4,result4){
-                                            if(err4) throw err4;
-                                            obj = {thu: result4};
-                                            db.query(qttFri,[req.user.username],function(err5,result5){
-                                                    if(err5) throw err5;
-                                                    obj = {fri: result5};
-                                                    db.query(qttSat,[req.user.username],function(err6,result6){
-                                                            if(err6) throw err6;
-                                                            obj = {sat: result6};
-                                                            db.query(qttSun,[req.user.username],function(err7,result7){
-                                                                    if(err7) throw err7;
-                                                                    obj = {sun: result7};
-                                                                    obj.mon = result;
-                                                                    obj.tue = result2;
-                                                                    obj.wed = result3;
-                                                                    obj.thu = result4;
-                                                                    obj.fri = result5;
-                                                                    obj.sat = result6;
-                                                                    obj.sun = result7;
-                                                                    res.render("teachTable", obj);
-                                                            }  );
-                                                    }  );
-                                            }  );
-                                    }  );
-                            }  );
-                    });              
-            }
-        });
+        res.redirect("/"); //edit here
     }
     else if(req.user.role == "ta"){
-        var qttMon = "SELECT * FROM schedule sc,section s,subject sj,tateach tt,teacherassistant t WHERE sc.section = s.section AND sc.subject = s.subject AND s.subject = sj.subjectCode AND tt.subject = s.subject AND tt.section = s.section AND tt.ID = t.ID AND sc.day = 'Monday' AND tt.ID = ? ORDER BY sc.timeStart,sc.section";
-        var qttTue = "SELECT * FROM schedule sc,section s,subject sj,tateach tt,teacherassistant t WHERE sc.section = s.section AND sc.subject = s.subject AND s.subject = sj.subjectCode AND tt.subject = s.subject AND tt.section = s.section AND tt.ID = t.ID AND sc.day = 'Tuesday' AND tt.ID = ? ORDER BY sc.timeStart,sc.section";
-        var qttWed = "SELECT * FROM schedule sc,section s,subject sj,tateach tt,teacherassistant t WHERE sc.section = s.section AND sc.subject = s.subject AND s.subject = sj.subjectCode AND tt.subject = s.subject AND tt.section = s.section AND tt.ID = t.ID AND sc.day = 'Wednesday' AND tt.ID = ? ORDER BY sc.timeStart,sc.section";
-        var qttThu = "SELECT * FROM schedule sc,section s,subject sj,tateach tt,teacherassistant t WHERE sc.section = s.section AND sc.subject = s.subject AND s.subject = sj.subjectCode AND tt.subject = s.subject AND tt.section = s.section AND tt.ID = t.ID AND sc.day = 'Thursday' AND tt.ID = ? ORDER BY sc.timeStart,sc.section";
-        var qttFri = "SELECT * FROM schedule sc,section s,subject sj,tateach tt,teacherassistant t WHERE sc.section = s.section AND sc.subject = s.subject AND s.subject = sj.subjectCode AND tt.subject = s.subject AND tt.section = s.section AND tt.ID = t.ID AND sc.day = 'Friday' AND tt.ID = ? ORDER BY sc.timeStart,sc.section";
-        var qttSat = "SELECT * FROM schedule sc,section s,subject sj,tateach tt,teacherassistant t WHERE sc.section = s.section AND sc.subject = s.subject AND s.subject = sj.subjectCode AND tt.subject = s.subject AND tt.section = s.section AND tt.ID = t.ID AND sc.day = 'Saturday' AND tt.ID = ? ORDER BY sc.timeStart,sc.section";
-        var qttSun = "SELECT * FROM schedule sc,section s,subject sj,tateach tt,teacherassistant t WHERE sc.section = s.section AND sc.subject = s.subject AND s.subject = sj.subjectCode AND tt.subject = s.subject AND tt.section = s.section AND tt.ID = t.ID AND sc.day = 'Sunday' AND tt.ID = ? ORDER BY sc.timeStart,sc.section";
-        db.query(qttMon,[req.user.username] ,function(err, result) {
-            if(err){
-                throw err;
-            } else {
-                    var obj = {};
-                    obj = {mon: result};
-                    db.query(qttTue,[req.user.username],function(err2,result2){
-                            if(err2) throw err2;
-                            obj = {tue: result2};
-                            db.query(qttWed,[req.user.username],function(err3,result3){
-                                    if(err3) throw err3;
-                                    obj = {wed: result3};
-                                    db.query(qttThu,[req.user.username],function(err4,result4){
-                                            if(err4) throw err4;
-                                            obj = {thu: result4};
-                                            db.query(qttFri,[req.user.username],function(err5,result5){
-                                                    if(err5) throw err5;
-                                                    obj = {fri: result5};
-                                                    db.query(qttSat,[req.user.username],function(err6,result6){
-                                                            if(err6) throw err6;
-                                                            obj = {sat: result6};
-                                                            db.query(qttSun,[req.user.username],function(err7,result7){
-                                                                    if(err7) throw err7;
-                                                                    obj = {sun: result7};
-                                                                    obj.mon = result;
-                                                                    obj.tue = result2;
-                                                                    obj.wed = result3;
-                                                                    obj.thu = result4;
-                                                                    obj.fri = result5;
-                                                                    obj.sat = result6;
-                                                                    obj.sun = result7;
-                                                                    res.render("teachTable", obj);
-                                                            }  );
-                                                    }  );
-                                            }  );
-                                    }  );
-                            }  );
-                    });              
-            }
-        });
+        res.redirect("/"); //edit here
     }
     else{
         req.flash("error","You don't have permission to access");
@@ -142,57 +50,13 @@ router.get("/teachTable",middleware.isLoggedIn,function(req,res){
     }
 });
 
-
-// info : Teacher , TA
-router.get("/infoTeacher",middleware.isLoggedIn,function(req,res){
-    if(req.user.role == "teacher"){
-        var qinfo = "SELECT * FROM teacher WHERE teacherID = ? ";
-        db.query(qinfo,[req.user.username],function(err,result){
-            if(err) throw err;
-            var obj = {};
-            obj = {tinfo: result};
-            obj.tinfo = result;
-            res.render("infoTeacher",obj);
-        });
-    }
-    else if(req.user.role == "ta"){
-        var qinfo = "SELECT * FROM teacherassistant WHERE ID = ? ";
-        db.query(qinfo,[req.user.username],function(err,result){
-            if(err) throw err;
-            var obj = {};
-            obj = {tinfo: result};
-            obj.tinfo = result;
-            res.render("infoTeacher",obj);
-        });
-    }
-    else{
-        req.flash("error","You don't have permission to access");
-        console.log("Error userrole in infoTeacher ");
-        res.redirect("/");
-    }
-});
-
 // stdList Remaining : Teacher , TA
 router.get("/stdList",middleware.isLoggedIn,function(req,res){
     if(req.user.role == "teacher"){
-        var qstdList = "SELECT e.subjectSec,sc.subject,sj.subjectName,t.titlename,t.firstname,t.lastname,e.stdID,sd.firstnameTH,sd.lastnameTH FROM schedule sc,section s,subject sj,teacherteach tt,teacher t,enrollment e,student sd WHERE sd.stdID = e.stdID AND e.subjectID = s.subject AND e.subjectSec = s.section AND sc.section = s.section AND sc.subject = s.subject AND s.subject = sj.subjectCode AND sc.ID = tt.scheduleID AND tt.teacherID = t.teacherID AND e.subjectSec = sc.section AND tt.teacherID = ? ORDER BY sc.subject,e.stdID";
-        db.query(qstdList,[req.user.username],function(err,result){
-            if(err) throw err;
-            var obj = {};
-            obj = {stdList: result};
-            obj.stdList = result;
-            res.render("stdList",obj);
-        });
+        res.redirect("/"); //edit here
     }
     else if(req.user.role == "ta"){
-        var qstdList = "SELECT e.subjectSec,sc.subject,sj.subjectName,t.titlename,t.firstname,t.lastname,e.stdID,sd.firstnameTH,sd.lastnameTH FROM schedule sc,section s,subject sj,tateach tt,teacherassistant t,enrollment e,student sd WHERE sd.stdID = e.stdID AND e.subjectID = s.subject AND e.subjectSec = s.section AND sc.section = s.section AND sc.subject = s.subject AND s.subject = sj.subjectCode AND s.subject = tt.subject AND tt.section = s.section AND tt.ID = t.ID AND e.subjectSec = sc.section AND tt.ID = ? ORDER BY sc.subject,e.stdID";
-        db.query(qstdList,[req.user.username],function(err,result){
-            if(err) throw err;
-            var obj = {};
-            obj = {stdList: result};
-            obj.stdList = result;
-            res.render("stdList",obj);
-        });
+        res.redirect("/"); //edit here
     }
     else{
         req.flash("error","You don't have permission to access");
@@ -206,22 +70,13 @@ router.get("/stdRecord",middleware.isLoggedIn,function(req,res){
     if(req.user.role != "teacher"){
         req.flash("error","You don't have permission to access");
         console.log("Error userrole in stdRecord ");
-        res.redirect("/"); 
+        res.redirect("/"); //edit here
     }
     else{
-        var qstdRecord = "SELECT e.point,e.grade,e.subjectSec,sc.subject,sj.subjectName,e.stdID,sd.firstnameTH,sd.lastnameTH FROM schedule sc,section s,subject sj,teacherteach tt,teacher t,enrollment e,student sd WHERE sd.stdID = e.stdID AND e.subjectID = s.subject AND e.subjectSec = s.section AND sc.section = s.section AND sc.subject = s.subject AND s.subject = sj.subjectCode AND sc.ID = tt.scheduleID AND tt.teacherID = t.teacherID AND e.grade IS NOT NULL AND e.point IS NOT NULL AND tt.teacherID = ? ORDER BY e.stdID";
-        db.query(qstdRecord,[req.user.username],function(err,result){
-            if(err) throw err;
-            var obj = {};
-            obj = {stdRecord: result};
-            obj.stdRecord = result;
-            res.render("stdRecord",obj);
-        });
+        res.redirect("/"); //edit here
     }
 });
     
-
-
 //Login & Logout
 router.get("/login",function(req,res){
     if(req.isAuthenticated())

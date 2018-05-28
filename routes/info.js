@@ -9,7 +9,7 @@ var middleware = require("../middleware");
 // Info Remaining : Student(GET,POST) , Teacher , TA
 router.get("/info",middleware.isLoggedIn,function(req,res){
     if(req.user.role == "student"){
-        res.render("info");
+        res.redirect("/"); //edit here
     }
     else if(req.user.role == "teacher"){
         res.redirect("/"); //edit here

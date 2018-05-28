@@ -1,9 +1,7 @@
 <% include ./partials/header %>
-<link rel="stylesheet" href="/stylesheet/Fafa.css">
-<div class="container text-align-center" style="margin-top: 3%">
+<div class="container body-center">
     <div class="row align-center">
       <div class="col-sm">
-          <h1>ตารางสอน</h1>
         <table class="table table-bordered">
           <thead class="thead-light">
             <tr >
@@ -14,89 +12,29 @@
               <th scope="col">section</th>
             </tr>
           </thead>
-          <% mon.forEach(function(user){ %>
-            <tbody>
-                <tr class="table-light">
-                  <td>จันทร์</td>
-                  <td><%= user.timeStart +' - '+user.timeEnd %></td>
-                  <td><%= user.subject+' - '+user.subjectName %></td>
-                  <td><%= user.room %></td>
-                  <td><%= user.section %></td>
-                </tr>
-              </tbody>
-          <% }); %>
-
-          <% tue.forEach(function(user){ %>
-            <tbody>
-                <tr class="table-light">
-                  <td>อังคาร</td>
-                  <td><%= user.timeStart +' - '+user.timeEnd %></td>
-                  <td><%= user.subject+' - '+user.subjectName %></td>
-                  <td><%= user.room %></td>
-                  <td><%= user.section %></td>
-                </tr>
-              </tbody>
-          <% }); %>
-
-          <% wed.forEach(function(user){ %>
-            <tbody>
-                <tr class="table-light">
-                  <td>พุธ</td>
-                  <td><%= user.timeStart +' - '+user.timeEnd %></td>
-                  <td><%= user.subject+' - '+user.subjectName %></td>
-                  <td><%= user.room %></td>
-                  <td><%= user.section %></td>
-                </tr>
-              </tbody>
-          <% }); %>
-
-          <% thu.forEach(function(user){ %>
-            <tbody>
-                <tr class="table-light">
-                  <td>พฤหัสบดี</td>
-                  <td><%= user.timeStart +' - '+user.timeEnd %></td>
-                  <td><%= user.subject+' - '+user.subjectName %></td>
-                  <td><%= user.room %></td>
-                  <td><%= user.section %></td>
-                </tr>
-              </tbody>
-          <% }); %>
-
-          <% fri.forEach(function(user){ %>
-            <tbody>
-                <tr class="table-light">
-                  <td>ศุกร์</td>
-                  <td><%= user.timeStart +' - '+user.timeEnd %></td>
-                  <td><%= user.subject+' - '+user.subjectName %></td>
-                  <td><%= user.room %></td>
-                  <td><%= user.section %></td>
-                </tr>
-              </tbody>
-          <% }); %>
-
-          <% sat.forEach(function(user){ %>
-            <tbody>
-                <tr class="table-light">
-                  <td>เสาร์</td>
-                  <td><%= user.timeStart +' - '+user.timeEnd %></td>
-                  <td><%= user.subject+' - '+user.subjectName %></td>
-                  <td><%= user.room %></td>
-                  <td><%= user.section %></td>
-                </tr>
-              </tbody>
-          <% }); %>
-
-          <% sun.forEach(function(user){ %>
-            <tbody>
-                <tr class="table-light">
-                  <td>อาทิตย์</td>
-                  <td><%= user.timeStart +' - '+user.timeEnd %></td>
-                  <td><%= user.subject+' - '+user.subjectName %></td>
-                  <td><%= user.room %></td>
-                  <td><%= user.section %></td>
-                </tr>
-              </tbody>
-          <% }); %>
+          <tbody>
+            <tr class="table-light">
+              <td>จันทร์</td>
+              <td>09.30 - 12.30</td>
+              <td>CPE231 Datamodel</td>
+              <td>CPE1115</td>
+              <td>A</td>
+            </tr>
+            <tr class="table-light">
+              <td></td>
+              <td>13.30 - 17.30</td>
+              <td>CPE234 Database</td>
+              <td>CPE1121</td>
+              <td>A</td>
+            </tr>
+            <tr class="table-light">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
         </table>
       </div>
     </div>

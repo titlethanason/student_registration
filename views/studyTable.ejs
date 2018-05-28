@@ -1,10 +1,10 @@
 
 <% include ./partials/header %>
-<link rel="stylesheet" href="/stylesheet/Fafa.css">
-  <div class="container text-align-center"  style="margin-top: 3%">
+
+  <h1>ตารางเรียน</h1>
+  <div class="container body-center">
     <div class="row align-center">
       <div class="col-sm">
-          <h1>ตารางเรียน</h1>
         <table class="table table-bordered">
           <thead class="thead-light">
             <tr >
@@ -17,7 +17,7 @@
             </tr>
           </thead>
           <tbody>
-
+            
             <% mon.forEach(function(user){ %>
               <tr class="table-light">
                   <td>จันทร์</td>
@@ -27,10 +27,10 @@
                   <td><%= user.section %></td>
                   <td><%= user.titlename + ' '+ user.firstname + ' ' + user.lastname %></td>
               </tr>
-
+              
               <% }); %>
             <% tue.forEach(function(user){ %>
-
+                
               <tr class="table-light">
               <td>อังคาร</td>
               <td><%= user.timeStart +'-'+ user.timeEnd %></td>
@@ -39,10 +39,10 @@
              <td><%= user.section %></td>
               <td><%= user.titlename + ' '+ user.firstname + ' ' + user.lastname %></td>
              </tr>
-
+        
             <% }); %>
       <% wed.forEach(function(user){ %>
-
+                
         <tr class="table-light">
             <td>พุธ</td>
             <td><%= user.timeStart +'-'+ user.timeEnd %></td>
@@ -51,10 +51,10 @@
             <td><%= user.section %></td>
             <td><%= user.titlename + ' '+ user.firstname + ' ' + user.lastname %></td>
         </tr>
-
+        
       <% }); %>
       <% thu.forEach(function(user){ %>
-
+                
         <tr class="table-light">
             <td>พฤหัสบดี</td>
             <td><%= user.timeStart +'-'+ user.timeEnd %></td>
@@ -63,10 +63,10 @@
             <td><%= user.section %></td>
             <td><%= user.titlename + ' '+ user.firstname + ' ' + user.lastname %></td>
         </tr>
-
+        
       <% }); %>
       <% fri.forEach(function(user){ %>
-
+                
         <tr class="table-light">
             <td>ศุกร์</td>
             <td><%= user.timeStart +'-'+ user.timeEnd %></td>
@@ -75,10 +75,10 @@
             <td><%= user.section %></td>
             <td><%= user.titlename + ' '+ user.firstname + ' ' + user.lastname %></td>
         </tr>
-
+        
       <% }); %>
       <% sat.forEach(function(user){ %>
-
+                
         <tr class="table-light">
             <td>เสาร์</td>
             <td><%= user.timeStart +'-'+ user.timeEnd %></td>
@@ -87,10 +87,10 @@
             <td><%= user.section %></td>
             <td><%= user.titlename + ' '+ user.firstname + ' ' + user.lastname %></td>
         </tr>
-
+        
       <% }); %>
       <% sun.forEach(function(user){ %>
-
+                
         <tr class="table-light">
             <td>อาทิตย์</td>
             <td><%= user.timeStart +'-'+ user.timeEnd %></td>
@@ -99,7 +99,7 @@
             <td><%= user.section %></td>
             <td><%= user.titlename + ' '+ user.firstname + ' ' + user.lastname %></td>
         </tr>
-
+        
       <% }); %>
           </tbody>
         </table>
@@ -107,4 +107,4 @@
     </div>
   </div>
 
-<% include ./partials/footer %>
+<% include ./partials/footer %> 

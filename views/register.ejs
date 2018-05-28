@@ -11,11 +11,9 @@
     <link href="/stylesheet/Fefe.css" rel="stylesheet">
     <script src="/javascript/register.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Kanit" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
   <body>
-
-    <div class="container text-align-center" style="margin-top:5%">
+    <div class="container body-center">
       <div class="row align-center ">
         <div class="col-1"></div>
         <div class="col-10">
@@ -41,23 +39,23 @@
                   <label class="col-sm-1 col-form-label text-nowrap" style="margin-right:30px" >คำนำหน้าชื่อ:</label>
                   <div class="col-sm-2">
                     <select form="realform"  class="form-control" name='titlenameTH'>
-                      <option value="นาย">นาย</option>
-                      <option value="นาง">นาง</option>
-                      <option value="นางสาว">นางสาว</option>
+                      <option>นาย</option>
+                      <option>นาง</option>
+                      <option>นางสาว</option>
                     </select>
                   </div>
                   <label class="col-sm-1 col-form-label text-nowrap" >Title:</label>
                   <div class="col-sm-2">
                     <select form="realform"  class="form-control" name='titlenameEN'>
-                      <option value="Mr.">Mr.</option>
-                      <option value="Mrs.">Mrs.</option>
-                      <option value="Ms.">Ms.</option>
+                      <option>Mr.</option>
+                      <option>Mrs.</option>
+                      <option>Ms.</option>
                     </select>
                   </div>
                   <label class="col-sm-1 col-form-label text-nowrap">เพศ:</label>
                   <div class="col-sm-2">
                     <select form="realform"  class="form-control" name='gender'>
-                      <option value="ชาย">ชาย</option><option value="หญิง">หญิง</option>
+                      <option>ชาย</option><option>หญิง</option>
                     </select>
                   </div>
                 </div>
@@ -82,24 +80,6 @@
                   </div>
                 </div>
                 <div class="form-group row">
-                  <label class="col-sm-1 col-form-label text-nowrap">ภาควิชา:</label>
-                  <div class="col-sm-3">
-                    <select form="realform" class="form-control" name="department">
-                      <option value="CE">วิศวกรรมโยธา</option><option value="CHME">วิศวกรรมเคมี</option>
-                      <option value="CPE">วิศวกรรมคอมพิวเตอร์</option><option value="ME">วิศวกรรมเครื่องกล</option>
-                      <option value="CHE">เคมี</option><option value="PHY">ฟิสิกส์</option>
-                      <option value="MIC">จุลชีววิทยา</option><option value="MATH">คณิตศาสตร์</option>
-                    </select>
-                  </div>
-                  <label class="col-sm-1 col-form-label text-nowrap">sec:</label>
-                  <div class="col-sm-2">
-                    <select form="realform" class="form-control" name="curriculumSec">
-                      <option value="A">A</option><option value="B">B</option>
-                      <option value="C">C</option><option value="D">D</option>
-                    </select>
-                  </div>
-                </div>
-                <div class="form-group row">
                   <label class="col-sm-2 col-form-label text-nowrap" >รหัสบัตรประชาชน:</label>
                   <div class="col-sm-3">
                     <input form ="realform" type="text" class="form-control" placeholder="xxxxxxxxxxxxx" required name="citizenID">
@@ -117,22 +97,22 @@
                   <label class="col-sm-1 col-form-label text-nowrap" >หมู่เลือด:</label>
                   <div class="col-sm-2">
                     <select form="realform"  class="form-control" required name="bloodtype">
-                      <option value="A">A</option>
-                      <option value="B">B</option>
-                      <option value="O">O</option>
-                      <option value="AB">AB</option>
+                      <option>A</option>
+                      <option>B</option>
+                      <option>O</option>
+                      <option>AB</option>
                     </select>
                   </div>
                 </div>
                 <div class="form-group row">
                   <label class="col-form-label text-nowrap col-sm-2" for="date" >วัน/เดือน/ปี เกิด:</label>
                   <div class="col-sm-2">
-                      <input id="datetest" form ="realform" class="form-control" name="date" placeholder="31/12/1997" type="text">
+                      <input form ="realform" class="form-control" name="date" placeholder="31/12/1997" type="text">
                   </div>
                   <label class="col-form-label text-nowrap col-sm-2" >สถานภาพการสมรส:</label>
                   <div class="col-sm-2">
-                      <select form="realform"  type="text" class="form-control" name="marital">
-                        <option value="โสด">โสด</option><option value="แต่งงาน">แต่งงาน</option>
+                      <select form="realform"  type="text" class="form-control" name="marital"> 
+                        <option>โสด</option><option>แต่งงาน</option>
                       </select>
                   </div>
                 </div>
@@ -161,7 +141,7 @@
                   </div>
                   <label class="col-form-label text-nowrap col-sm-2" style="margin-right:22px">ความสัมพันธ์ของพ่อแม่:</label>
                   <div class="col-sm-2">
-                    <input form ="realform" class="form-control" placeholder="อยู่ร่วมกัน" required name="maritalStatofMD">
+                    <input form ="realform" class="form-control" placeholder="อยู่ร่วมกัน" required name="maritalStatofMD"> 
                   </div>
                 </div>
                 <div class="row form-group">
@@ -175,14 +155,13 @@
                   <label class="col-form-label text-nowrap col-sm-1" >Program:</label>
                   <div class="col-sm-3">
                       <select form="realform"  type="text" class="form-control" name="program">
-                        <option value="เรียนดี">เรียนดี</option><option value="AR">AR</option><option value="Admission">Admission</option>
+                        <option>เรียนดี</option><option>AR</option><option>Admission</option>
                       </select>
                   </div>
                   <label class="col-form-label text-nowrap col-sm-2" >จบการศึกษาระดับ:</label>
                   <div class="col-sm-3">
                       <select form="realform"  type="text" class="form-control" name="recentGraduate">
-                        <option value="มัธยมปลาย">มัธยมปลาย</option><option value=">ปวช.">ปวช.</option><option value="ปวส.">ปวส.</option>
-                        <option value="ปริญญาตร">ปริญญาตรี</option><option value="ปริญญาโท">ปริญญาโท</option>
+                        <option>มัธยมปลาย</option><option>ปวช.</option><option>ปวส.</option><option>ปริญญาตรี</option><option>ปริญญาโท</option>
                       </select>
                   </div>
                 </div>
@@ -207,23 +186,23 @@
                   <div class="col-sm-3" id="divDisability">
                     <input form ="realform" class="form-control" placeholder="สายตา" required name="disability">
                   </div>
-
+                  <a class="btn btn-success" onclick="addFunctionDisability()" style="color : white">add</a>
                 </div>
                 <div class="form-group row">
                   <label class="col-form-label text-nowrap col-sm-1" style="margin-right:20px">โรคประจำตัว:</label>
                   <div class="col-sm-3" id="divDisease">
                     <input form ="realform" class="form-control" placeholder="หอบหืด" required name="disease">
                   </div>
-
+                  <a class="btn btn-success" onclick="addFunctionDisease()" style="color : white">add</a>
                 </div>
                 <div class="form-group row">
                     <label class="col-form-label text-nowrap col-sm-1" style="margin-right:38px">ประวัติการแพ้ยา:</label>
                     <div class="col-sm-2" id="divAllergy">
                         <input form ="realform" class="form-control" placeholder="พารา" required name="allergy">
                     </div>
-
+                    <a class="btn btn-success" onclick="addFunctionAllergy()" style="color : white">add</a>
                 </div>
-
+                
                 </form>
                 <button class="btn" style="width:auto;margin-top:5px;margin-bottom:5px" type ="button" data-toggle="collapse" data-target="#addressRegis">
                   <label>ที่อยู่ตามทะเบียน</label>
@@ -235,31 +214,31 @@
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label text-nowrap" >บ้านเลขที่:</label>
                         <div class="col-sm-2">
-                          <input id = "numhourse" form ="realform" type="text" class="form-control" placeholder="11/12"required name="homeNORegis">
+                          <input form ="realform" type="text" class="form-control" placeholder="11/12"required name="homeNORegis">
                         </div>
                         <label class="col-sm-1 col-form-label text-nowrap" >ซอย:</label>
                         <div class="col-sm-3">
-                          <input id = "soi" form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ 45" name="alleyRegis">
+                          <input form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ 45" name="alleyRegis">
                         </div>
                         <label class="col-sm-1 col-form-label text-nowrap" >ถนน:</label>
                         <div class="col-sm-3">
-                          <input id = "road" form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ"required name="streetRegis">
+                          <input form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ"required name="streetRegis">
                         </div>
                         <label class="col-sm-2 col-form-label text-nowrap" >แขวง/ตำบล:</label>
                         <div class="col-sm-2">
-                          <input id = "province" form ="realform" type="text" class="form-control" placeholder="บางมด"required name="subdistrictRegis">
+                          <input form ="realform" type="text" class="form-control" placeholder="บางมด"required name="subdistrictRegis">
                         </div>
                         <label class="col-sm-2 col-form-label text-nowrap" >เขต/อำเภอ:</label>
                         <div class="col-sm-2">
-                          <input id = "aumper"  form ="realform" type="text" class="form-control" placeholder="ทุ่งครุ"required name="districtRegis">
+                          <input form ="realform" type="text" class="form-control" placeholder="ทุ่งครุ"required name="districtRegis">
                         </div>
                         <label class="col-sm-1 col-form-label text-nowrap" >จังหวัด:</label>
                         <div class="col-sm-3">
-                          <input id = "jungwad" form ="realform" type="text" class="form-control" placeholder="กรุงเทพมหานคร"required name="provienceRegis">
+                          <input form ="realform" type="text" class="form-control" placeholder="กรุงเทพมหานคร"required name="provienceRegis">
                         </div>
                         <label class="col-sm-2 col-form-label text-nowrap" >รหัสไปรษณีย์:</label>
                         <div class="col-sm-2">
-                          <input id = "postcode" form ="realform" type="text" class="form-control" placeholder="10140" required name="postcodeRegis">
+                          <input form ="realform" type="text" class="form-control" placeholder="10140" required name="postcodeRegis">
                         </div>
                       </div>
                     </form>
@@ -272,41 +251,41 @@
                 <div class="card">
                   <div id="addressCurrent" class="collapse show">
                     <div class="card-body" >
-                      <form  class="form-in " style="background-color:#F7F7F7">
+                      <form class="form-in " style="background-color:#F7F7F7">
                         <div class="form-group row" style="margin-left:auto">
                           <div class="col-1-sm col-form-label text-nowrap">
-                            <input id="cbox" form ="realform" type="checkbox" style="margin-right:7px" onclick="copy()">
+                            <input form ="realform" type="checkbox">
                           </div>
                           <div class="col-5-sm" style="padding-left:10px;padding-right:10px;padding-top:5px">ใช้ที่อยู่ตามทะเบียน</div>
                         </div>
                         <div class="form-group row">
                             <label class="col-sm-2 col-form-label text-nowrap" >บ้านเลขที่:</label>
                             <div class="col-sm-2">
-                              <input id = "nh" form ="realform" type="text" class="form-control" placeholder="11/12"required name="homeNOCurrent">
+                                <input form ="realform" type="text" class="form-control" placeholder="11/12"required name="homeNOCurrent">
                             </div>
                             <label class="col-sm-1 col-form-label text-nowrap" >ซอย:</label>
                             <div class="col-sm-3">
-                              <input id = "s" form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ 45" name="alleyCurrent">
+                                <input form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ 45" name="alleyCurrent">
                             </div>
                             <label class="col-sm-1 col-form-label text-nowrap" >ถนน:</label>
                             <div class="col-sm-3">
-                              <input id = "r" form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ"required name="streetCurrent">
+                                <input form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ"required name="streetCurrent">
                             </div>
                             <label class="col-sm-2 col-form-label text-nowrap" >แขวง/ตำบล:</label>
                             <div class="col-sm-2">
-                              <input id = "p" form ="realform" type="text" class="form-control" placeholder="บางมด"required name="subdistrictCurrent">
+                                <input form ="realform" type="text" class="form-control" placeholder="บางมด"required name="subdistrictCurrent">
                             </div>
                             <label class="col-sm-2 col-form-label text-nowrap" >เขต/อำเภอ:</label>
                             <div class="col-sm-2">
-                              <input id = "a" form ="realform" type="text" class="form-control" placeholder="ทุ่งครุ"required name="districtCurrent">
+                                <input form ="realform" type="text" class="form-control" placeholder="ทุ่งครุ"required name="districtCurrent">
                             </div>
                             <label class="col-sm-1 col-form-label text-nowrap" >จังหวัด:</label>
                             <div class="col-sm-3">
-                              <input id = "j" form ="realform" type="text" class="form-control" placeholder="กรุงเทพมหานคร"required name="provienceCurrent">
+                                <input form ="realform" type="text" class="form-control" placeholder="กรุงเทพมหานคร"required name="provienceCurrent">
                             </div>
                             <label class="col-sm-2 col-form-label text-nowrap" >รหัสไปรษณีย์:</label>
                             <div class="col-sm-2">
-                              <input id = "pc" form ="realform" type="text" class="form-control" placeholder="10140" required name="postcodeCurrent">
+                                <input form ="realform" type="text" class="form-control" placeholder="10140" required name="postcodeCurrent">
                             </div>
                       </div>
                       </form>
@@ -317,52 +296,39 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text">รูปถ่ายนักศึกษา</span>
                     </div>
-                    <form id="uploadForm" action="/pictureUpload" method="post" enctype="multipart/form-data"></form>
                     <div class="custom-file">
-                        <input  form="uploadForm" type="file"  id="stdPhoto" name ="stdPhoto" required>
-                        <input name="picPhoto" form="realform" type="text" id="picturePhotoPath" style="display : none" required>
+                      <input form ="realform" type="file" class="custom-file-input" id="StdPhoto">
+                      <label class="custom-file-label" for="StdPhoto">Choose file</label>
                     </div>
-                    <input id="pictureLoad" form="uploadForm" type="Submit" class ="btn btn-success"  value="Submit">
-                    <i class="fa fa-check" id="pictureChecked"style="font-size:24px; margin-top : 5px; color : #449D44; display : none;"  ></i>
                   </div>
-
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">สำเนาบัตรประชาชน</span>
                     </div>
-                    <form id="uploadForm2" action="/idCardUpload" method="post" enctype="multipart/form-data"></form>
                     <div class="custom-file">
-                        <input  form="uploadForm2" type="file"  id="idCardPhoto" name ="idCardPhoto" required>
-                        <input name = "picIDcard" form="realform" type="text" id="idCardPhotoPath" style="display : none" required>
+                      <input form ="realform" type="file" class="custom-file-input" id="IDcard">
+                      <label class="custom-file-label" for="IDcard">Choose file</label>
                     </div>
-                    <input id="idCardLoad" form="uploadForm2" type="Submit" class ="btn btn-success"  value="Submit">
-                    <i class="fa fa-check" id="idCardChecked"style="font-size:24px; margin-top : 5px; color : #449D44; display : none;"  ></i>
                   </div>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">สำเนาทะเบียนบ่าน</span>
                     </div>
-                    <form id="uploadForm3" action="/RegisUpload" method="post" enctype="multipart/form-data"></form>
                     <div class="custom-file">
-                        <input  form="uploadForm3" type="file"  id="RegisPhoto" name ="RegisPhoto" required>
-                        <input name = "picRegishome" form="realform" type="text" id="RegisPhotoPath" style="display : none" required>
+                      <input form ="realform" type="file" class="custom-file-input" id="IDhome">
+                      <label class="custom-file-label" for="IDhome">Choose file</label>
                     </div>
-                    <input id="RegisLoad" form="uploadForm3" type="Submit" class ="btn btn-success"  value="Submit">
-                    <i class="fa fa-check" id="RegisChecked"style="font-size:24px; margin-top : 5px; color : #449D44; display : none;"  ></i>
                   </div>
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">ผลการเรียน</span>
                     </div>
-                    <form id="uploadForm4" action="/stdRecordUpload" method="post" enctype="multipart/form-data"></form>
                     <div class="custom-file">
-                        <input  form="uploadForm4" type="file"  id="stdRecordPhoto" name ="stdRecordPhoto" required>
-                        <input name = "picStdrecord" form="realform" type="text" id="stdRecordPhotoPath" style="display : none" required>
+                      <input form ="realform" type="file" class="custom-file-input" id="StdRecord">
+                      <label class="custom-file-label" for="StdRecord">Choose file</label>
                     </div>
-                    <input id="stdRecordLoad" form="uploadForm4" type="Submit" class ="btn btn-success"  value="Submit">
-                    <i class="fa fa-check" id="stdRecordChecked"style="font-size:24px; margin-top : 5px; color : #449D44; display : none;"  ></i>
                   </div>
-
+                
               </div>
             </div>
           </div>
@@ -377,9 +343,9 @@
                     <label class="col-sm-1 col-form-label text-nowrap" style="margin-right:30px" >คำนำหน้าชื่อ:</label>
                     <div class="col-sm-2">
                       <select form="realform"  class="form-control" name="titlenameDad">
-                        <option value="นาย">นาย</option>
-                        <option value="นาง">นาง</option>
-                        <option value="นางสาว">นางสาว</option>
+                        <option>นาย</option>
+                        <option>นาง</option>
+                        <option>นางสาว</option>
                       </select>
                     </div>
                   </div>
@@ -415,7 +381,7 @@
                     <label class="col-sm-1 col-form-label text-nowrap" style="margin-right:8px">สถาณภาพ:</label>
                     <div class="col-sm-2">
                       <select form="realform"  class="form-control" name="statusDad">
-                        <option value="มีชีวิต">มีชีวิต</option><option value="เสียชีวิต">เสียชีวิต</option>
+                        <option>มีชีวิต</option><option>เสียชีวิต</option>
                       </select>
                     </div>
                   </div>
@@ -465,40 +431,34 @@
                 <div id="addressRegisDad" class="collapse show">
                   <div class="card-body">
                     <form class="form-in " style="background-color:#F7F7F7">
-                      <div class="form-group row" style="margin-left:auto">
-                        <div class="col-1-sm col-form-label text-nowrap">
-                          <input id="cboxd" form ="realform" type="checkbox" style="margin-right:7px" onclick="copyd()">
-                        </div>
-                        <div class="col-5-sm" style="padding-left:10px;padding-right:10px;padding-top:5px">ที่อยู่เหมือนนักศึกษา</div>
-                      </div>
                       <div class="form-group row">
                         <label class="col-sm-2 col-form-label text-nowrap" >บ้านเลขที่:</label>
                         <div class="col-sm-2">
-                            <input id="nhd" form ="realform" type="text" class="form-control" placeholder="11/12"required name="homeNODad">
+                            <input form ="realform" type="text" class="form-control" placeholder="11/12"required name="homeNODad">
                         </div>
                         <label class="col-sm-1 col-form-label text-nowrap" >ซอย:</label>
                         <div class="col-sm-3">
-                            <input id="sd" form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ 45" name="alleyDad">
+                            <input form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ 45" name="alleyDad">
                         </div>
                         <label class="col-sm-1 col-form-label text-nowrap" >ถนน:</label>
                         <div class="col-sm-3">
-                            <input id="rd" form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ"required name="streetDad">
+                            <input form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ"required name="streetDad">
                         </div>
                         <label class="col-sm-2 col-form-label text-nowrap" >แขวง/ตำบล:</label>
                         <div class="col-sm-2">
-                            <input id="pd" form ="realform" type="text" class="form-control" placeholder="บางมด"required name="subdistrictDad">
+                            <input form ="realform" type="text" class="form-control" placeholder="บางมด"required name="subdistrictDad">
                         </div>
                         <label class="col-sm-2 col-form-label text-nowrap" >เขต/อำเภอ:</label>
                         <div class="col-sm-2">
-                            <input id="ad" form ="realform" type="text" class="form-control" placeholder="ทุ่งครุ"required name="districtDad">
+                            <input form ="realform" type="text" class="form-control" placeholder="ทุ่งครุ"required name="districtDad">
                         </div>
                         <label class="col-sm-1 col-form-label text-nowrap" >จังหวัด:</label>
                         <div class="col-sm-3">
-                            <input id="jd" form ="realform" type="text" class="form-control" placeholder="กรุงเทพมหานคร"required name="provienceDad">
+                            <input form ="realform" type="text" class="form-control" placeholder="กรุงเทพมหานคร"required name="provienceDad">
                         </div>
                         <label class="col-sm-2 col-form-label text-nowrap" >รหัสไปรษณีย์:</label>
                         <div class="col-sm-2">
-                            <input id="pcd" form ="realform" type="text" class="form-control" placeholder="10140" required name="postcodeDad">
+                            <input form ="realform" type="text" class="form-control" placeholder="10140" required name="postcodeDad">
                         </div>
                       </div>
                     </form>
@@ -520,13 +480,13 @@
                     <label class="col-sm-1 col-form-label text-nowrap" style="margin-right:30px" >คำนำหน้าชื่อ:</label>
                     <div class="col-sm-2">
                       <select form="realform"  class="form-control" name="titlenameMom">
-                        <option value="นาย">นาย</option>
-                        <option value="นาง">นาง</option>
-                        <option value="นางสาว">นางสาว</option>
+                        <option>นาย</option>
+                        <option>นาง</option>
+                        <option>นางสาว</option>
                       </select>
                     </div>
                   </div>
-                      <div class="form-group row">
+                  <div class="form-group row">
                         <label class="col-sm-1 col-form-label text-nowrap" >ชื่อ:</label>
                         <div class="col-sm-4">
                           <input form ="realform" type="text" class="form-control" placeholder="ธนสนธิ์"required name="firstnameMom">
@@ -558,7 +518,7 @@
                         <label class="col-sm-1 col-form-label text-nowrap" style="margin-right:8px">สถาณภาพ:</label>
                         <div class="col-sm-2">
                           <select form="realform"  class="form-control" name="statusMom">
-                            <option value="มีชีวิต">มีชีวิต</option><option value="เสียชีวิต">เสียชีวิต</option>
+                            <option>มีชีวิต</option><option>เสียชีวิต</option>
                           </select>
                         </div>
                       </div>
@@ -601,7 +561,7 @@
                         </div>
                       </div>
                     </form>
-
+                    
                     <button class="btn" style="width:auto;margin-top:5px;margin-bottom:5px" type ="button" data-toggle="collapse" data-target="#addressRegisMom">
                       <label>ที่อยู่ตามทะเบียน</label>
                     </button>
@@ -609,40 +569,34 @@
                     <div id="addressRegisMom" class="collapse show">
                       <div class="card-body">
                         <form class="form-in " style="background-color:#F7F7F7">
-                          <div class="form-group row" style="margin-left:auto">
-                            <div class="col-1-sm col-form-label text-nowrap">
-                              <input id="cboxm" form ="realform" type="checkbox" style="margin-right:7px" onclick="copym()">
-                            </div>
-                            <div class="col-5-sm" style="padding-left:10px;padding-right:10px;padding-top:5px">ที่อยู่เหมือนนักศึกษา</div>
-                          </div>
                           <div class="form-group row">
                             <label class="col-sm-2 col-form-label text-nowrap" >บ้านเลขที่:</label>
                             <div class="col-sm-2">
-                                <input id="nhm" form ="realform" type="text" class="form-control" placeholder="11/12"required name="homeNOMom">
+                                <input form ="realform" type="text" class="form-control" placeholder="11/12"required name="homeNOMom">
                             </div>
                             <label class="col-sm-1 col-form-label text-nowrap" >ซอย:</label>
                             <div class="col-sm-3">
-                                <input id="sm" form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ 45" name="alleyMom">
+                                <input form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ 45" name="alleyMom">
                             </div>
                             <label class="col-sm-1 col-form-label text-nowrap" >ถนน:</label>
                             <div class="col-sm-3">
-                                <input id="rm" form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ"required name="streetMom">
+                                <input form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ"required name="streetMom">
                             </div>
                             <label class="col-sm-2 col-form-label text-nowrap" >แขวง/ตำบล:</label>
                             <div class="col-sm-2">
-                                <input id="pm" form ="realform" type="text" class="form-control" placeholder="บางมด"required name="subdistrictMom">
+                                <input form ="realform" type="text" class="form-control" placeholder="บางมด"required name="subdistrictMom">
                             </div>
                             <label class="col-sm-2 col-form-label text-nowrap" >เขต/อำเภอ:</label>
                             <div class="col-sm-2">
-                                <input id="am" form ="realform" type="text" class="form-control" placeholder="ทุ่งครุ"required name="districtMom">
+                                <input form ="realform" type="text" class="form-control" placeholder="ทุ่งครุ"required name="districtMom">
                             </div>
                             <label class="col-sm-1 col-form-label text-nowrap" >จังหวัด:</label>
                             <div class="col-sm-3">
-                                <input id="jm" form ="realform" type="text" class="form-control" placeholder="กรุงเทพมหานคร"required name="provienceMom">
+                                <input form ="realform" type="text" class="form-control" placeholder="กรุงเทพมหานคร"required name="provienceMom">
                             </div>
                             <label class="col-sm-2 col-form-label text-nowrap" >รหัสไปรษณีย์:</label>
                             <div class="col-sm-2">
-                                <input id="pcm" form ="realform" type="text" class="form-control" placeholder="10140" required name="postcodeMom">
+                                <input form ="realform" type="text" class="form-control" placeholder="10140" required name="postcodeMom">
                         </div>
                       </div>
                     </form>
@@ -664,13 +618,13 @@
                         <label class="col-sm-1 col-form-label text-nowrap" style="margin-right:30px" >คำนำหน้าชื่อ:</label>
                         <div class="col-sm-2">
                           <select form="realform"  class="form-control" name="titlenameParent">
-                            <option value="นาย">นาย</option>
-                            <option value="นาง">นาง</option>
-                            <option value="นางสาว">นางสาว</option>
+                            <option>นาย</option>
+                            <option>นาง</option>
+                            <option>นางสาว</option>
                           </select>
                         </div>
                       </div>
-                          <div class="form-group row">
+                      <div class="form-group row">
                             <label class="col-sm-1 col-form-label text-nowrap" >ชื่อ:</label>
                             <div class="col-sm-4">
                               <input form ="realform" type="text" class="form-control" placeholder="ธนสนธิ์"required name="firstnameParent">
@@ -702,7 +656,7 @@
                             <label class="col-sm-1 col-form-label text-nowrap" style="margin-right:8px">สถาณภาพ:</label>
                             <div class="col-sm-2">
                               <select form="realform"  class="form-control" name="statusParent">
-                                <option value="มีชีวิต">มีชีวิต</option><option value="เสียชีวิต">เสียชีวิต</option>
+                                <option>มีชีวิต</option><option>เสียชีวิต</option>
                               </select>
                             </div>
                           </div>
@@ -752,46 +706,40 @@
                         <div id="addressRegisParent" class="collapse show">
                           <div class="card-body">
                             <form class="form-in " style="background-color:#F7F7F7">
-                              <div class="form-group row" style="margin-left:auto">
-                                <div class="col-1-sm col-form-label text-nowrap">
-                                  <input id="cboxp" form ="realform" type="checkbox" style="margin-right:7px" onclick="copyp()">
-                                </div>
-                                <div class="col-5-sm" style="padding-left:10px;padding-right:10px;padding-top:5px">ที่อยู่เหมือนนักศึกษา</div>
-                              </div>
                               <div class="form-group row">
                                 <label class="col-sm-2 col-form-label text-nowrap" >บ้านเลขที่:</label>
                                 <div class="col-sm-2">
-                                    <input id="nhp" form ="realform" type="text" class="form-control" placeholder="11/12"required name="homeNOParent">
+                                    <input form ="realform" type="text" class="form-control" placeholder="11/12"required name="homeNOParent">
                                 </div>
                                 <label class="col-sm-1 col-form-label text-nowrap" >ซอย:</label>
                                 <div class="col-sm-3">
-                                    <input id="sp" form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ 45" name="alleyParent">
+                                    <input form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ 45" name="alleyParent">
                                 </div>
                                 <label class="col-sm-1 col-form-label text-nowrap" >ถนน:</label>
                                 <div class="col-sm-3">
-                                    <input id="rp" form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ"required name="streetParent">
+                                    <input form ="realform" type="text" class="form-control" placeholder="ประชาอุทิศ"required name="streetParent">
                                 </div>
                                 <label class="col-sm-2 col-form-label text-nowrap" >แขวง/ตำบล:</label>
                                 <div class="col-sm-2">
-                                    <input id="pp" form ="realform" type="text" class="form-control" placeholder="บางมด"required name="subdistrictParent">
+                                    <input form ="realform" type="text" class="form-control" placeholder="บางมด"required name="subdistrictParent">
                                 </div>
                                 <label class="col-sm-2 col-form-label text-nowrap" >เขต/อำเภอ:</label>
                                 <div class="col-sm-2">
-                                    <input id="ap"form ="realform" type="text" class="form-control" placeholder="ทุ่งครุ"required name="districtParent">
+                                    <input form ="realform" type="text" class="form-control" placeholder="ทุ่งครุ"required name="districtParent">
                                 </div>
                                 <label class="col-sm-1 col-form-label text-nowrap" >จังหวัด:</label>
                                 <div class="col-sm-3">
-                                    <input id="jp" form ="realform" type="text" class="form-control" placeholder="กรุงเทพมหานคร"required name="provienceParent">
+                                    <input form ="realform" type="text" class="form-control" placeholder="กรุงเทพมหานคร"required name="provienceParent">
                                 </div>
                                 <label class="col-sm-2 col-form-label text-nowrap" >รหัสไปรษณีย์:</label>
                                 <div class="col-sm-2">
-                                    <input id="pcp" form ="realform" type="text" class="form-control" placeholder="10140" required name="postcodeParent">
-                                </div>
-                              </div>
-                            </form>
-                          </div>
+                                    <input form ="realform" type="text" class="form-control" placeholder="10140" required name="postcodeParent">
                         </div>
                       </div>
+                    </form>
+                  </div>
+                </div>
+                </div>
               </div>
             </div>
           </div>
@@ -814,7 +762,7 @@
       var date_input=$('input[name="date"]'); //our date input has the name "date"
       var container=$('.bootstrap-iso form').length>0 ? $('.bootstrap-iso form').parent() : "body";
       date_input.datepicker({
-        format: 'yyyy-mm-dd',
+        format: 'mm/dd/yyyy',
         container: container,
         todayHighlight: true,
         autoclose: true,

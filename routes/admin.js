@@ -6,51 +6,84 @@ var bcrypt = require('bcrypt');
 var saltRounds = 10;
 var middleware = require("../middleware");
 
+// editTeacher Remaining : GET , POST
+router.get("/editTeacher",middleware.isLoggedInAdmin,function(req,res){
+        res.redirect("/");// edit here
+});
+router.post("/editTeacher",middleware.isLoggedInAdmin,function(req,res){
+        res.redirect("/");// edit here
+});
+
+// editTA Remaining : GET , POST
+router.get("/editTA",middleware.isLoggedInAdmin,function(req,res){
+        res.redirect("/");// edit here
+});
+router.post("/editTA",middleware.isLoggedInAdmin,function(req,res){
+        res.redirect("/");// edit here
+});
+
+// editSubjectAdmin Remaining : GET , POST
+router.get("/editSubjectAdmin",middleware.isLoggedInAdmin,function(req,res){
+        res.redirect("/");// edit here
+});
+router.post("/editSubjectAdmin",middleware.isLoggedInAdmin,function(req,res){
+        res.redirect("/");// edit here
+});
+
+// addTeacher Remaining : GET , POST
+router.get("/addTeacher",middleware.isLoggedInAdmin,function(req,res){
+    res.redirect("/");// edit here
+});
+router.post("/addTeacher",middleware.isLoggedInAdmin,function(req,res){
+    res.redirect("/");// edit here
+});
+
+// addTA Remaining : GET , POST
+router.get("/addTA",middleware.isLoggedInAdmin,function(req,res){
+    res.redirect("/");// edit here
+});
+router.post("/addTA",middleware.isLoggedInAdmin,function(req,res){
+    res.redirect("/");// edit here
+});
+
+// addSubjectAdmin Remaining : GET , POST
+router.get("/addSubjectAdmin",middleware.isLoggedInAdmin,function(req,res){
+    res.redirect("/");// edit here
+});
+router.post("/addSubjectAdmin",middleware.isLoggedInAdmin,function(req,res){
+    res.redirect("/");// edit here
+});
+
+// dropTeacher Remaining : GET , POST
+router.get("/dropTeacher",middleware.isLoggedInAdmin,function(req,res){
+    res.redirect("/");// edit here
+});
+router.post("/dropTeacher",middleware.isLoggedInAdmin,function(req,res){
+    res.redirect("/");// edit here
+});
+
+// dropTA Remaining : GET , POST
+router.get("/dropTA",middleware.isLoggedInAdmin,function(req,res){
+    res.redirect("/");// edit here
+});
+router.post("/dropTA",middleware.isLoggedInAdmin,function(req,res){
+    res.redirect("/");// edit here
+});
+
+// dropSubject Remaining : GET , POST
+router.get("/dropSubjectAdmin",middleware.isLoggedInAdmin,function(req,res){
+    res.redirect("/");// edit here
+});
+router.post("/dropSubjectAdmin",middleware.isLoggedInAdmin,function(req,res){
+    res.redirect("/");// edit here
+});
+
 // checkPay Remaining : GET , POST
 router.get("/checkPay",middleware.isLoggedInAdmin,function(req,res){
-    res.render("checkPay");
-});
-router.post("/ajaxCheckPay",middleware.isLoggedInAdmin,function(req,res){
-    var stdID = req.body.chkpay;
-    console.log("chkpay : "+req.body.chkpay);
-    db.query("SELECT stdID,subjectID,subjectSec,paymentDate FROM enrollment WHERE paymentDate IS NULL AND stdID = ?",[stdID],function(err,results,fields){
-        console.log(results);
-        if(results[0] == undefined){
-            res.send("YO!!!");
-        }
-        else{
-            var obj = [];
-            for(var i =0;i<results.length;i++){
-                const temp = {
-                    stdID : results[i].stdID,
-                    subjectID : results[i].subjectID,
-                    subjectSec : results[i].subjectSec,
-                    paymentDate : results[i].paymentDate  
-                }
-                obj.push(temp);
-            }
-            res.send(obj);
-        }});
+    res.redirect("/");// edit here
 });
 router.post("/checkPay",middleware.isLoggedInAdmin,function(req,res){
-    var stdID = req.body.stdID;
-    db.query("UPDATE enrollment SET paymentDate = CURRENT_TIMESTAMP WHERE stdID = ?",[stdID],function(err,results,fields){
-        if(err) throw err;
-        else{
-            req.flash("success","Done!!");
-            res.redirect("checkPay");
-        }
-    });
-});
-
-router.get("/analysis1",middleware.isLoggedInAdmin,function(req,res){
-    res.render("analysis1");
-});
-
-router.get("/mostDropSub",middleware.isLoggedInAdmin,function(req,res){
-    db.query("SELECT subjectID , count(*) as cnt FROM enrollment WHERE dropStatus = 1 GROUP BY subjectID",function(err,results){
-
-    });
+    res.redirect("/");// edit here
 });
 
 module.exports = router;
