@@ -11,15 +11,74 @@ var crypto = require("crypto")
 // address : add Regis and Current after name from database
 // mom,dad and parent : add Dad , Mom  and Parent after name from database
 
+//Upload picture and send back (AJAX)
+router.post("/pictureUpload",function(req,res){
+    console.log('file info: ',req.files);
+    console.log("File has been uploaded");
+    let sampleFile = req.files.stdPhoto;
+    var name = crypto.randomBytes(20).toString('hex');
+    var pathFile = './public/uploads/'+name+'.jpg';
+    console.log(sampleFile);
+    sampleFile.mv(pathFile, function(err) {
+        if (err)
+          return res.status(500).send(err);
+        console.log("File Uploaded!!");
+        res.send(pathFile);
+        // res.render("register",{data:});
+      });
+});
+router.post("/idCardUpload",function(req,res){
+    console.log('file info: ',req.files);
+    console.log("File has been uploaded");
+    let sampleFile = req.files.idCardPhoto;
+    var name = crypto.randomBytes(20).toString('hex');
+    var pathFile = './public/uploads/'+name+'.jpg';
+    console.log(sampleFile);
+    sampleFile.mv(pathFile, function(err) {
+        if (err)
+          return res.status(500).send(err);
+        console.log("File Uploaded!!");
+        res.send(pathFile);
+      });
+});
+router.post("/RegisUpload",function(req,res){
+    console.log('file info: ',req.files);
+    console.log("File has been uploaded");
+    let sampleFile = req.files.RegisPhoto;
+    var name = crypto.randomBytes(20).toString('hex');
+    var pathFile = './public/uploads/'+name+'.jpg';
+    console.log(sampleFile);
+    sampleFile.mv(pathFile, function(err) {
+        if (err)
+          return res.status(500).send(err);
+        console.log("File Uploaded!!");
+        res.send(pathFile);
+      });
+});
+router.post("/stdRecordUpload",function(req,res){
+    console.log('file info: ',req.files);
+    console.log("File has been uploaded");
+    let sampleFile = req.files.stdRecordPhoto;
+    var name = crypto.randomBytes(20).toString('hex');
+    var pathFile = './public/uploads/'+name+'.jpg';
+    console.log(sampleFile);
+    sampleFile.mv(pathFile, function(err) {
+        if (err)
+          return res.status(500).send(err);
+        console.log("File Uploaded!!");
+        res.send(pathFile);
+      });
+});
+
 //Temporary register Remaining : GET , POST
 router.get("/register",function(req,res){
     res.render("register");
 });
 router.post("/register",function(req,res){
-    //console.log(req.body);
+    console.log(req.body);
     var reqBody = req.body;
     var stdID = reqBody.stdID;
-    
+
     db.query("SELECT stdID FROM student WHERE stdID = ? ",[stdID],function(err,results,fields){
         console.log(results);
         if(results[0] != undefined){
@@ -29,7 +88,7 @@ router.post("/register",function(req,res){
         }
         else{
 
-    //Regis and Current address 
+    //Regis and Current address
     var addressRegis = "";
     var addressCurrent ="";
     var homeNORegis = reqBody.homeNORegis;
@@ -48,17 +107,17 @@ router.post("/register",function(req,res){
     var postcodeCurrent = reqBody.postcodeCurrent;
     // console.log(homeNORegis+" "+alleyRegis+" "+streetRegis+" "+subdistrictRegis+" "+districtRegis+" "+provienceRegis+" "+postcodeRegis);
     // console.log(homeNOCurrent+" "+alleyCurrent+" "+streetCurrent+" "+subdistrictCurrent+" "+districtCurrent+" "+provienceCurrent+" "+postcodeCurrent);
-    
+
     //insert into address both Regis and Current
-    //keep addressID in addressRegis,addressCurrent  
+    //keep addressID in addressRegis,addressCurrent
     addressRegis =  crypto.randomBytes(20).toString('hex');
     console.log(addressRegis);
     db.query("INSERT INTO address VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)",[addressRegis,homeNORegis,"NULL","NULL","NULL","NULL",alleyRegis,streetRegis,subdistrictRegis,districtRegis,provienceRegis,"NULL",postcodeRegis]
     , function (err, results, fields) {
         if (err) throw err;
         else{
-            console.log("Success into address Regis");    
-        } 
+            console.log("Success into address Regis");
+        }
     });
     addressCurrent = crypto.randomBytes(20).toString('hex');
     console.log(addressCurrent);
@@ -66,10 +125,10 @@ router.post("/register",function(req,res){
     , function (err, results, fields) {
         if (err) throw err;
         else{
-            console.log("Success into address Current");    
-        } 
+            console.log("Success into address Current");
+        }
     });
-    
+
     //Dad and Mom and parent address
     var addressDad = "";
     var addressMom ="";
@@ -107,9 +166,9 @@ router.post("/register",function(req,res){
     , function (err, results, fields) {
         if (err) throw err;
         else{
-            console.log("Success into address Dad"); 
-            //console.log(results);   
-        } 
+            console.log("Success into address Dad");
+            //console.log(results);
+        }
     });
     addressMom = crypto.randomBytes(20).toString('hex');
     console.log(addressMom);
@@ -117,8 +176,8 @@ router.post("/register",function(req,res){
     , function (err, results, fields) {
         if (err) throw err;
         else{
-            console.log("Success into address Mom");    
-        } 
+            console.log("Success into address Mom");
+        }
     });
     addressParent = crypto.randomBytes(20).toString('hex');
     console.log(addressParent);
@@ -126,8 +185,8 @@ router.post("/register",function(req,res){
     , function (err, results, fields) {
         if (err) throw err;
         else{
-            console.log("Success into address Parent");    
-        } 
+            console.log("Success into address Parent");
+        }
     });
 
     //Dad  , Parent add
@@ -179,7 +238,7 @@ router.post("/register",function(req,res){
     var nationalityParent = reqBody.nationalityParent;
     var raceParent = reqBody.raceParent;
     var religionParent = reqBody.religionParent;
-
+    console.log("JingJung1");
     db.query("SELECT * FROM dad WHERE citizenID = ?",[citizenIDDad],function(err,results,fields){
         if(err) throw err;
         else{
@@ -188,12 +247,13 @@ router.post("/register",function(req,res){
                 , function (err, results, fields) {
                     if (err) throw err;
                     else{
-                        console.log("Success into info Dad");    
-                    } 
+                        console.log("Success into info Dad");
+                    }
                 });
             }
         }
     });
+    console.log("JingJung2");
     db.query("SELECT * FROM mom WHERE citizenID = ?",[citizenIDMom],function(err,results,fields){
         if(err) throw err;
         else{
@@ -202,12 +262,13 @@ router.post("/register",function(req,res){
                 , function (err, results, fields) {
                     if (err) throw err;
                     else{
-                        console.log("Success into info Mom");    
-                    } 
+                        console.log("Success into info Mom");
+                    }
                 });
             }
         }
     });
+    console.log("JingJung3");
     db.query("SELECT * FROM parent WHERE citizenID = ?",[citizenIDParent],function(err,results,fields){
         if(err) throw err;
         else{
@@ -216,17 +277,17 @@ router.post("/register",function(req,res){
                 , function (err, results, fields) {
                     if (err) throw err;
                     else{
-                        console.log("Success into info Parent"); 
-                    } 
+                        console.log("Success into info Parent");
+                    }
                 });
             }
         }
     });
-   
+
     //username(stdID),password,role
     var password = reqBody.password;
     var role = "student";
-
+    console.log("FUCKKK");
     //Student
     var parentRelation = "ญาติ";
     var titlenameTH = reqBody.titlenameTH;
@@ -258,7 +319,16 @@ router.post("/register",function(req,res){
     var program = reqBody.program;
     var curriculumSec = reqBody.curriculumSec;
     var department = reqBody.department;
-    
+    //path
+    var picPhoto = reqBody.picPhoto;
+    var picRegishome = reqBody.picRegishome;
+    var picIDcard = reqBody.picIDcard;
+    var picStdrecord = reqBody.picStdrecord
+
+    console.log("FUCKKK");
+
+    console.log("pic is : "+picPhoto+picRegishome+picIDcard+picStdrecord);
+
     db.query("SELECT * FROM curriculum WHERE section = ? AND department = ?",[curriculumSec,department],function(err,results,fields){
         if(err) throw err;
         else{
@@ -266,11 +336,11 @@ router.post("/register",function(req,res){
             var advisor2 = results[0].advisor2;
             console.log(advisor1+" "+advisor2);
         }
-        
+
         db.query("INSERT INTO Student VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
         [stdID,citizenIDDad,citizenIDMom,addressCurrent,addressRegis,citizenIDParent,advisor1,advisor2,curriculumSec,department,parentRelation,titlenameTH,titlenameEN,
         firstnameTH,lastnameTH,firstnameEN,lastnameEN,date,bloodtype,marital,religion,nationality,race,NoSiblings,sonNo,citizenID,email,tel,gender,dateFirstenroll,habitat,
-        maritalStatofMD,soldier,stdStatus,recentAcademy,recentGraduate,recentGPAX,"/a","/b","/c","/d",program],function(err,results,fields){
+        maritalStatofMD,soldier,stdStatus,recentAcademy,recentGraduate,recentGPAX,picPhoto,picRegishome,picIDcard,picStdrecord,program],function(err,results,fields){
             if(err) throw err;
             else{
                 console.log(results);
@@ -283,15 +353,15 @@ router.post("/register",function(req,res){
                     //disablity,disease,allergy must have data in student first
                     db.query("INSERT INTO disability VALUES(?,?)",[stdID,disability], function (err, results, fields) {
                         if (err) throw err;
-                        else console.log("add "+disability+" to disability");    
+                        else console.log("add "+disability+" to disability");
                     });
                     db.query("INSERT INTO congenitaldisease VALUES(?,?)",[stdID,disease], function (err, results, fields) {
                         if (err) throw err;
-                        else console.log("add "+disease+" to disease");    
+                        else console.log("add "+disease+" to disease");
                     });
                     db.query("INSERT INTO allergy VALUES(?,?)",[stdID,allergy], function (err, results, fields) {
                         if (err) throw err;
-                        else console.log("add "+allergy+" to allergy");    
+                        else console.log("add "+allergy+" to allergy");
                     });
             }
         });
@@ -302,7 +372,7 @@ router.post("/register",function(req,res){
 
 });
 
-//Temporary register 
+//Temporary register
 router.get("/regis",function(req,res){
     if(req.isAuthenticated())
         res.redirect('/');
@@ -311,7 +381,7 @@ router.get("/regis",function(req,res){
 });
 router.post("/regis",function(req,res){
     // with input username = kola , password = 1234 , role = ""
-    //var reqBody = req.body ; 
+    //var reqBody = req.body ;
     // console.log("Index : " +jsonByIndex(reqBody,1)); //1234
     // console.log("isOwnProp : "+ reqBody.hasOwnProperty('username')); //true
     // console.log("isOwnProp : "+ reqBody.hasOwnProperty('apple')); //false

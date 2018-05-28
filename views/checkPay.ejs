@@ -1,0 +1,68 @@
+<% include ./partials/header %>
+<link rel="stylesheet" href="/stylesheet/Fafa.css">
+<div class="container text-align-center" style="margin-top: 3%">
+        <h2>กรอกรหัสนักศึกษา</h2>
+        <form id="chkpay" action="/ajaxCheckPay" method="POST">
+            <input id="id" class="form-control" form ="chkpay" type="text" name="chkpay">
+            <input form ="chkpay" class="btn btn-primary" style="margin-top:5px" type="submit" value="submit" >
+        </form>
+    <div class="row align-center">
+      <div class="col-sm">
+        <table class="table table-bordered">
+          <thead class="thead-light">
+            <tr >
+              <th scope="col">รหัสนักศึกษา</th>
+              <th scope="col">รหัสวิชา</th>
+              <th scope="col">เซค</th>
+              <th scope="col">วันเวลา</th>
+            </tr>
+          </thead>
+
+          <tbody id="ajaxTable">
+            <tr class="table-light">
+              <td></td>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </tbody>
+          
+          
+        </table>
+        <form id="checkpay" action="/checkPay" method="POST">
+          <input id="idid"class="form-control" form ="checkpay" type="text" name="stdID" style="display: none;">
+          <input form ="checkpay" class="btn btn-success" style="margin-top:5px" type="submit" value="Checked" >
+      </form>
+      </div>
+    </div>
+  </div>
+  <script>
+  $('#chkpay').on('submit',(function(e) {
+    e.preventDefault();
+    var formData = new FormData(this);
+    document.getElementById("idid").value = document.getElementById("id").value
+    console.log(document.getElementById("idid").value);
+    $.ajax({
+        type:'POST',
+        url: $(this).attr('action'),
+        data:formData,
+        cache:false,
+        contentType: false,
+        processData: false,
+        success:function(data){
+            console.log("data : "+data);
+            var text = "";
+            data.forEach(function(d){
+              text = text + "<tr class='table-light'><td>"+d.stdID+"</td> <td>"+d.subjectID+"</td> <td>"+d.subjectSec+"</td> <td>"+d.paymentDate+"</td></tr>";
+            });
+            $('#ajaxTable').html(text);
+        },
+        error: function(data){
+            console.log("error");
+            console.log(data);
+        }
+    });
+  }));
+  </script>
+
+  <% include ./partials/footer %>

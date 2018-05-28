@@ -10,21 +10,29 @@
     <title>Login </title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
     <link href="/stylesheet/signin.css" rel="stylesheet">
-    
+
   </head>
-  
+
   <body class="text-center">
     <div class="container">
       <form class="form-signin" action="/login" method = "POST">
         <div class="col text-center">
-          <img class="img-fluid rounded-circle" style="margin-bottom:3px" src="https://i.imgur.com/xjKgHnv.jpg?1" alt="Thanason With Sleep">
+          <h1 class="h3 mb-3 font-weight-normal">Student Registration</h1>
+          <img class="img-fluid rounded-circle" style="margin-bottom:3px" src="https://i.imgur.com/vDUlOnB.png" alt="CherMiniHeart<3">
         </div>
-        <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+        <h2 class="h4 mb-3 font-weight-normal">Please sign in</h2>
         <label for="inputStdID" class="sr-only">StudentId</label>
         <input name = "username" id="inputStdID" class="form-control" placeholder="StudentId" required="" autofocus="" type="text">
         <label for="inputPassword" class="sr-only">Password</label>
         <input name="password" id="inputPassword" class="form-control" placeholder="Password" required="" type="password">
         <button class="btn btn-lg btn-block text-white" type="submit" style="background-color: #FF720D" >Sign in</button>
+        <div style="margin-top : 10px" >
+          <a href="/register">
+            <button class="btn btn-lg btn-block btn-primary">
+              Sign up
+            </button>
+          </a>
+        </div>
       </form>
       <% if(error && error.length > 0){ %>
         <br>
