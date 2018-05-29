@@ -143,35 +143,6 @@ router.get("/teachTable",middleware.isLoggedIn,function(req,res){
 });
 
 
-// info : Teacher , TA
-router.get("/infoTeacher",middleware.isLoggedIn,function(req,res){
-    if(req.user.role == "teacher"){
-        var qinfo = "SELECT * FROM teacher WHERE teacherID = ? ";
-        db.query(qinfo,[req.user.username],function(err,result){
-            if(err) throw err;
-            var obj = {};
-            obj = {tinfo: result};
-            obj.tinfo = result;
-            res.render("infoTeacher",obj);
-        });
-    }
-    else if(req.user.role == "ta"){
-        var qinfo = "SELECT * FROM teacherassistant WHERE ID = ? ";
-        db.query(qinfo,[req.user.username],function(err,result){
-            if(err) throw err;
-            var obj = {};
-            obj = {tinfo: result};
-            obj.tinfo = result;
-            res.render("infoTeacher",obj);
-        });
-    }
-    else{
-        req.flash("error","You don't have permission to access");
-        console.log("Error userrole in infoTeacher ");
-        res.redirect("/");
-    }
-});
-
 // stdList Remaining : Teacher , TA
 router.get("/stdList",middleware.isLoggedIn,function(req,res){
     if(req.user.role == "teacher"){

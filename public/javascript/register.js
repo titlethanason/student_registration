@@ -6,6 +6,9 @@ $(document).ready(function (e) {
   $('#uploadForm').on('submit',(function(e) {
       e.preventDefault();
       var formData = new FormData(this);
+      console.log(this.value);
+      console.log("form : "+formData.id);
+      console.log("form is :"+Object.keys(formData));
 
       $.ajax({
           type:'POST',

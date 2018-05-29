@@ -5,20 +5,20 @@
        <div class="col-3">
        </div>
        <div class="col-6">
-       <h2>วิชาที่มีจำนวนนักศึกษา ดรอป มากที่สุด</h2>
+       <h2>เกรดเฉลี่ยของแต่ละวิชา</h2>
        <canvas id="myBar"></canvas>
          <table class="table table-bordered">
            <thead class="thead-light">
              <tr>
                <th>รหัสวิชา</th>
-               <th>จำนวน</th>
+               <th>เกรด (เฉลี่ย)</th>
              </tr>
            </thead>
            <% plot.forEach(function(s){ %>
            <tbody class="table-light text-center">
                <tr>
-                 <th><%= s.x %> </th>
-                 <th><%= s.y %> </th>
+                 <th><%= s.id %> </th>
+                 <th><%= s.avgg %> </th>
                </tr>
            </tbody>
            <% }); %>
@@ -27,27 +27,26 @@
        <div class="col-3">
        </div>
      </div>
-  </div>
+   </div>
 
 <script>
   var ctx = document.getElementById('myBar').getContext('2d');
   var chart = new Chart(ctx, {
- // The type of chart we want to create
-  type: 'bar',
+// The type of chart we want to create
+type: 'bar',
 
- // The data for our dataset
+// The data for our dataset
   data: {
-     labels: [<% plot.forEach(function(s){ %> "<%= s.x %>",<% }); %>"zero","three"],
-     datasets: [{
-         label: "Student",
-         backgroundColor: 'rgb(255, 99, 132)',
-         borderColor: 'rgb(255, 99, 132)',
-         data: [<% plot.forEach(function(s){ %> <%= s.y %> ,<% }); %>0,3],
-     }]
- },
-
- // Configuration options go here
- options: {}
+   labels: [<% plot.forEach(function(s){ %> "<%= s.id %>",<% }); %>"zero","five"],
+   datasets: [{
+       label: "Student",
+       backgroundColor: 'rgb(255, 99, 132)',
+       borderColor: 'rgb(255, 99, 132)',
+       data: [<% plot.forEach(function(s){ %> <%= s.avgg %> ,<% }); %>"0","5"],
+   }]
+},
+// Configuration options go here
+options: {}
 });
 </script>
 

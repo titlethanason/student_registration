@@ -1,0 +1,32 @@
+<% include ./partials/header %>
+
+   <div class="container text-align-center" style="margin-top:3%">
+     <div class="row">
+       <div class="col-3">
+       </div>
+       <div class="col-6">
+         <table class="table table-bordered">
+           <thead class="thead-light">
+             <tr>
+               <th>รหัสวิชา</th>
+               <th>ชั้นปี</th>
+               <th>จำนวน</th>
+             </tr>
+           </thead>
+           <% subject.forEach(function(s){ %>
+           <tbody class="table-light text-center">
+               <tr>
+                 <th><%= s.id %> </th>
+                 <th><%= s.year %> </th>
+                 <th><%= s.count %> </th>
+               </tr>
+           </tbody>
+           <% }); %>
+         </table>
+       </div>
+       <div class="col-3">
+       </div>
+     </div>
+   </div>
+
+<% include ./partials/footer %>

@@ -53,13 +53,13 @@ router.post("/addSubject",middleware.isLoggedInStudent,function(req,res){
                                                 //var grade = "NULL";
                                                 var seatExamMid = Math.floor(Math.random() *100);
                                                 var seatExamFinal = Math.floor(Math.random() *100);
-                                                db.query("INSERT INTO enrollment VALUES(?,?,?,?,NULL,?,NULL,?,?)",[req.user.username,subjectID,datetime,subjectSec,dropStatus,seatExamMid,seatExamFinal],function(err,result,fields){
+                                                db.query("INSERT INTO enrollment VALUES(?,?,CURRENT_TIME,?,NULL,?,NULL,NULL,?,?)",[req.user.username,subjectID,subjectSec,dropStatus,seatExamMid,seatExamFinal],function(err,result,fields){
                                                         if(err) throw err;
                                                         else{
                                                                 req.flash("success","Subject and Section have been added");
                                                                 res.redirect("/addSubject");
                                                         }
-                                                 });
+                                                });
                                         }
                                 }
                         });

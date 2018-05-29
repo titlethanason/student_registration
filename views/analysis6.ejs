@@ -1,0 +1,42 @@
+<% include ./partials/header %>
+  <div class="container text-align-center" style="margin-top:3%">
+    <div class="col">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+
+  <script>
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var depart = <%= subject[0].count %>
+  var subject = <%- subjectJSON %>
+  console.log(subject);
+  var l = [];
+  var d = [];
+  subject.forEach(function(s){
+     l.push(s.id);
+     d.push(s.count);
+  })
+  console.log(l);
+  console.log(d);
+
+  var chart = new Chart(ctx,
+  {
+  // The type of chart we want to create
+  type: 'bar',
+
+  // The data for our dataset
+  data: {
+      labels: l,
+      datasets: [{
+          label: "จำนวนนักศึกษำสูงสุดที่รับได้ของแต่ละวิชา",
+          backgroundColor: 'rgb(255, 99, 132)',
+          borderColor: 'rgb(255, 99, 132)',
+          data: d,
+      }]
+    },
+
+  // Configuration options go here
+  options: {}
+});
+  </script>
+<% include ./partials/footer %>

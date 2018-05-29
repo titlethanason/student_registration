@@ -1,5 +1,32 @@
-<div class="container">
-    <h2>วิชาที่มีจำนวนนักศึกษาลงทะเบียนมากที่สุด</h2><br>
-    subjectID : <%= subject.id %> <br>
-    count : <%= subject.count%>
+<% include ./partials/header %>
+
+
+<div class="container text-align-center" style="margin-top:3%">
+  <div class="row">
+    <div class="col-3">
+    </div>
+    <div class="col-6">
+      <table class="table table-bordered">
+        <thead class="thead-light">
+          <tr>
+            <th>รหัสวิชา</th>
+            <th>ชื่อวิชา</th>
+            <th>จำนวนนักศึกษา</th>
+          </tr>
+        </thead>
+
+        <tbody class="table-light text-center">
+            <tr>
+              <th><%= subject[0].id %> </th>
+              <th><%= subject[1].name %> </th>
+              <th><%= subject[0].count %> </th>
+            </tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="col-3">
+    </div>
+  </div>
 </div>
+
+<% include ./partials/footer %>

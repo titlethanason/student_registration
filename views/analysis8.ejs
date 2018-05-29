@@ -1,0 +1,33 @@
+<% include ./partials/header %>
+
+<div class="container text-align-center" style="margin-top:3%">
+     <div class="row">
+       <div class="col-3">
+       </div>
+       <div class="col-6">
+       <h2>นักศึกษาที่เกรดเฉลี่ยสูงสุดของแต่ละภาควิชา</h2>
+         <table class="table table-bordered">
+           <thead class="thead-light">
+             <tr>
+               <th>รหัสนักศึกษา</th>
+               <th>ภาควิชา</th>
+               <th>เกรด (เฉลี่ย)</th>
+             </tr>
+           </thead>
+           <% plot.forEach(function(s){ %>
+           <tbody class="table-light text-center">
+               <tr>
+                 <th><%= s.stdid %> </th>
+                 <th><%= s.dept %> </th>
+                 <th><%= s.maxg %> </th>
+               </tr>
+           </tbody>
+           <% }); %>
+         </table>
+       </div>
+       <div class="col-3">
+       </div>
+     </div>
+   </div>
+
+<% include ./partials/footer %>

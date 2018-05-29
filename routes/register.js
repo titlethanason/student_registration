@@ -18,12 +18,13 @@ router.post("/pictureUpload",function(req,res){
     let sampleFile = req.files.stdPhoto;
     var name = crypto.randomBytes(20).toString('hex');
     var pathFile = './public/uploads/'+name+'.jpg';
+    var pathFileServer = './uploads/'+name+'.jpg'
     console.log(sampleFile);
     sampleFile.mv(pathFile, function(err) {
         if (err)
           return res.status(500).send(err);
         console.log("File Uploaded!!");
-        res.send(pathFile);
+        res.send(pathFileServer);
         // res.render("register",{data:});
       });
 });
@@ -32,13 +33,14 @@ router.post("/idCardUpload",function(req,res){
     console.log("File has been uploaded");
     let sampleFile = req.files.idCardPhoto;
     var name = crypto.randomBytes(20).toString('hex');
+    var pathFileServer = './uploads/'+name+'.jpg'
     var pathFile = './public/uploads/'+name+'.jpg';
     console.log(sampleFile);
     sampleFile.mv(pathFile, function(err) {
         if (err)
           return res.status(500).send(err);
         console.log("File Uploaded!!");
-        res.send(pathFile);
+        res.send(pathFileServer);
       });
 });
 router.post("/RegisUpload",function(req,res){
@@ -46,13 +48,14 @@ router.post("/RegisUpload",function(req,res){
     console.log("File has been uploaded");
     let sampleFile = req.files.RegisPhoto;
     var name = crypto.randomBytes(20).toString('hex');
+    var pathFileServer = './uploads/'+name+'.jpg'
     var pathFile = './public/uploads/'+name+'.jpg';
     console.log(sampleFile);
     sampleFile.mv(pathFile, function(err) {
         if (err)
           return res.status(500).send(err);
         console.log("File Uploaded!!");
-        res.send(pathFile);
+        res.send(pathFileServer);
       });
 });
 router.post("/stdRecordUpload",function(req,res){
@@ -60,13 +63,14 @@ router.post("/stdRecordUpload",function(req,res){
     console.log("File has been uploaded");
     let sampleFile = req.files.stdRecordPhoto;
     var name = crypto.randomBytes(20).toString('hex');
+    var pathFileServer = './uploads/'+name+'.jpg'
     var pathFile = './public/uploads/'+name+'.jpg';
     console.log(sampleFile);
     sampleFile.mv(pathFile, function(err) {
         if (err)
           return res.status(500).send(err);
         console.log("File Uploaded!!");
-        res.send(pathFile);
+        res.send(pathFileServer);
       });
 });
 
@@ -82,7 +86,7 @@ router.post("/register",function(req,res){
     db.query("SELECT stdID FROM student WHERE stdID = ? ",[stdID],function(err,results,fields){
         console.log(results);
         if(results[0] != undefined){
-            req.flash("error","You don't have permission to access");
+            req.flash("error","already have this stdID");
             console.log("already have this stdID");
             res.redirect('/register');
         }
@@ -363,6 +367,16 @@ router.post("/register",function(req,res){
                         if (err) throw err;
                         else console.log("add "+allergy+" to allergy");
                     });
+                    bcrypt.hash(password, saltRounds, function(err, hash) {
+                        db.query("INSERT INTO users VALUES(?,?,?)",[stdID,hash,role],function(err,results,fields){
+                            console.log(fields);
+                            if(err) res.redirect('back');
+                            req.login(stdID,function(err){
+                                if(err) throw err;
+                                res.redirect("/");
+                            });
+                        })
+                    })
             }
         });
     })

@@ -1,4 +1,4 @@
-<% include ./partials/header %>
+  <% include ./partials/header %>
 <link rel="stylesheet" href="/stylesheet/Fefe.css">
 <div class="container text-align-center" style="margin-top:5%">
   <div class="row align-center ">
@@ -14,13 +14,13 @@
             <form class="form-in" style="background-color:#F7F7F7">
             <div class="form-group row">
               <div class="col-sm-12 col-from-label text-center">
-                <img src="https://i.imgur.com/OKiZmaC.jpg?1" alt="studentPic" style="width:256px;height:256px">
+                <img src="<%= tinfo[0].picPhoto %>" alt="studentPic" style="width:256px;height:256px">
               </div>
             </div>
             <div class="form-group row">
               <label class="col-sm-1 col-form-label text-nowrap" style="margin-right:30px">รหัสนักศึกษา:</label>
               <div class="col-sm-4">
-                <input form ="realform" type="text" class="form-control" disabled name='stdID'>
+                <input form ="realform" type="text" class="form-control" disabled name='stdID' value="<%= tinfo[0].stdID %>">
               </div>
             </div>
             <div class="form-group row">
@@ -50,27 +50,27 @@
             <div class="form-group row">
               <label class="col-sm-1 col-form-label text-nowrap" >ชื่อ:</label>
               <div class="col-sm-4">
-                <input form ="realform" type="text" class="form-control" disabled name="firstnameTH">
+                <input form ="realform" type="text" class="form-control" disabled name="firstnameTH" value="<%= tinfo[0].firstnameTH %>">
               </div>
               <label class="col-sm-1 col-form-label text-nowrap" >นามสกุล:</label>
               <div class="col-sm-5">
-                <input form ="realform" type="text" class="form-control" disabled name="lastnameTH">
+                <input form ="realform" type="text" class="form-control" disabled name="lastnameTH" value="<%= tinfo[0].lastnameTH %>">
               </div>
             </div>
             <div class="form-group row">
               <label class="col-sm-1 col-form-label text-nowrap" >Name:</label>
               <div class="col-sm-4">
-                <input form ="realform" type="text" class="form-control" disabled name="firstnameEN">
+                <input form ="realform" type="text" class="form-control" disabled name="firstnameEN" value="<%= tinfo[0].firstnameEN %>" >
               </div>
               <label class="col-sm-1 col-form-label text-nowrap" >Surname:</label>
               <div class="col-sm-5">
-                <input form ="realform" type="text" class="form-control" disabled name="lastnameEN">
+                <input form ="realform" type="text" class="form-control" disabled name="lastnameEN" value="<%= tinfo[0].lastnameEN %>">
               </div>
             </div>
             <div class="form-group row">
               <label class="col-sm-1 col-form-label text-nowrap">ภาควิชา:</label>
               <div class="col-sm-3">
-                <select form="realform" class="form-control" name="department" disabled>
+                <select form="realform" class="form-control" name="department" disabled value="<%= tinfo[0].department %>">
                   <option value="CE">วิศวกรรมโยธา</option><option value="CHME">วิศวกรรมเคมี</option>
                   <option value="CPE">วิศวกรรมคอมพิวเตอร์</option><option value="ME">วิศวกรรมเครื่องกล</option>
                   <option value="CHE">เคมี</option><option value="PHY">ฟิสิกส์</option>
@@ -79,7 +79,7 @@
               </div>
               <label class="col-sm-1 col-form-label text-nowrap">sec:</label>
               <div class="col-sm-2">
-                <select form="realform" class="form-control" name="department" disabled>
+                <select form="realform" class="form-control" name="curriculumSec" disabled value="<%= tinfo[0].curriculumSec %>">
                   <option value="A">A</option><option value="B">B</option>
                   <option value="C">C</option><option value="D">D</option>
                 </select>
@@ -88,21 +88,21 @@
             <div class="form-group row">
               <label class="col-sm-2 col-form-label text-nowrap" >รหัสบัตรประชาชน:</label>
               <div class="col-sm-3">
-                <input form ="realform" type="text" class="form-control" disabled name="citizenID">
+                <input form ="realform" type="text" class="form-control" disabled name="citizenID" value="<%= tinfo[0].citizenID %>">
               </div>
               <label class="col-sm-1 col-form-label text-nowrap" >อีเมลล์:</label>
               <div class="col-sm-5">
-                <input form ="realform" type="email" class="form-control" disabled name="email">
+                <input form ="realform" type="email" class="form-control" disabled name="email" value="<%= tinfo[0].email %>">
               </div>
             </div>
             <div class="form-group row">
               <label class="col-sm-2 col-form-label text-nowrap" >เบอร์โทรศัพท์มือถือ:</label>
               <div class="col-sm-2">
-                <input form ="realform" type="tel" class="form-control" disabled name="tel">
+                <input form ="realform" type="tel" class="form-control" disabled name="tel" value="<%= tinfo[0].tel %>">
               </div>
               <label class="col-sm-1 col-form-label text-nowrap" >หมู่เลือด:</label>
               <div class="col-sm-2">
-                <select form="realform"  class="form-control" disabled name="bloodtype">
+                <select form="realform"  class="form-control" disabled name="bloodtype" value="<%= tinfo[0].bloodtype %>">
                   <option value="A">A</option>
                   <option value="B">B</option>
                   <option value="O">O</option>
@@ -113,11 +113,11 @@
             <div class="form-group row">
               <label class="col-form-label text-nowrap col-sm-2" for="date" >วัน/เดือน/ปี เกิด:</label>
               <div class="col-sm-2">
-                  <input id="datetest" form ="realform" class="form-control" name="date" disabled type="text">
+                  <input id="datetest" form ="realform" class="form-control" name="date" disabled type="text" value="<%= tinfo[0].DOB %>">
               </div>
               <label class="col-form-label text-nowrap col-sm-2" >สถานภาพการสมรส:</label>
               <div class="col-sm-2">
-                  <select form="realform"  type="text" class="form-control" name="marital" disabled>
+                  <select form="realform"  type="text" class="form-control" name="marital" disabled value="<%= tinfo[0].marital %>">
                     <option value="โสด">โสด</option><option value="แต่งงาน">แต่งงาน</option>
                   </select>
               </div>
@@ -125,36 +125,29 @@
             <div class="form-group row">
               <label class="col-form-label text-nowrap col-sm-1">สัญชาติ:</label>
               <div class="col-sm-2">
-                  <input form ="realform" class="form-control" disabled name="nationality">
+                  <input form ="realform" class="form-control" disabled name="nationality" value="<%= tinfo[0].nationality %>">
               </div>
               <label class="col-form-label text-nowrap col-sm-1" style="padding-right:1px">เชื้อชาติ:</label>
               <div class="col-sm-2">
-                  <input form ="realform" class="form-control" disabled name="race">
+                  <input form ="realform" class="form-control" disabled name="race" value="<%= tinfo[0].race %>">
               </div>
               <label class="col-form-label text-nowrap col-sm-1"  >ศาสนา:</label>
               <div class="col-sm-2">
-                  <input form ="realform" class="form-control" disabled name="religion">
+                  <input form ="realform" class="form-control" disabled name="religion" value="<%= tinfo[0].religion %>">
               </div>
             </div>
             <div class="row form-group">
               <label class="col-form-label text-nowrap col-sm-1" style="margin-right:19px">จำนวนพี่น้อง:</label>
               <div class="col-sm-1">
-                <input form ="realform" class="form-control" disabled name="NoSiblings">
+                <input form ="realform" class="form-control" disabled name="NoSiblings" value="<%= tinfo[0].NoSiblings %>">
               </div>
-              <label class="col-form-label text-nowrap col-sm-1" style="margin-right:19px">เป็นบุตรคนที่:</label>
+              <label class="col-form-label text-nowrap col-sm-1" style="margin-right:19px" value="<%= tinfo[0].stdID %>">เป็นบุตรคนที่:</label>
               <div class="col-sm-1">
-                <input form ="realform" class="form-control" disabled name="sonNo">
+                <input form ="realform" class="form-control" disabled name="sonNo" value="<%= tinfo[0].sonNo %>">
               </div>
               <label class="col-form-label text-nowrap col-sm-2" style="margin-right:22px">ความสัมพันธ์ของพ่อแม่:</label>
               <div class="col-sm-2">
-                <input form ="realform" class="form-control" disabled name="maritalStatofMD">
-              </div>
-            </div>
-            <div class="row form-group">
-              <label class="col-form-label text-nowrap col-sm-4" style="margin-right:16px">เคยผ่านกระบวนการคัดเลือกเป็นทหารเป็นหรือไม่:</label>
-              <div class="col-sm-5 align-self-center">
-                <input form ="realform" type="radio" name="soldier" style="margin-right:6px" disabled value="เคย">เคย
-                <input form ="realform" type="radio" name="soldier" style="margin-right:6px;margin-left:6px" disabled checked value="ไม่เคย">ใม่เคย
+                <input form ="realform" class="form-control" disabled name="maritalStatofMD" value="<%= tinfo[0].maritalStatofMD %>">
               </div>
             </div>
             <div class="row form-group">
@@ -175,37 +168,37 @@
             <div class="row form-group">
               <label class="col-form-label text-nowrap col-sm-2" style="margin-right:6px">สถาบันการศึกษาล่าสุด:</label>
               <div class="col-sm-4">
-                <input form ="realform" class="form-control" disabled name="recentAcademy">
+                <input form ="realform" class="form-control" disabled name="recentAcademy" value="<%= tinfo[0].recentAcademy %>">
               </div>
               <label class="col-form-label text-nowrap col-sm-1" style="margin-right:6px">เกรดเฉลี่ย:</label>
               <div class="col-sm-2">
-                <input form ="realform" class="form-control" disabled name="recentGPAX">
+                <input form ="realform" class="form-control" disabled name="recentGPAX" value="<%= tinfo[0].recentGPAX %>">
               </div>
             </div>
             <div class="form-group row">
               <label class="col-form-label text-nowrap col-sm-1" style="margin-right:16px">ประเภทที่พัก:</label>
               <div class="col-sm-4">
-                <input form ="realform" class="form-control" disabled name="habitat">
+                <input form ="realform" class="form-control" disabled name="habitat" value="<%= tinfo[0].habitat %>">
               </div>
             </div>
             <div class="form-group row">
               <label class="col-form-label text-nowrap col-sm-1" style="margin-right:5px">ความพิการ:</label>
               <div class="col-sm-3" id="divDisability">
-                <input form ="realform" class="form-control" disabled name="disability">
+                <input form ="realform" class="form-control" disabled name="disability" value="<%= tinfo[0].disability %>">
               </div>
 
             </div>
             <div class="form-group row">
               <label class="col-form-label text-nowrap col-sm-1" style="margin-right:20px">โรคประจำตัว:</label>
               <div class="col-sm-3" id="divDisease">
-                <input form ="realform" class="form-control" disabled name="disease">
+                <input form ="realform" class="form-control" disabled name="disease" value="<%= tinfo[0].disease %>">
               </div>
 
             </div>
             <div class="form-group row">
                 <label class="col-form-label text-nowrap col-sm-1" style="margin-right:38px">ประวัติการแพ้ยา:</label>
                 <div class="col-sm-2" id="divAllergy">
-                    <input form ="realform" class="form-control" disabled name="allergy">
+                    <input form ="realform" class="form-control" disabled name="allergy" value="<%= tinfo[0].allergy %>">
                 </div>
 
             </div>
@@ -221,31 +214,31 @@
                   <div class="form-group row">
                     <label class="col-sm-2 col-form-label text-nowrap" >บ้านเลขที่:</label>
                     <div class="col-sm-2">
-                      <input id = "numhourse" form ="realform" type="text" class="form-control" disabled name="homeNORegis">
+                      <input id = "numhourse" form ="realform" type="text" class="form-control" disabled name="homeNORegis"  value="<%= tinfo[0].homeNORegis %>">
                     </div>
                     <label class="col-sm-1 col-form-label text-nowrap" >ซอย:</label>
                     <div class="col-sm-3">
-                      <input id = "soi" form ="realform" type="text" class="form-control" disabled name="alleyRegis">
+                      <input id = "soi" form ="realform" type="text" class="form-control" disabled name="alleyRegis" value="<%= tinfo[0].alleyRegis %>">
                     </div>
                     <label class="col-sm-1 col-form-label text-nowrap" >ถนน:</label>
                     <div class="col-sm-3">
-                      <input id = "road" form ="realform" type="text" class="form-control" disabled name="streetRegis">
+                      <input id = "road" form ="realform" type="text" class="form-control" disabled name="streetRegis" value="<%= tinfo[0].streetRegis %>">
                     </div>
                     <label class="col-sm-2 col-form-label text-nowrap" >แขวง/ตำบล:</label>
                     <div class="col-sm-2">
-                      <input id = "province" form ="realform" type="text" class="form-control" disabled name="subdistrictRegis">
+                      <input id = "province" form ="realform" type="text" class="form-control" disabled name="subdistrictRegis" value="<%= tinfo[0].subdistrictRegis %>">
                     </div>
                     <label class="col-sm-2 col-form-label text-nowrap" >เขต/อำเภอ:</label>
                     <div class="col-sm-2">
-                      <input id = "aumper"  form ="realform" type="text" class="form-control" disabled name="districtRegis">
+                      <input id = "aumper"  form ="realform" type="text" class="form-control" disabled name="districtRegis" value="<%= tinfo[0].districtRegis %>">
                     </div>
                     <label class="col-sm-1 col-form-label text-nowrap" >จังหวัด:</label>
                     <div class="col-sm-3">
-                      <input id = "jungwad" form ="realform" type="text" class="form-control" disabled name="provienceRegis">
+                      <input id = "jungwad" form ="realform" type="text" class="form-control" disabled name="provienceRegis" value="<%= tinfo[0].provienceRegis %>">
                     </div>
                     <label class="col-sm-2 col-form-label text-nowrap" >รหัสไปรษณีย์:</label>
                     <div class="col-sm-2">
-                      <input id = "postcode" form ="realform" type="text" class="form-control" disabled name="postcodeRegis">
+                      <input id = "postcode" form ="realform" type="text" class="form-control" disabled name="postcodeRegis" value="<%= tinfo[0].postcodeRegis %>">
                     </div>
                   </div>
                 </form>
@@ -259,12 +252,7 @@
               <div id="addressCurrent" class="collapse show">
                 <div class="card-body" >
                   <form  class="form-in " style="background-color:#F7F7F7">
-                    <div class="form-group row" style="margin-left:auto">
-                      <div class="col-1-sm col-form-label text-nowrap">
-                        <input id="cbox" form ="realform" type="checkbox" style="margin-right:7px" onclick="copy()">
-                      </div>
-                      <div class="col-5-sm" style="padding-left:10px;padding-right:10px;padding-top:5px">ใช้ที่อยู่ตามทะเบียน</div>
-                    </div>
+                    
                     <div class="form-group row">
                         <label class="col-sm-2 col-form-label text-nowrap" >บ้านเลขที่:</label>
                         <div class="col-sm-2">
