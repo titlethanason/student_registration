@@ -114,10 +114,8 @@ app.use(infoRoutes);
 app.use(studentRoutes);
 app.use(adminRoutes);
 app.use(analysis1);
-
 app.use(analysis3);
 app.use(analysis4);
-
 app.use(analysis6);
 app.use(analysis7);
 app.use(analysis8);
