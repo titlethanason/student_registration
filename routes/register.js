@@ -375,8 +375,8 @@ router.post("/register",function(req,res){
                                 if(err) throw err;
                                 res.redirect("/");
                             });
-                        })
-                    })
+                        });
+                    });
             }
         });
     })

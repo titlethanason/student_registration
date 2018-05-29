@@ -33,8 +33,17 @@ router.get("/info",middleware.isLoggedIn,function(req,res){
                         obj.tinfo[0].districtRegis = results[0].district;
                         obj.tinfo[0].provienceRegis = results[0].provience;
                         obj.tinfo[0].postcodeRegis = results[0].postcode;
-                        obj.tinfo[0].homeNORegis = results[0].homeNO;
-                        res.render("info",obj);
+                        db.query("SELECT a.* FROM address a, student s WHERE a.addressID = s.addressCurrent AND s.stdID = ?",[req.user.username],function(err,results){
+                            obj.tinfo[0].homeNOCurrent = results[0].homeNO;
+                            obj.tinfo[0].alleyCurrent = results[0].alley;
+                            obj.tinfo[0].streetCurrent = results[0].street;
+                            obj.tinfo[0].subdistrictCurrent = results[0].subdistrict;
+                            obj.tinfo[0].districtCurrent = results[0].district;
+                            obj.tinfo[0].provienceCurrent = results[0].provience;
+                            obj.tinfo[0].postcodeCurrent = results[0].postcode;
+                            res.render("info",obj);
+                        });
+                            
                     });
 
                 });
