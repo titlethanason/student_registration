@@ -13,11 +13,11 @@ var studentRoutes = require("./routes/student");
 var adminRoutes = require("./routes/admin");
 var infoRoutes = require("./routes/info");
 var registerRoutes = require("./routes/register");
-var analysis1 = require("./routes/analysis1");
 
+//analysis
+var analysis1 = require("./routes/analysis1");
 var analysis3 = require("./routes/analysis3");
 var analysis4 = require("./routes/analysis4");
-
 var analysis6 = require("./routes/analysis6");
 var analysis7 = require("./routes/analysis7");
 var analysis8 = require("./routes/analysis8");
