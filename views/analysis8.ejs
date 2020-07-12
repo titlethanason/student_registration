@@ -1,33 +1,37 @@
 <% include ./partials/header %>
 
 <div class="container text-align-center" style="margin-top:3%">
-     <div class="row">
-       <div class="col-3">
-       </div>
-       <div class="col-6">
-       <h2>นักศึกษาที่เกรดเฉลี่ยสูงสุดของแต่ละภาควิชา</h2>
-         <table class="table table-bordered">
-           <thead class="thead-light">
-             <tr>
-               <th>รหัสนักศึกษา</th>
-               <th>ภาควิชา</th>
-               <th>เกรด (เฉลี่ย)</th>
-             </tr>
-           </thead>
-           <% plot.forEach(function(s){ %>
-           <tbody class="table-light text-center">
-               <tr>
-                 <th><%= s.stdid %> </th>
-                 <th><%= s.dept %> </th>
-                 <th><%= s.maxg %> </th>
-               </tr>
-           </tbody>
-           <% }); %>
-         </table>
-       </div>
-       <div class="col-3">
-       </div>
-     </div>
-   </div>
+<div class="container">
+  <div class="row" style="padding : 10%;margin : 50px; background: #00d8ff; ">
+    
+  </div>
+</div>
+
+<div class="container text-align-center " style="margin-top:3%;">
+<div class="container">
+  <div class="row" style="padding : 1%;margin : 10px; background: #00d8ff; ">
+    <div class="col" style="text-align: center;vertical-align: middle;width: 100%;">
+    <button id="ans1" type="button" class="btn" style="width:100%;height:100%;">1</button>
+    </div>
+    <div class="col" style="text-align: center;vertical-align: middle;">
+    <button id="ans2" type="button" class="btn" style="width:100%;height:100%;">2</button>
+    </div>
+  </div>
+  <div class="row" style="padding : 1%;margin : 10px; background: #00d8ff; ">
+    <div class="col" style="text-align: center;vertical-align: middle;">
+  <button id="ans3" type="button" class="btn" style="width:100%;height:100%;">3</button>
+    </div>
+    <div class="col" style="text-align: center;vertical-align: middle;">
+  <button id="ans4" type="button" class="btn" style="width:100%;height:100%;">4</button>
+    </div>
+  </div>
+
+<script>
+const count = 0;
+document.getElementById('ans1').innerHTML = "<%=one[count]%>";
+document.getElementById('ans2').innerHTML = "<%=two[count]%>";
+document.getElementById('ans3').innerHTML = "<%=three[count]%>";
+document.getElementById('ans4').innerHTML = "<%=four[count]%>";
+</script>
 
 <% include ./partials/footer %>
