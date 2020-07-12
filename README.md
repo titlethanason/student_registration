@@ -1,4 +1,4 @@
-# studen_registration
+# student_registration
 
 This project is part of my CPE213: Database systems. This project is about design and create student registration system. This system design for 4 users role:
 
